@@ -117,10 +117,10 @@ job-recommendation-system/
   - [x] Loại bỏ job thiếu `title` hoặc `description`, drop duplicates theo (`job_id`, `listed_time`).
   - [x] Chuẩn hóa trường location (tách city/state), xử lý value trống bằng "Unknown".
   - [x] Viết `clean_text()` + `prepare_features()` trong `preprocessing.py` và lưu `data/processed/clean_jobs.parquet` + metadata (mapping kỹ năng/ngành).
-- [ ] **Ngày 3: EDA & Trực quan hóa**
-  - Sinh biểu đồ: phân bố job theo top 10 industry/skill group, heatmap số job theo (state, experience level), histogram normalized_salary vs work_type.
-  - Tạo WordCloud kỹ năng + biểu đồ tỉ lệ Full-time/Contract/Part-time, remote vs onsite.
-  - Xuất ảnh `.png` vào `images/` và ghép insight vào `reports/data_exploration.md`.
+- [x] **Ngày 3: EDA & Trực quan hóa**
+  - [x] Sinh biểu đồ: phân bố job theo top 10 industry/skill group, heatmap số job theo (state, experience level), histogram normalized_salary vs work_type.
+  - [x] Tạo WordCloud kỹ năng + biểu đồ tỉ lệ Full-time/Contract/Part-time, remote vs onsite.
+  - [x] Xuất ảnh `.png` vào `images/` và ghép insight vào `reports/data_exploration.md`.
 
 ### Giai đoạn 2: Xây dựng Model (Ngày 4 - 6)
 
