@@ -124,9 +124,12 @@ job-recommendation-system/
 
 ### Giai đoạn 2: Xây dựng Model (Ngày 4 - 6)
 
-- [ ] **Ngày 4: Vector hóa (Core Logic)**
-  - Thử nghiệm TF-IDF vs `all-MiniLM-L6-v2` trên sample để so sánh tốc độ/kích thước; quyết định mô hình chính.
-  - Viết module `src/vector_store.py` để sinh & cache embeddings (pickle/parquet) + metadata (dim, model_name, updated_at).
+- [x] **Ngày 4: Vector hóa (Core Logic)**
+  - [x] Thử nghiệm TF-IDF vs `all-MiniLM-L6-v2` trên sample để so sánh tốc độ/kích thước; quyết định mô hình chính.
+  - [x] Tích hợp FAISS cho similarity search hiệu suất cao.
+  - [x] Tạo notebook `3_model_experiment.ipynb` với đầy đủ benchmark và comparison.
+  - [x] Lưu embeddings và models vào `models/` (tfidf_vectorizer.pkl, tfidf_matrix.npz, minilm_embeddings.npy, faiss_index.bin).
+  - [ ] Viết module `src/vector_store.py` để load models và thực hiện search (chuyển sang Ngày 5).
 - [ ] **Ngày 5: Xây dựng hàm Recommend**
   - Implement `get_recommendations(query, filters)` với pipeline: preprocess query → embedding → cosine similarity (faiss hoặc sklearn) → enrich thông tin lương/kỹ năng.
   - Viết unit test cho các trường hợp filter location/industry.
