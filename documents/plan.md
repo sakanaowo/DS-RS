@@ -1,7 +1,3 @@
-Dưới đây là tài liệu đặc tả kỹ thuật và lộ trình triển khai chi tiết (Project Specification & Implementation Plan) định dạng Markdown (`.md`).
-
-Bạn có thể copy nội dung này, lưu thành file `README.md` hoặc `SPEC.md` trong thư mục gốc của dự án để tiện theo dõi tiến độ và dùng làm sườn cho báo cáo cuối kỳ.
-
 ---
 
 ````markdown
@@ -46,7 +42,6 @@ job-recommendation-system/
 ├── requirements.txt         # Danh sách thư viện
 └── README.md                # Tài liệu này
 ```
-````
 
 ### 2\. Công nghệ sử dụng (Tech Stack)
 
@@ -90,48 +85,71 @@ job-recommendation-system/
 
 ---
 
-## IV. KẾ HOẠCH TRIỂN KHAI CHI TIẾT (10 Ngày)
+## IV. KHÁM PHÁ DỮ LIỆU HIỆN CÓ (Dataset Audit)
+
+### 1. Tổng quan thư mục `data/archive/`
+
+- `postings.csv`: 123.849 bản ghi, 31 cột mô tả job (title, description, compensation, remote flag, location, work type...). Các trường liên quan lương (`pay_period`, `currency`, `min_salary`, `max_salary`) thiếu ~70% dữ liệu; `formatted_work_type` phủ 98% bản ghi (đa số Full-time). `remote_allowed` chỉ có dữ liệu cho ~12% bản ghi (15.246 job đánh dấu remote). Top location hiện tại tập trung ở US (New York, Chicago, Houston...).
+- `jobs/benefits.csv`: 67.943 dòng/30.023 job, liệt kê lợi ích (Medical insurance, 401k...). `job_skills.csv`: 213.768 dòng/126.807 job; top skill groups gồm Information Technology (IT), Sales (SALE), Management (MGMT), Manufacturing (MNFC), Health Care Provider (HCPR). `job_industries.csv`: 164.808 dòng/127.125 job; các ngành nổi bật: Hospitals & Health Care, Retail, IT Services, Staffing & Recruiting. `salaries.csv`: 40.785 job có cấu trúc lương riêng (23k yearly, 16k hourly, số ít monthly/weekly).
+- `companies/companies.csv`: 141.027 công ty với mô tả chi tiết, địa điểm, quy mô. Đi kèm các bảng phụ: `company_industries.csv`, `company_specialities.csv`, `employee_counts.csv` cho phép làm phong phú thông tin employer.
+- `mappings/skills.csv` (36 kỹ năng) và `mappings/industries.csv` (422 ngành) dùng để join với bảng job tương ứng.
+
+### 2. Gợi ý tích hợp & vấn đề cần lưu ý
+
+1.  Khoá chính để nối dữ liệu job là `job_id`. Cần chuẩn hóa pipeline để merge `postings` với `job_skills`, `job_industries`, `salaries`, `benefits`, và enrich thông tin công ty qua `company_id`.
+2.  Thiếu dữ liệu lương và remote khá lớn ⇒ nên ưu tiên tạo cờ nhị phân (has_salary_info, has_remote_flag) và cân nhắc suy ra khoảng lương trung bình theo ngành/kỹ năng nếu cần.
+3.  Cột văn bản `description` dài, chứa nhiều dòng; cần làm sạch (loại bỏ xuống dòng dư, HTML) trước khi vector hóa.
+4.  Bộ kỹ năng/industry dạng mã ⇒ phải map sang tên đầy đủ để hiển thị đẹp và tạo feature phân loại.
+5.  Khối lượng dữ liệu đủ lớn (120k job) nhưng vẫn vừa phải để tiền xử lý offline và lưu vector hoá (~120k \* 384 dims < 200 MB).
+
+---
+
+## V. KẾ HOẠCH TRIỂN KHAI CHI TIẾT (10 Ngày)
 
 ### Giai đoạn 1: Dữ liệu & Phân tích (Ngày 1 - 3)
 
-- [ ] **Ngày 1: Setup & Load Data**
-  - Tạo cấu trúc thư mục git.
-  - Tải dataset LinkedIn Jobs từ Kaggle.
-  - Viết hàm `load_data()` trong `src/loader.py`.
-- [ ] **Ngày 2: Làm sạch dữ liệu (Data Cleaning)**
-  - Xử lý Missing Values & Duplicates.
-  - Viết hàm `clean_text()` trong `src/preprocessing.py`.
-  - Lưu file sạch vào `data/processed/clean_jobs.csv`.
+- [x] **Ngày 1: Setup & Load Data**
+  - [x] Cố định cấu trúc thư mục (`data/raw`, `data/processed`) và script copy từ `data/archive`.
+  - [x] Viết notebook/script audit: thống kê missing, phân bố `pay_period`, `formatted_work_type`, `remote_allowed`, top kỹ năng/ngành; lưu kết quả vào `reports/data_audit.md`.
+  - [x] Tạo `loader.py` để đọc `postings`, join với bảng phụ (kỹ năng, ngành, lương, benefits) dựa trên `job_id`/`company_id`.
+- [x] **Ngày 2: Làm sạch dữ liệu (Data Cleaning)**
+  - [x] Chuẩn hóa văn bản: bỏ HTML, xuống dòng, ký tự đặc biệt; chuẩn hóa unicode.
+  - [x] Loại bỏ job thiếu `title` hoặc `description`, drop duplicates theo (`job_id`, `listed_time`).
+  - [x] Chuẩn hóa trường location (tách city/state), xử lý value trống bằng "Unknown".
+  - [x] Viết `clean_text()` + `prepare_features()` trong `preprocessing.py` và lưu `data/processed/clean_jobs.parquet` + metadata (mapping kỹ năng/ngành).
 - [ ] **Ngày 3: EDA & Trực quan hóa**
-  - Vẽ biểu đồ phân bố Job theo Location.
-  - Vẽ WordCloud các kỹ năng phổ biến.
-  - Xuất biểu đồ ra folder `images/` để làm báo cáo.
+  - Sinh biểu đồ: phân bố job theo top 10 industry/skill group, heatmap số job theo (state, experience level), histogram normalized_salary vs work_type.
+  - Tạo WordCloud kỹ năng + biểu đồ tỉ lệ Full-time/Contract/Part-time, remote vs onsite.
+  - Xuất ảnh `.png` vào `images/` và ghép insight vào `reports/data_exploration.md`.
 
 ### Giai đoạn 2: Xây dựng Model (Ngày 4 - 6)
 
 - [ ] **Ngày 4: Vector hóa (Core Logic)**
-  - Cài đặt `sentence-transformers`.
-  - Viết logic tạo embeddings cho toàn bộ dataset.
+  - Thử nghiệm TF-IDF vs `all-MiniLM-L6-v2` trên sample để so sánh tốc độ/kích thước; quyết định mô hình chính.
+  - Viết module `src/vector_store.py` để sinh & cache embeddings (pickle/parquet) + metadata (dim, model_name, updated_at).
 - [ ] **Ngày 5: Xây dựng hàm Recommend**
-  - Viết hàm `get_recommendations(query, df, vectors)` trong `src/recommender.py`.
-  - Tính toán Cosine Similarity.
-  - Test thử nghiệm trong Notebook với các input mẫu.
+  - Implement `get_recommendations(query, filters)` với pipeline: preprocess query → embedding → cosine similarity (faiss hoặc sklearn) → enrich thông tin lương/kỹ năng.
+  - Viết unit test cho các trường hợp filter location/industry.
+  - Dùng notebook kiểm thử với ít nhất 5 persona (Python dev, Nurse, Sales manager...).
 - [ ] **Ngày 6: Tối ưu & Đánh giá**
-  - Kiểm tra kết quả thủ công (Human Evaluation).
-  - Điều chỉnh tiền xử lý nếu kết quả chưa chính xác.
+  - Đánh giá bằng Precision@5/10 dựa trên bộ query thủ công + heuristic (matching skill keywords).
+  - Benchmark thời gian đáp ứng, tối ưu cache, tune số lượng kết quả, thêm rerank nếu cần.
+  - Điều chỉnh bước tiền xử lý (n-grams, bổ sung keyword expansion) dựa trên feedback.
 
 ### Giai đoạn 3: Giao diện & Hoàn thiện (Ngày 7 - 9)
 
 - [ ] **Ngày 7: Streamlit UI cơ bản**
-  - Tạo Input Box (Search).
-  - Hiển thị kết quả dạng Bảng (DataFrame) hoặc Cards.
+  - Layout Streamlit: sidebar filter (Location, Work Type, Experience), main area hiển thị cards.
+  - Kết nối tới vector store + loader, bảo đảm cache dữ liệu khi app khởi động.
+  - Thêm khối insight nhỏ (summary dataset) để người dùng biết nguồn dữ liệu.
 - [ ] **Ngày 8: Tính năng Nâng cao (Context-Aware)**
-  - Thêm bộ lọc Sidebar: Chọn Location, Chọn mức lương (nếu có).
-  - Kết hợp logic: `Recommend List` AND `Filter Conditions`.
+  - Bổ sung lọc theo industry/skills, slider salary range (dựa trên normalized_salary).
+  - Thêm explainability: hiển thị highlight kỹ năng/keyword match giữa query và job.
+  - Viết logging truy vết query để dùng cho đánh giá sau.
 - [ ] **Ngày 9: Viết báo cáo**
-  - Soạn thảo file Word/PDF.
-  - Chụp ảnh màn hình App.
-  - Giải thích thuật toán Vector Search.
+  - Tài liệu hóa quy trình: mô tả dataset, cleaning, EDA, model, UI.
+  - Đính kèm biểu đồ từ `images/`, bảng so sánh mô hình, hướng dẫn chạy.
+  - Chuẩn bị phụ lục: danh sách câu hỏi kiểm thử, feedback.
 
 ### Giai đoạn 4: Đóng gói (Ngày 10)
 
@@ -142,7 +160,7 @@ job-recommendation-system/
 
 ---
 
-## V. YÊU CẦU PHẦN MỀM (Dependencies)
+## VI. YÊU CẦU PHẦN MỀM (Dependencies)
 
 Nội dung file `requirements.txt`:
 
