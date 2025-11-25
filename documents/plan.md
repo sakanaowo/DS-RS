@@ -138,18 +138,25 @@ job-recommendation-system/
   - [x] Đánh giá Precision@5/10: đạt **94.3% P@5** và **90.0% P@10** (vượt target 70%).
   - [x] Benchmark tốc độ: FAISS 14.6ms, MiniLM 13.3ms, TF-IDF 49.1ms (tất cả <100ms target).
   - [x] Tạo visualizations và báo cáo trong `documents/day5/`.
-- [ ] **Ngày 6: Streamlit UI**
-  - Build giao diện với sidebar filters, result cards, dataset summary.
-  - Tích hợp `JobRecommender` vào Streamlit app.
-  - Thêm explainability (highlight matched keywords/skills).
+- [x] **Ngày 6: Streamlit UI** _(Hoàn thành 25/11/2025)_
+  - [x] Build giao diện với sidebar filters (7 types), result cards, dataset summary.
+  - [x] Tích hợp `JobRecommender` vào Streamlit app với @st.cache_resource.
+  - [x] Thêm explainability (highlight matched keywords/skills trong job cards).
+  - [x] Tạo app.py (340 lines) với professional styling và custom CSS.
+  - [x] 3 search methods selector (FAISS/MiniLM/TF-IDF).
+  - [x] 4 stat boxes: Total Jobs (123,842), Companies (~50k), Locations (~10k), Indexed (10k).
+  - [x] Welcome screen với instructions và example queries.
+  - [x] Job cards hiển thị: title, company, location, work type, salary, matched skills, similarity score.
 
 ### Giai đoạn 3: Giao diện & Hoàn thiện (Ngày 6 - 8)
 
-- [ ] **Ngày 6: Streamlit UI**
-  - Layout Streamlit: sidebar filter (Location, Work Type, Experience, Salary, Remote, Industry/Skills), main area hiển thị cards.
-  - Kết nối tới `JobRecommender` + `VectorStore`, cache dữ liệu khi app khởi động.
-  - Thêm khối insight/summary dataset để người dùng biết nguồn dữ liệu.
-  - Hiển thị matched skills/keywords trong result cards (explainability).
+- [x] **Ngày 6: Streamlit UI** _(Hoàn thành 25/11/2025)_
+  - [x] Layout Streamlit: sidebar filter (Location, Work Type, Experience, Salary, Remote, Industry/Skills), main area hiển thị cards.
+  - [x] Kết nối tới `JobRecommender` + `VectorStore`, cache dữ liệu khi app khởi động.
+  - [x] Thêm khối insight/summary dataset để người dùng biết nguồn dữ liệu.
+  - [x] Hiển thị matched skills/keywords trong result cards (explainability).
+  - [x] Method comparison: 3 search options cho user chọn.
+  - [x] Performance display: Hiển thị search time và số kết quả.
 - [ ] **Ngày 7: Tính năng Nâng cao**
   - Thêm method selector (TF-IDF/MiniLM/FAISS).
   - Performance metrics display (search time, relevance score).
