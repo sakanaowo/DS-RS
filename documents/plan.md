@@ -129,36 +129,44 @@ job-recommendation-system/
   - [x] Tích hợp FAISS cho similarity search hiệu suất cao.
   - [x] Tạo notebook `3_model_experiment.ipynb` với đầy đủ benchmark và comparison.
   - [x] Lưu embeddings và models vào `models/` (tfidf_vectorizer.pkl, tfidf_matrix.npz, minilm_embeddings.npy, faiss_index.bin).
-  - [ ] Viết module `src/vector_store.py` để load models và thực hiện search (chuyển sang Ngày 5).
-- [ ] **Ngày 5: Xây dựng hàm Recommend**
-  - Implement `get_recommendations(query, filters)` với pipeline: preprocess query → embedding → cosine similarity (faiss hoặc sklearn) → enrich thông tin lương/kỹ năng.
-  - Viết unit test cho các trường hợp filter location/industry.
-  - Dùng notebook kiểm thử với ít nhất 5 persona (Python dev, Nurse, Sales manager...).
-- [ ] **Ngày 6: Tối ưu & Đánh giá**
-  - Đánh giá bằng Precision@5/10 dựa trên bộ query thủ công + heuristic (matching skill keywords).
-  - Benchmark thời gian đáp ứng, tối ưu cache, tune số lượng kết quả, thêm rerank nếu cần.
-  - Điều chỉnh bước tiền xử lý (n-grams, bổ sung keyword expansion) dựa trên feedback.
+  - [x] Viết module `src/vector_store.py` để load models và thực hiện search.
+- [x] **Ngày 5: Xây dựng hàm Recommend & Đánh giá** _(Hoàn thành 25/11/2025)_
+  - [x] Implement `get_recommendations(query, filters)` với pipeline: preprocess query → embedding → cosine similarity (faiss/sklearn) → enrich thông tin.
+  - [x] Viết `src/recommender.py` với 3 search methods (TF-IDF, MiniLM, FAISS) + 7 filter types.
+  - [x] Viết 20+ unit tests trong `tests/test_recommender.py`.
+  - [x] Tạo notebook `4_evaluation.ipynb` kiểm thử với 7 personas (Python dev, Data Scientist, Nurse, Sales, PM, Frontend, DevOps).
+  - [x] Đánh giá Precision@5/10: đạt **94.3% P@5** và **90.0% P@10** (vượt target 70%).
+  - [x] Benchmark tốc độ: FAISS 14.6ms, MiniLM 13.3ms, TF-IDF 49.1ms (tất cả <100ms target).
+  - [x] Tạo visualizations và báo cáo trong `documents/day5/`.
+- [ ] **Ngày 6: Streamlit UI**
+  - Build giao diện với sidebar filters, result cards, dataset summary.
+  - Tích hợp `JobRecommender` vào Streamlit app.
+  - Thêm explainability (highlight matched keywords/skills).
 
-### Giai đoạn 3: Giao diện & Hoàn thiện (Ngày 7 - 9)
+### Giai đoạn 3: Giao diện & Hoàn thiện (Ngày 6 - 8)
 
-- [ ] **Ngày 7: Streamlit UI cơ bản**
-  - Layout Streamlit: sidebar filter (Location, Work Type, Experience), main area hiển thị cards.
-  - Kết nối tới vector store + loader, bảo đảm cache dữ liệu khi app khởi động.
-  - Thêm khối insight nhỏ (summary dataset) để người dùng biết nguồn dữ liệu.
-- [ ] **Ngày 8: Tính năng Nâng cao (Context-Aware)**
-  - Bổ sung lọc theo industry/skills, slider salary range (dựa trên normalized_salary).
-  - Thêm explainability: hiển thị highlight kỹ năng/keyword match giữa query và job.
-  - Viết logging truy vết query để dùng cho đánh giá sau.
-- [ ] **Ngày 9: Viết báo cáo**
-  - Tài liệu hóa quy trình: mô tả dataset, cleaning, EDA, model, UI.
-  - Đính kèm biểu đồ từ `images/`, bảng so sánh mô hình, hướng dẫn chạy.
-  - Chuẩn bị phụ lục: danh sách câu hỏi kiểm thử, feedback.
+- [ ] **Ngày 6: Streamlit UI**
+  - Layout Streamlit: sidebar filter (Location, Work Type, Experience, Salary, Remote, Industry/Skills), main area hiển thị cards.
+  - Kết nối tới `JobRecommender` + `VectorStore`, cache dữ liệu khi app khởi động.
+  - Thêm khối insight/summary dataset để người dùng biết nguồn dữ liệu.
+  - Hiển thị matched skills/keywords trong result cards (explainability).
+- [ ] **Ngày 7: Tính năng Nâng cao**
+  - Thêm method selector (TF-IDF/MiniLM/FAISS).
+  - Performance metrics display (search time, relevance score).
+  - Export results to CSV/JSON.
+  - Logging truy vết query để đánh giá.
+- [ ] **Ngày 8: Viết báo cáo cuối**
+  - Tài liệu hóa quy trình: dataset audit → cleaning → EDA → modeling → evaluation → UI.
+  - Đính kèm biểu đồ từ `images/`, bảng so sánh mô hình (Day 4-5 results).
+  - Hướng dẫn deployment và future improvements.
+  - Chuẩn bị phụ lục: test personas, evaluation metrics.
 
-### Giai đoạn 4: Đóng gói (Ngày 10)
+### Giai đoạn 4: Đóng gói (Ngày 9)
 
-- [ ] **Ngày 10: Final Polish**
-  - Quay video demo (3-5 phút).
-  - Clean code, thêm comments.
+- [ ] **Ngày 9: Final Polish & Packaging**
+  - Clean code, thêm docstrings và comments cần thiết.
+  - Update README.md với hướng dẫn chạy đầy đủ.
+  - Quay video demo (3-5 phút) nếu cần.
   - Zip toàn bộ project theo đúng quy cách nộp bài.
 
 ---

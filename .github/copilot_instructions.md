@@ -1,5 +1,3 @@
-# Hướng dẫn Codex – Intelligent Job Matching System
-
 ## 1. Tổng quan nhanh
 
 - Mục tiêu: xây dựng hệ gợi ý việc làm dựa trên nội dung (vector search trên mô tả công việc) cùng giao diện Streamlit.
