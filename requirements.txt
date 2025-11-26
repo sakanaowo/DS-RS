@@ -15,6 +15,7 @@ wordcloud>=1.9.0
 
 # Web Interface
 streamlit>=1.25.0
+plotly>=5.14.0
 
 # Development
 jupyter>=1.0.0

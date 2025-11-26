@@ -1,13 +1,17 @@
 """
 Streamlit UI for Job Recommendation System
-Day 6 Implementation
+Day 7 Implementation - Enhanced Features
 """
 
 import streamlit as st
 import pandas as pd
 from pathlib import Path
 import time
+import json
+from datetime import datetime
 from typing import Dict, List, Optional
+import plotly.express as px
+import plotly.graph_objects as go
 
 from src.recommender import JobRecommender
 
@@ -100,6 +104,156 @@ def load_recommender() -> JobRecommender:
     with st.spinner("🔧 Loading recommendation system..."):
         recommender = JobRecommender(auto_load=True)
     return recommender
+
+
+def log_query(
+    query: str, method: str, filters: Dict, num_results: int, search_time: float
+):
+    """Log search queries for analytics."""
+    logs_dir = Path("logs")
+    logs_dir.mkdir(exist_ok=True)
+
+    log_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "query": query,
+        "method": method,
+        "filters": filters,
+        "num_results": num_results,
+        "search_time_ms": search_time,
+    }
+
+    log_file = logs_dir / "query_history.json"
+
+    # Append to log file
+    try:
+        if log_file.exists():
+            with open(log_file, "r") as f:
+                logs = json.load(f)
+        else:
+            logs = []
+
+        logs.append(log_entry)
+
+        with open(log_file, "w") as f:
+            json.dump(logs, f, indent=2)
+    except Exception as e:
+        st.warning(f"Could not save query log: {e}")
+
+
+def export_to_csv(results: pd.DataFrame, query: str, method: str, filters: Dict) -> str:
+    """Export results to CSV format."""
+    export_df = results.copy()
+
+    # Select key columns
+    export_cols = [
+        "title",
+        "company_name_x",
+        "location",
+        "work_type",
+        "experience_level",
+        "min_salary",
+        "max_salary",
+        "similarity_score",
+    ]
+    available_cols = [col for col in export_cols if col in export_df.columns]
+
+    export_df = export_df[available_cols]
+
+    # Create metadata header
+    metadata = f"# Search Query: {query}\n# Method: {method}\n# Filters: {filters}\n# Export Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+
+    return metadata + export_df.to_csv(index=False)
+
+
+def export_to_json(
+    results: pd.DataFrame, query: str, method: str, filters: Dict, search_time: float
+) -> str:
+    """Export results to JSON format."""
+    export_data = {
+        "metadata": {
+            "query": query,
+            "method": method,
+            "filters": filters,
+            "export_time": datetime.now().isoformat(),
+            "search_time_ms": search_time,
+            "num_results": len(results),
+        },
+        "results": [],
+    }
+
+    for idx, (_, job) in enumerate(results.iterrows(), 1):
+        job_data = {
+            "rank": idx,
+            "title": job.get("title", "N/A"),
+            "company": job.get("company_name_x", "N/A"),
+            "location": job.get("location", "N/A"),
+            "work_type": job.get("work_type", "N/A"),
+            "experience_level": job.get("experience_level", "N/A"),
+            "salary_range": format_salary(job),
+            "similarity_score": (
+                float(job.get("similarity_score", 0))
+                if "similarity_score" in job.index
+                else 0
+            ),
+        }
+        export_data["results"].append(job_data)
+
+    return json.dumps(export_data, indent=2)
+
+
+def create_performance_comparison() -> go.Figure:
+    """Create performance comparison chart for 3 methods."""
+    methods_data = {
+        "Method": ["FAISS", "MiniLM", "TF-IDF"],
+        "Speed (ms)": [14.6, 13.3, 49.1],
+        "Precision@5 (%)": [93.3, 93.3, 86.7],
+    }
+
+    df = pd.DataFrame(methods_data)
+
+    fig = go.Figure()
+
+    # Add speed bars
+    fig.add_trace(
+        go.Bar(
+            name="Speed (ms)",
+            x=df["Method"],
+            y=df["Speed (ms)"],
+            marker_color="#3498db",
+            text=df["Speed (ms)"],
+            textposition="auto",
+            yaxis="y",
+        )
+    )
+
+    # Add precision line
+    fig.add_trace(
+        go.Scatter(
+            name="Precision@5 (%)",
+            x=df["Method"],
+            y=df["Precision@5 (%)"],
+            mode="lines+markers+text",
+            marker_color="#2ecc71",
+            line=dict(width=3),
+            text=df["Precision@5 (%)"],
+            textposition="top center",
+            yaxis="y2",
+        )
+    )
+
+    fig.update_layout(
+        title="Method Performance Comparison",
+        xaxis=dict(title="Search Method"),
+        yaxis=dict(title="Speed (ms)", side="left"),
+        yaxis2=dict(
+            title="Precision@5 (%)", overlaying="y", side="right", range=[80, 100]
+        ),
+        legend=dict(x=0.01, y=0.99),
+        height=350,
+        hovermode="x unified",
+    )
+
+    return fig
 
 
 def format_salary(row: pd.Series) -> str:
@@ -250,6 +404,22 @@ def main():
         "🚀 Search Jobs", type="primary", use_container_width=True
     )
 
+    # Performance Comparison (Day 7)
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 📊 Performance Metrics")
+
+    show_comparison = st.sidebar.checkbox("Show Method Comparison", value=False)
+
+    if show_comparison:
+        st.sidebar.markdown(
+            """
+        **Average Performance:**
+        - 🚀 FAISS: 14.6ms, 93.3% P@5
+        - 🧠 MiniLM: 13.3ms, 93.3% P@5  
+        - 📝 TF-IDF: 49.1ms, 86.7% P@5
+        """
+        )
+
     # Main content area
     col1, col2, col3, col4 = st.columns(4)
 
@@ -346,13 +516,68 @@ def main():
                 )
                 search_time = (time.time() - start_time) * 1000  # Convert to ms
 
+                # Log query (Day 7)
+                log_query(query, search_method, filters, len(results), search_time)
+
                 # Display results
                 if len(results) == 0:
                     st.warning(
                         "⚠️ No jobs found matching your criteria. Try adjusting your filters."
                     )
                 else:
-                    st.success(f"✅ Found {len(results)} jobs in {search_time:.1f}ms")
+                    # Success message with export buttons (Day 7)
+                    col_msg, col_csv, col_json = st.columns([3, 1, 1])
+
+                    with col_msg:
+                        st.success(
+                            f"✅ Found {len(results)} jobs in {search_time:.1f}ms"
+                        )
+
+                    with col_csv:
+                        csv_data = export_to_csv(results, query, search_method, filters)
+                        st.download_button(
+                            label="📄 CSV",
+                            data=csv_data,
+                            file_name=f"job_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                            mime="text/csv",
+                            use_container_width=True,
+                        )
+
+                    with col_json:
+                        json_data = export_to_json(
+                            results, query, search_method, filters, search_time
+                        )
+                        st.download_button(
+                            label="📋 JSON",
+                            data=json_data,
+                            file_name=f"job_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                            mime="application/json",
+                            use_container_width=True,
+                        )
+
+                    # Performance metrics display (Day 7)
+                    if show_comparison:
+                        st.markdown("### 📊 Performance Analysis")
+
+                        col_chart, col_metrics = st.columns([2, 1])
+
+                        with col_chart:
+                            fig = create_performance_comparison()
+                            st.plotly_chart(fig, use_container_width=True)
+
+                        with col_metrics:
+                            st.metric("Current Search Time", f"{search_time:.1f}ms")
+                            st.metric("Results Found", len(results))
+                            st.metric("Method Used", search_method.upper())
+
+                            avg_score = (
+                                results["similarity_score"].mean() * 100
+                                if "similarity_score" in results.columns
+                                else 0
+                            )
+                            st.metric("Avg Relevance", f"{avg_score:.1f}%")
+
+                        st.markdown("---")
 
                     # Extract matched skills (simple keyword matching)
                     query_keywords = set(query.lower().split())

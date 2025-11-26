@@ -157,11 +157,14 @@ job-recommendation-system/
   - [x] Hiển thị matched skills/keywords trong result cards (explainability).
   - [x] Method comparison: 3 search options cho user chọn.
   - [x] Performance display: Hiển thị search time và số kết quả.
-- [ ] **Ngày 7: Tính năng Nâng cao**
-  - Thêm method selector (TF-IDF/MiniLM/FAISS).
-  - Performance metrics display (search time, relevance score).
-  - Export results to CSV/JSON.
-  - Logging truy vết query để đánh giá.
+- [x] **Ngày 7: Tính năng Nâng cao** _(Hoàn thành 26/11/2025)_
+  - [x] Method selector (TF-IDF/MiniLM/FAISS) - Already done in Day 6.
+  - [x] Performance metrics display với interactive Plotly chart (dual-axis: speed vs precision).
+  - [x] Export results to CSV/JSON với download buttons và metadata.
+  - [x] Logging truy vết query vào `logs/query_history.json` để analytics.
+  - [x] Sidebar toggle "Show Method Comparison" với quick stats.
+  - [x] Performance analysis panel: chart + 4 metrics cards (time, count, method, relevance).
+  - [x] Enhanced 3-column layout: success message + CSV button + JSON button.
 - [ ] **Ngày 8: Viết báo cáo cuối**
   - Tài liệu hóa quy trình: dataset audit → cleaning → EDA → modeling → evaluation → UI.
   - Đính kèm biểu đồ từ `images/`, bảng so sánh mô hình (Day 4-5 results).
