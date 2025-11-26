@@ -1,0 +1,120 @@
+[
+  {
+    "timestamp": "2025-11-26T11:35:16.174276",
+    "query": "Engineer",
+    "method": "minilm",
+    "filters": {
+      "location": "LA ",
+      "work_type": [
+        "Full-time",
+        "Contract",
+        "Part-time",
+        "Internship"
+      ],
+      "experience_level": "Entry level",
+      "min_salary": 50000
+    },
+    "num_results": 0,
+    "search_time_ms": 355.40294647216797
+  },
+  {
+    "timestamp": "2025-11-26T11:35:24.743011",
+    "query": "Engineer",
+    "method": "minilm",
+    "filters": {
+      "location": "LA ",
+      "experience_level": "Entry level",
+      "min_salary": 50000
+    },
+    "num_results": 0,
+    "search_time_ms": 10.941028594970703
+  },
+  {
+    "timestamp": "2025-11-26T11:35:28.941052",
+    "query": "Engineer",
+    "method": "minilm",
+    "filters": {
+      "location": "LA ",
+      "work_type": "Part-time",
+      "experience_level": "Entry level",
+      "min_salary": 50000
+    },
+    "num_results": 0,
+    "search_time_ms": 7.975101470947266
+  },
+  {
+    "timestamp": "2025-11-26T11:35:46.661671",
+    "query": "Engineer",
+    "method": "minilm",
+    "filters": {
+      "location": "Los Angeles",
+      "work_type": "Part-time",
+      "experience_level": "Entry level",
+      "min_salary": 50000
+    },
+    "num_results": 0,
+    "search_time_ms": 20.313501358032227
+  },
+  {
+    "timestamp": "2025-11-26T11:36:21.386492",
+    "query": "engineer",
+    "method": "faiss",
+    "filters": {
+      "work_type": "Full-time",
+      "experience_level": "Entry level"
+    },
+    "num_results": 10,
+    "search_time_ms": 19.797086715698242
+  },
+  {
+    "timestamp": "2025-11-26T11:36:47.226371",
+    "query": "engineer",
+    "method": "minilm",
+    "filters": {
+      "work_type": "Full-time",
+      "experience_level": "Entry level"
+    },
+    "num_results": 10,
+    "search_time_ms": 19.504070281982422
+  },
+  {
+    "timestamp": "2025-11-26T12:16:49.508991",
+    "query": "engineer",
+    "method": "faiss",
+    "filters": {
+      "location": "new york",
+      "work_type": "Full-time",
+      "experience_level": "Entry level",
+      "remote_allowed": true,
+      "min_salary": 15000
+    },
+    "num_results": 0,
+    "search_time_ms": 231.58884048461914
+  },
+  {
+    "timestamp": "2025-11-26T12:17:41.503448",
+    "query": "engineer",
+    "method": "faiss",
+    "filters": {
+      "location": "new york",
+      "work_type": "Full-time",
+      "experience_level": "Entry level",
+      "min_salary": 30000
+    },
+    "num_results": 0,
+    "search_time_ms": 24.740219116210938
+  },
+  {
+    "timestamp": "2025-11-26T12:32:16.286527",
+    "query": "data",
+    "method": "faiss",
+    "filters": {
+      "location": "Richmond, VA",
+      "work_type": "Part-time",
+      "experience_level": "Entry level",
+      "min_salary": 50000
+    },
+    "num_results": 0,
+    "search_time_ms": 27.300357818603516
+  }
+]

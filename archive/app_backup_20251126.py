@@ -245,17 +245,6 @@ def load_recommender() -> JobRecommender:
     return recommender
 
 
-@st.cache_data
-def get_top_locations(_recommender: JobRecommender, top_n: int = 50) -> List[str]:
-    """Get top N most common locations from job data."""
-    job_data = _recommender.vector_store.job_data
-    if "location" in job_data.columns:
-        # Get top cities
-        top_locs = job_data["location"].value_counts().head(top_n).index.tolist()
-        return ["Any"] + top_locs
-    return ["Any"]
-
-
 def log_query(
     query: str, method: str, filters: Dict, num_results: int, search_time: float
 ):
@@ -425,16 +414,14 @@ def get_job_snippet(job: pd.Series, max_length: int = 200) -> str:
     return desc
 
 
-def display_job_card_compact(
-    job: pd.Series, idx: int, matched_skills: Optional[List[str]] = None
-):
+def display_job_card_compact(job: pd.Series, idx: int, matched_skills: Optional[List[str]] = None):
     """Display a compact job card for list view (Indeed style)."""
-    job_id = job.name if hasattr(job, "name") else idx
-
+    job_id = job.name if hasattr(job, 'name') else idx
+    
     # Create clickable card
     with st.container():
         col1, col2 = st.columns([4, 1])
-
+        
         with col1:
             st.markdown(
                 f"""
@@ -449,19 +436,16 @@ def display_job_card_compact(
                 """,
                 unsafe_allow_html=True,
             )
-
+            
             # Display matched skills
             if matched_skills and len(matched_skills) > 0:
                 skills_html = "".join(
-                    [
-                        f'<span class="badge badge-skill">{skill}</span>'
-                        for skill in matched_skills[:3]
-                    ]
+                    [f'<span class="badge badge-skill">{skill}</span>' for skill in matched_skills[:3]]
                 )
                 st.markdown(skills_html, unsafe_allow_html=True)
-
+            
             st.markdown("</div></div>", unsafe_allow_html=True)
-
+        
         with col2:
             if st.button("View Details →", key=f"view_{idx}", use_container_width=True):
                 st.session_state.selected_job = job
@@ -476,9 +460,9 @@ def display_job_detail(job: pd.Series, matched_skills: Optional[List[str]] = Non
         st.session_state.page = "results"
         st.session_state.selected_job = None
         st.rerun()
-
+    
     st.markdown("<br>", unsafe_allow_html=True)
-
+    
     # Job header
     st.markdown(
         f"""
@@ -493,13 +477,11 @@ def display_job_detail(job: pd.Series, matched_skills: Optional[List[str]] = Non
         """,
         unsafe_allow_html=True,
     )
-
+    
     # Remote badge
     if pd.notna(job.get("remote_allowed")) and job.get("remote_allowed"):
-        st.markdown(
-            '<span class="badge badge-remote">🏠 Remote</span>', unsafe_allow_html=True
-        )
-
+        st.markdown('<span class="badge badge-remote">🏠 Remote</span>', unsafe_allow_html=True)
+    
     # Match score
     if "similarity_score" in job.index and pd.notna(job.get("similarity_score")):
         score = job["similarity_score"] * 100
@@ -507,68 +489,64 @@ def display_job_detail(job: pd.Series, matched_skills: Optional[List[str]] = Non
             f'<div style="margin-top: 1rem;"><strong>Match Score:</strong> <span style="color: #2e7d32; font-size: 1.2rem; font-weight: bold;">{score:.1f}%</span></div>',
             unsafe_allow_html=True,
         )
-
+    
     st.markdown("</div>", unsafe_allow_html=True)
-
+    
     # Job description
     st.markdown('<div class="job-detail-body">', unsafe_allow_html=True)
-
+    
     st.markdown("### 📄 Job Description")
-    description = (
-        job.get("description") or job.get("clean_text") or "No description available."
-    )
+    description = job.get("description") or job.get("clean_text") or "No description available."
     st.markdown(description)
-
+    
     st.markdown("<br>", unsafe_allow_html=True)
-
+    
     # Matched skills section
     if matched_skills and len(matched_skills) > 0:
         st.markdown("### 🎯 Your Matched Skills")
         skills_html = "".join(
-            [
-                f'<span class="badge badge-skill" style="font-size: 1rem; padding: 0.6rem 1rem;">{skill}</span>'
-                for skill in matched_skills
-            ]
+            [f'<span class="badge badge-skill" style="font-size: 1rem; padding: 0.6rem 1rem;">{skill}</span>' 
+             for skill in matched_skills]
         )
         st.markdown(skills_html, unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
-
+    
     # Additional information in columns
     col1, col2, col3 = st.columns(3)
-
+    
     with col1:
         st.markdown("#### 💼 Job Type")
         st.write(job.get("work_type", "Not specified"))
-
+        
         st.markdown("#### 📊 Experience Level")
         st.write(job.get("experience_level", "Not specified"))
-
+    
     with col2:
         st.markdown("#### 💰 Salary Range")
         st.write(format_salary(job))
-
+        
         st.markdown("#### 🏠 Work Location")
         if pd.notna(job.get("remote_allowed")) and job.get("remote_allowed"):
             st.write("Remote Allowed")
         else:
             st.write("On-site")
-
+    
     with col3:
         st.markdown("#### 🏢 Company")
         st.write(job.get("company_name_x", "N/A"))
-
+        
         st.markdown("#### 📍 Location")
         st.write(job.get("location", "N/A"))
-
+    
     st.markdown("</div>", unsafe_allow_html=True)
-
+    
     # Action buttons
     st.markdown("<br>", unsafe_allow_html=True)
     col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 3])
-
+    
     with col_btn1:
         st.button("💾 Save Job", use_container_width=True)
-
+    
     with col_btn2:
         st.button("📧 Apply Now", type="primary", use_container_width=True)
 
@@ -585,59 +563,54 @@ def show_home_page(recommender: JobRecommender):
         """,
         unsafe_allow_html=True,
     )
-
+    
     # Search box
     st.markdown('<div class="search-container">', unsafe_allow_html=True)
-
+    
     st.markdown("### 🔍 What job are you looking for?")
-
+    
     # Main search input
     query = st.text_area(
         "Job title, keywords, or skills",
         placeholder="e.g., Python Developer, Data Scientist, Marketing Manager...",
         height=100,
         key="home_query",
-        label_visibility="collapsed",
+        label_visibility="collapsed"
     )
-
+    
     st.markdown("<br>", unsafe_allow_html=True)
-
+    
     # Filters in expandable sections
     col1, col2, col3 = st.columns(3)
-
-    # Get top locations
-    top_locations = get_top_locations(recommender, top_n=50)
-
+    
     with col1:
-        location = st.selectbox(
-            "📍 Location",
-            options=top_locations,
-            index=0,
-        )
-
+        location = st.text_input("📍 Location", placeholder="e.g., New York, San Francisco")
+        
     with col2:
         work_type = st.multiselect(
             "💼 Job Type",
-            ["Full-time", "Part-time", "Contract", "Temporary", "Internship"],
+            ["Full-time", "Part-time", "Contract", "Temporary", "Internship"]
         )
-
+    
     with col3:
         experience = st.multiselect(
             "📊 Experience",
-            ["Entry level", "Mid-Senior level", "Associate", "Director", "Executive"],
+            ["Entry level", "Mid-Senior level", "Associate", "Director", "Executive"]
         )
-
+    
     st.markdown("<br>", unsafe_allow_html=True)
-
+    
     # Advanced filters
     with st.expander("⚙️ Advanced Filters"):
         col_a1, col_a2, col_a3 = st.columns(3)
-
+        
         with col_a1:
             remote_filter = st.radio(
-                "🏠 Work Location", ["Any", "Remote Only", "On-site Only"], index=0
+                "🏠 Work Location",
+                ["Any", "Remote Only", "On-site Only"],
+                index=0
             )
-
+        
         with col_a2:
             use_salary = st.checkbox("💰 Minimum Salary")
             min_salary = None
@@ -647,9 +620,9 @@ def show_home_page(recommender: JobRecommender):
                     min_value=0,
                     max_value=500000,
                     value=50000,
-                    step=5000,
+                    step=5000
                 )
-
+        
         with col_a3:
             search_method = st.selectbox(
                 "🔬 Search Method",
@@ -658,41 +631,35 @@ def show_home_page(recommender: JobRecommender):
                 format_func=lambda x: {
                     "faiss": "🚀 FAISS (Fastest)",
                     "minilm": "🧠 MiniLM (Semantic)",
-                    "tfidf": "📝 TF-IDF (Keyword)",
-                }[x],
+                    "tfidf": "📝 TF-IDF (Keyword)"
+                }[x]
             )
-
+    
     st.markdown("</div>", unsafe_allow_html=True)
-
+    
     # Search button
     col_search1, col_search2, col_search3 = st.columns([2, 1, 2])
     with col_search2:
-        search_clicked = st.button(
-            "🔍 Find Jobs", type="primary", use_container_width=True
-        )
-
+        search_clicked = st.button("🔍 Find Jobs", type="primary", use_container_width=True)
+    
     # Process search
     if search_clicked and query:
         with st.spinner("🔎 Searching for jobs..."):
             # Build filters
             filters = {}
-            if location and location != "Any":
+            if location:
                 filters["location"] = location
             if work_type:
-                filters["work_type"] = (
-                    work_type[0] if len(work_type) == 1 else work_type
-                )
+                filters["work_type"] = work_type[0] if len(work_type) == 1 else work_type
             if experience:
-                filters["experience_level"] = (
-                    experience[0] if len(experience) == 1 else experience
-                )
+                filters["experience_level"] = experience[0] if len(experience) == 1 else experience
             if remote_filter == "Remote Only":
                 filters["remote_allowed"] = True
             elif remote_filter == "On-site Only":
                 filters["remote_allowed"] = False
             if min_salary:
                 filters["min_salary"] = min_salary
-
+            
             # Search
             start_time = time.time()
             try:
@@ -703,34 +670,34 @@ def show_home_page(recommender: JobRecommender):
                     filters=filters if filters else None,
                 )
                 search_time = (time.time() - start_time) * 1000
-
+                
                 # Log query
                 log_query(query, search_method, filters, len(results), search_time)
-
+                
                 # Save to session state
                 st.session_state.search_results = results
                 st.session_state.search_params = {
                     "query": query,
                     "method": search_method,
                     "filters": filters,
-                    "search_time": search_time,
+                    "search_time": search_time
                 }
                 st.session_state.page = "results"
                 st.rerun()
-
+                
             except Exception as e:
                 st.error(f"❌ Search failed: {str(e)}")
-
+    
     elif search_clicked and not query:
         st.warning("⚠️ Please enter a job title or keywords to search.")
-
+    
     # Stats section
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("### 📊 Our Platform")
-
+    
     job_data = recommender.vector_store.job_data
     col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
-
+    
     with col_stat1:
         st.markdown(
             f"""
@@ -741,13 +708,9 @@ def show_home_page(recommender: JobRecommender):
             """,
             unsafe_allow_html=True,
         )
-
+    
     with col_stat2:
-        unique_companies = (
-            job_data["company_name_x"].nunique()
-            if "company_name_x" in job_data.columns
-            else 0
-        )
+        unique_companies = job_data["company_name_x"].nunique() if "company_name_x" in job_data.columns else 0
         st.markdown(
             f"""
             <div class="stat-box">
@@ -757,11 +720,9 @@ def show_home_page(recommender: JobRecommender):
             """,
             unsafe_allow_html=True,
         )
-
+    
     with col_stat3:
-        unique_locations = (
-            job_data["location"].nunique() if "location" in job_data.columns else 0
-        )
+        unique_locations = job_data["location"].nunique() if "location" in job_data.columns else 0
         st.markdown(
             f"""
             <div class="stat-box">
@@ -771,7 +732,7 @@ def show_home_page(recommender: JobRecommender):
             """,
             unsafe_allow_html=True,
         )
-
+    
     with col_stat4:
         st.markdown(
             f"""
@@ -783,103 +744,27 @@ def show_home_page(recommender: JobRecommender):
             unsafe_allow_html=True,
         )
 
-    # EDA Insights Section
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    st.markdown("### 📈 Market Insights")
-
-    # Top Industries & Skills
-    col_ins1, col_ins2 = st.columns(2)
-
-    with col_ins1:
-        st.markdown("#### 🏢 Top Industries")
-        if "industries" in job_data.columns:
-            # Parse industries (comma-separated)
-            all_industries = []
-            for ind_str in job_data["industries"].dropna():
-                if isinstance(ind_str, str):
-                    all_industries.extend([i.strip() for i in ind_str.split(",")])
-
-            if all_industries:
-                from collections import Counter
-
-                top_industries = Counter(all_industries).most_common(5)
-                for idx, (industry, count) in enumerate(top_industries, 1):
-                    pct = (count / len(job_data)) * 100
-                    st.markdown(f"**{idx}.** {industry} — {count:,} jobs ({pct:.1f}%)")
-        else:
-            st.info("Industry data not available")
-
-    with col_ins2:
-        st.markdown("#### 💡 Top Skills")
-        if "skills" in job_data.columns:
-            # Parse skills (comma-separated)
-            all_skills = []
-            for skill_str in job_data["skills"].dropna():
-                if isinstance(skill_str, str):
-                    all_skills.extend([s.strip() for s in skill_str.split(",")])
-
-            if all_skills:
-                from collections import Counter
-
-                top_skills = Counter(all_skills).most_common(5)
-                for idx, (skill, count) in enumerate(top_skills, 1):
-                    pct = (count / len(job_data)) * 100
-                    st.markdown(f"**{idx}.** {skill} — {count:,} jobs ({pct:.1f}%)")
-        else:
-            st.info("Skills data not available")
-
-    # Salary & Work Type Distribution
-    st.markdown("<br>", unsafe_allow_html=True)
-    col_ins3, col_ins4 = st.columns(2)
-
-    with col_ins3:
-        st.markdown("#### 💰 Salary Insights")
-        if "salary_median" in job_data.columns:
-            salary_data = job_data["salary_median"].dropna()
-            if len(salary_data) > 0:
-                avg_salary = salary_data.mean()
-                median_salary = salary_data.median()
-                st.markdown(f"**Average:** ${avg_salary:,.0f}/year")
-                st.markdown(f"**Median:** ${median_salary:,.0f}/year")
-                st.markdown(
-                    f"**Range:** ${salary_data.min():,.0f} - ${salary_data.max():,.0f}"
-                )
-            else:
-                st.info("Salary data limited")
-        else:
-            st.info("Salary data not available")
-
-    with col_ins4:
-        st.markdown("#### 🔄 Work Type Distribution")
-        if "formatted_work_type" in job_data.columns:
-            work_type_counts = job_data["formatted_work_type"].value_counts().head(4)
-            for work_type, count in work_type_counts.items():
-                pct = (count / len(job_data)) * 100
-                st.markdown(f"**{work_type}:** {count:,} ({pct:.1f}%)")
-        else:
-            st.info("Work type data not available")
-
 
 def show_results_page():
     """Results page - Job listings (Indeed style)."""
     results = st.session_state.search_results
     params = st.session_state.search_params
-
+    
     if results is None or len(results) == 0:
         st.warning("No results found. Please try a different search.")
         if st.button("← Back to Home"):
             st.session_state.page = "home"
             st.rerun()
         return
-
+    
     # Header with back button and stats
     col_back, col_stats = st.columns([1, 4])
-
+    
     with col_back:
         if st.button("← New Search", key="back_home"):
             st.session_state.page = "home"
             st.rerun()
-
+    
     with col_stats:
         st.markdown(
             f"""
@@ -890,50 +775,42 @@ def show_results_page():
             """,
             unsafe_allow_html=True,
         )
-
+    
     # Export buttons
     col_exp1, col_exp2, col_exp3, col_exp4 = st.columns([3, 1, 1, 6])
-
+    
     with col_exp2:
-        csv_data = export_to_csv(
-            results, params["query"], params["method"], params.get("filters", {})
-        )
+        csv_data = export_to_csv(results, params["query"], params["method"], params.get("filters", {}))
         st.download_button(
             label="📄 Export CSV",
             data=csv_data,
             file_name=f"jobs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv",
-            use_container_width=True,
+            use_container_width=True
         )
-
+    
     with col_exp3:
-        json_data = export_to_json(
-            results,
-            params["query"],
-            params["method"],
-            params.get("filters", {}),
-            params["search_time"],
-        )
+        json_data = export_to_json(results, params["query"], params["method"], params.get("filters", {}), params["search_time"])
         st.download_button(
             label="📋 Export JSON",
             data=json_data,
             file_name=f"jobs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
             mime="application/json",
-            use_container_width=True,
+            use_container_width=True
         )
-
+    
     st.markdown("<br>", unsafe_allow_html=True)
-
+    
     # Display job cards
     query_keywords = set(params["query"].lower().split())
-
+    
     for idx, (_, job) in enumerate(results.iterrows(), 1):
         # Find matched skills
         matched_skills = []
         if "clean_text" in job.index and pd.notna(job["clean_text"]):
             job_text = job["clean_text"].lower()
             matched_skills = [kw for kw in query_keywords if kw in job_text]
-
+        
         display_job_card_compact(job, idx, matched_skills)
 
 
@@ -941,14 +818,14 @@ def show_detail_page():
     """Job detail page (Indeed style)."""
     job = st.session_state.selected_job
     params = st.session_state.search_params
-
+    
     if job is None:
         st.warning("No job selected.")
         if st.button("← Back to Home"):
             st.session_state.page = "home"
             st.rerun()
         return
-
+    
     # Find matched skills from search query
     matched_skills = []
     if params and "query" in params:
@@ -956,7 +833,7 @@ def show_detail_page():
         if "clean_text" in job.index and pd.notna(job["clean_text"]):
             job_text = job["clean_text"].lower()
             matched_skills = [kw for kw in query_keywords if kw in job_text]
-
+    
     display_job_detail(job, matched_skills)
 
 
@@ -968,7 +845,7 @@ def main():
     except Exception as e:
         st.error(f"❌ Failed to load recommendation system: {str(e)}")
         st.stop()
-
+    
     # Page routing
     if st.session_state.page == "home":
         show_home_page(recommender)
@@ -981,6 +858,309 @@ def main():
 def main_old_sidebar():
     """OLD CODE - Keep for reference, will be removed."""
     # Sidebar - Filters
+    st.sidebar.title("🔍 Search & Filters")
+
+    # Query input
+    query = st.sidebar.text_area(
+        "What job are you looking for?",
+        placeholder="e.g., Machine Learning Engineer with Python and TensorFlow",
+        height=100,
+        help="Describe your ideal job using skills, technologies, or job titles",
+    )
+
+    # Search method
+    search_method = st.sidebar.selectbox(
+        "Search Method",
+        ["faiss", "minilm", "tfidf"],
+        index=0,
+        help="FAISS: Fastest & most accurate | MiniLM: Semantic search | TF-IDF: Keyword matching",
+    )
+
+    # Number of results
+    top_k = st.sidebar.slider(
+        "Number of Results", 5, 20, 10, help="How many job recommendations to show"
+    )
+
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 🎛️ Filters")
+
+    # Location filter
+    use_location = st.sidebar.checkbox("Filter by Location")
+    location = None
+    if use_location:
+        location = st.sidebar.text_input(
+            "Location", placeholder="e.g., New York, San Francisco"
+        )
+
+    # Work type filter
+    work_type_options = [
+        "Full-time",
+        "Part-time",
+        "Contract",
+        "Temporary",
+        "Internship",
+    ]
+    work_type = st.sidebar.multiselect("Work Type", work_type_options)
+
+    # Experience level filter
+    experience_options = [
+        "Entry level",
+        "Mid-Senior level",
+        "Associate",
+        "Director",
+        "Executive",
+    ]
+    experience = st.sidebar.multiselect("Experience Level", experience_options)
+
+    # Remote filter
+    remote_filter = st.sidebar.radio(
+        "Remote Work", ["Any", "Remote Only", "On-site Only"], index=0
+    )
+    remote_allowed = None
+    if remote_filter == "Remote Only":
+        remote_allowed = True
+    elif remote_filter == "On-site Only":
+        remote_allowed = False
+
+    # Salary filter
+    use_salary = st.sidebar.checkbox("Minimum Salary")
+    min_salary = None
+    if use_salary:
+        min_salary = st.sidebar.number_input(
+            "Minimum Salary ($)", min_value=0, max_value=500000, value=50000, step=5000
+        )
+
+    # Search button
+    search_clicked = st.sidebar.button(
+        "🚀 Search Jobs", type="primary", use_container_width=True
+    )
+
+    # Performance Comparison (Day 7)
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 📊 Performance Metrics")
+
+    show_comparison = st.sidebar.checkbox("Show Method Comparison", value=False)
+
+    if show_comparison:
+        st.sidebar.markdown(
+            """
+        **Average Performance:**
+        - 🚀 FAISS: 14.6ms, 93.3% P@5
+        - 🧠 MiniLM: 13.3ms, 93.3% P@5  
+        - 📝 TF-IDF: 49.1ms, 86.7% P@5
+        """
+        )
+
+    # Main content area
+    col1, col2, col3, col4 = st.columns(4)
+
+    # Dataset statistics
+    job_data = recommender.vector_store.job_data
+
+    with col1:
+        st.markdown(
+            f"""
+        <div class="stat-box">
+            <div class="stat-number">{len(job_data):,}</div>
+            <div class="stat-label">Total Jobs</div>
+        </div>
+        """,
+            unsafe_allow_html=True,
+        )
+
+    with col2:
+        unique_companies = (
+            job_data["company_name_x"].nunique()
+            if "company_name_x" in job_data.columns
+            else 0
+        )
+        st.markdown(
+            f"""
+        <div class="stat-box">
+            <div class="stat-number">{unique_companies:,}</div>
+            <div class="stat-label">Companies</div>
+        </div>
+        """,
+            unsafe_allow_html=True,
+        )
+
+    with col3:
+        unique_locations = (
+            job_data["location"].nunique() if "location" in job_data.columns else 0
+        )
+        st.markdown(
+            f"""
+        <div class="stat-box">
+            <div class="stat-number">{unique_locations:,}</div>
+            <div class="stat-label">Locations</div>
+        </div>
+        """,
+            unsafe_allow_html=True,
+        )
+
+    with col4:
+        indexed_jobs = (
+            len(recommender.vector_store.sample_indices)
+            if recommender.vector_store.sample_indices
+            else 0
+        )
+        st.markdown(
+            f"""
+        <div class="stat-box">
+            <div class="stat-number">{indexed_jobs:,}</div>
+            <div class="stat-label">Indexed Jobs</div>
+        </div>
+        """,
+            unsafe_allow_html=True,
+        )
+
+    st.markdown("---")
+
+    # Search results
+    if search_clicked and query:
+        with st.spinner("🔎 Finding the best matches..."):
+            # Build filters dict
+            filters = {}
+            if location:
+                filters["location"] = location
+            if work_type:
+                filters["work_type"] = (
+                    work_type[0] if len(work_type) == 1 else work_type
+                )
+            if experience:
+                filters["experience_level"] = (
+                    experience[0] if len(experience) == 1 else experience
+                )
+            if remote_allowed is not None:
+                filters["remote_allowed"] = remote_allowed
+            if min_salary:
+                filters["min_salary"] = min_salary
+
+            # Get recommendations
+            start_time = time.time()
+            try:
+                results = recommender.get_recommendations(
+                    query=query,
+                    method=search_method,
+                    top_k=top_k,
+                    filters=filters if filters else None,
+                )
+                search_time = (time.time() - start_time) * 1000  # Convert to ms
+
+                # Log query (Day 7)
+                log_query(query, search_method, filters, len(results), search_time)
+
+                # Display results
+                if len(results) == 0:
+                    st.warning(
+                        "⚠️ No jobs found matching your criteria. Try adjusting your filters."
+                    )
+                else:
+                    # Success message with export buttons (Day 7)
+                    col_msg, col_csv, col_json = st.columns([3, 1, 1])
+
+                    with col_msg:
+                        st.success(
+                            f"✅ Found {len(results)} jobs in {search_time:.1f}ms"
+                        )
+
+                    with col_csv:
+                        csv_data = export_to_csv(results, query, search_method, filters)
+                        st.download_button(
+                            label="📄 CSV",
+                            data=csv_data,
+                            file_name=f"job_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                            mime="text/csv",
+                            use_container_width=True,
+                        )
+
+                    with col_json:
+                        json_data = export_to_json(
+                            results, query, search_method, filters, search_time
+                        )
+                        st.download_button(
+                            label="📋 JSON",
+                            data=json_data,
+                            file_name=f"job_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                            mime="application/json",
+                            use_container_width=True,
+                        )
+
+                    # Performance metrics display (Day 7)
+                    if show_comparison:
+                        st.markdown("### 📊 Performance Analysis")
+
+                        col_chart, col_metrics = st.columns([2, 1])
+
+                        with col_chart:
+                            fig = create_performance_comparison()
+                            st.plotly_chart(fig, use_container_width=True)
+
+                        with col_metrics:
+                            st.metric("Current Search Time", f"{search_time:.1f}ms")
+                            st.metric("Results Found", len(results))
+                            st.metric("Method Used", search_method.upper())
+
+                            avg_score = (
+                                results["similarity_score"].mean() * 100
+                                if "similarity_score" in results.columns
+                                else 0
+                            )
+                            st.metric("Avg Relevance", f"{avg_score:.1f}%")
+
+                        st.markdown("---")
+
+                    # Extract matched skills (simple keyword matching)
+                    query_keywords = set(query.lower().split())
+
+                    for idx, (_, job) in enumerate(results.iterrows(), 1):
+                        # Find matched skills
+                        matched_skills = []
+                        if "clean_text" in job.index and pd.notna(job["clean_text"]):
+                            job_text = job["clean_text"].lower()
+                            matched_skills = [
+                                kw for kw in query_keywords if kw in job_text
+                            ]
+
+                        display_job_card(job, idx, matched_skills)
+
+            except Exception as e:
+                st.error(f"❌ Search failed: {str(e)}")
+
+    elif search_clicked and not query:
+        st.warning("⚠️ Please enter a job description or keywords to search.")
+
+    else:
+        # Welcome message
+        st.info(
+            """
+        👋 **Welcome to the Job Recommendation System!**
+        
+        This system uses advanced vector search to find jobs that match your skills and preferences.
+        
+        **How to use:**
+        1. Enter your job preferences in the search box (left sidebar)
+        2. Choose a search method (FAISS recommended for best results)
+        3. Apply filters to narrow down results
+        4. Click "Search Jobs" to get recommendations
+        
+        **Search Methods:**
+        - 🚀 **FAISS**: Fastest and most accurate (14.6ms avg)
+        - 🧠 **MiniLM**: Semantic understanding (13.3ms avg)
+        - 📝 **TF-IDF**: Keyword-based matching (49.1ms avg)
+        
+        **Example queries:**
+        - "Python backend developer with API experience"
+        - "Data scientist machine learning deep learning"
+        - "DevOps engineer AWS Docker Kubernetes"
+        """
+        )
+
+        # Show sample jobs
+        st.markdown("### 📋 Sample Jobs in Database")
+        sample_jobs = job_data.sample(min(5, len(job_data)))
+        for idx, (_, job) in enumerate(sample_jobs.iterrows(), 1):
+            display_job_card(job, idx)
 
 
 if __name__ == "__main__":

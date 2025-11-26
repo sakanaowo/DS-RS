@@ -75,7 +75,13 @@ class JobRecommender:
             DataFrame with recommended jobs, sorted by relevance
         """
         # Get initial candidates (fetch more for filtering)
-        fetch_k = top_k * 5 if filters else top_k
+        # Increase fetch_k significantly when filters are applied
+        if filters and len(filters) > 0:
+            # Fetch 15-20x more to ensure enough candidates after filtering
+            fetch_k = top_k * 20
+        else:
+            fetch_k = top_k
+            
         results = self.vector_store.search(query, top_k=fetch_k, method=method)
 
         # Apply filters
@@ -123,7 +129,7 @@ class JobRecommender:
                 work_types = [work_types]
 
             mask = (
-                filtered["work_type"]
+                filtered["formatted_work_type"]
                 .str.lower()
                 .isin([wt.lower() for wt in work_types])
             )

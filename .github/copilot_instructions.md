@@ -52,10 +52,14 @@ reports/             # báo cáo audit/EDA và bản viết cuối
 - Dùng Pandas cho ETL, ưu tiên Parquet cho dữ liệu xử lý; với merge lớn nên stream/chunk để tránh full RAM.
 - Script phải determinisitic: không hard-code đường dẫn máy; đọc từ config/env nếu cần.
 - Testing: thêm unit test nhẹ (thư mục `tests/` hoặc assert trong notebook) cho loader joins, edge case preprocessing, bộ lọc gợi ý.
+- Debug:
+  - thêm logging ở mức INFO/DEBUG cho bước tốn thời gian (ví dụ tính embedding, tìm kiếm).
+  - nếu tạo file để debug, đặt trong `tests/debug` với tên rõ ràng kèm thông tin debug kèm timestamp
 - Git hygiene: không revert thay đổi của người khác, tránh lệnh phá hoại.
 - Khi báo cáo kết quả command cho user, chỉ tóm tắt điểm chính theo quy định CLI (không dump log thô).mv
 - Khi tạo các file báo cáo Markdown, dùng định dạng rõ ràng với tiêu đề, danh sách, code block, nếu báo cáo tiến độ ngày thì tạo một folder dạng `day X/` trong `documents/`
 - Khi tạo các file script, nếu không phải script chính thì cần đưa vào thư mục `scripts/` để tránh nhầm lẫn với module chính.
+- Khi backup một file/ thư mục, tạo bản sao với hậu tố ngày tháng năm (ví dụ: `<file-name>_backup_20231125/`) trong `archive`
 
 ## 6. Lệnh hữu ích
 

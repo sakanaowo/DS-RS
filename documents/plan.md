@@ -165,6 +165,18 @@ job-recommendation-system/
   - [x] Sidebar toggle "Show Method Comparison" với quick stats.
   - [x] Performance analysis panel: chart + 4 metrics cards (time, count, method, relevance).
   - [x] Enhanced 3-column layout: success message + CSV button + JSON button.
+- [x] **Ngày 7+: UX Redesign (Indeed.com Style)** _(Hoàn thành 26/11/2025)_
+  - [x] Redesign UI flow: Single-page sidebar → Multi-page navigation (Home → Results → Detail).
+  - [x] Implement session state navigation với 3 pages riêng biệt.
+  - [x] Home Page: Hero section + prominent search box + filters + stats dashboard.
+  - [x] Results Page: Compact job cards (Indeed-style) với "View Details" buttons + export features.
+  - [x] Detail Page: Full job information + badges + action buttons (Save/Apply) + back navigation.
+  - [x] Indeed-inspired CSS: Professional color scheme (#2557a7 blue), typography hierarchy, hover effects.
+  - [x] Responsive design: 3-4 column grid layout với proper breakpoints.
+  - [x] Code optimization: Giảm từ 1168 → 865 lines (-26%), improved maintainability.
+  - [x] Preserve all Day 7 features: Export, logging, performance charts integrated seamlessly.
+  - [x] Documentation: `documents/day7/indeed_style_redesign.md` với comprehensive guide.
+  - [x] Backup: `archive/app_backup_20251126.py` lưu version cũ theo quy ước.
 - [ ] **Ngày 8: Viết báo cáo cuối**
   - Tài liệu hóa quy trình: dataset audit → cleaning → EDA → modeling → evaluation → UI.
   - Đính kèm biểu đồ từ `images/`, bảng so sánh mô hình (Day 4-5 results).
