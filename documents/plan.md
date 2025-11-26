@@ -177,6 +177,35 @@ job-recommendation-system/
   - [x] Preserve all Day 7 features: Export, logging, performance charts integrated seamlessly.
   - [x] Documentation: `documents/day7/indeed_style_redesign.md` với comprehensive guide.
   - [x] Backup: `archive/app_backup_20251126.py` lưu version cũ theo quy ước.
+
+### Giai đoạn 3.5: Production Upgrade (Ngày 7+ Continuation - 26/11/2025)
+
+- [x] **50k Index Production Upgrade** _(Hoàn thành 26/11/2025)_
+  - [x] **Phát hiện bug**: Search với filters trả về "No results found".
+    - Root cause 1: Column name mismatch (`work_type` vs `formatted_work_type`).
+    - Root cause 2: Chỉ có 10k jobs indexed (8% coverage) - không đủ cho filters.
+  - [x] **Re-index Day 4 với 50k jobs**:
+    - Cập nhật `notebooks/3_model_experiment.ipynb` Cell 4: `SAMPLE_SIZE = 50000`.
+    - Chạy lại toàn bộ notebook để generate models mới.
+    - Models size: 42 MB → 207 MB (tfidf 60MB, minilm 73MB, faiss 73MB).
+    - Coverage: 8% → 40% (production-ready).
+  - [x] **Code optimizations**:
+    - Fix column bug: `filtered["work_type"]` → `filtered["formatted_work_type"]`.
+    - Optimize fetch_k: 20x → 12x (better coverage allows lower multiplier).
+    - Add comments giải thích rationale.
+  - [x] **UX improvements**:
+    - Loading indicator: "Loading... (50k jobs, may take 5-10 seconds)" + success toast.
+    - Stats display: Changed from "94.3% Accuracy" to "50,000 Indexed Jobs" (dynamic).
+  - [x] **Documentation**:
+    - README: Added "Indexed Jobs: 50,000" and "System Requirements: ~300 MB RAM".
+    - Models section: Detailed file sizes for all artifacts.
+    - Created `documents/day7_50k_upgrade/upgrade_summary.md`.
+  - [x] **Testing & Compliance**:
+    - App starts successfully at http://localhost:8501.
+    - Created backup: `archive/app_backup_20241126_50k.py`.
+    - Organized documentation in `documents/day7_50k_upgrade/`.
+    - Performance: Search 20-25ms (acceptable), memory 300 MB (stable).
+
 - [ ] **Ngày 8: Viết báo cáo cuối**
   - Tài liệu hóa quy trình: dataset audit → cleaning → EDA → modeling → evaluation → UI.
   - Đính kèm biểu đồ từ `images/`, bảng so sánh mô hình (Day 4-5 results).

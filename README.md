@@ -5,10 +5,12 @@ Hệ thống gợi ý việc làm thông minh sử dụng Vector Search và Sema
 ## 🎯 Project Overview
 
 - **Dataset:** LinkedIn Job Postings (123,842 jobs)
+- **Indexed Jobs:** 50,000 jobs (40% coverage, production-ready)
 - **Tech Stack:** Python, Pandas, Scikit-learn, Sentence-Transformers, FAISS, Streamlit
 - **Approach:** Content-based recommendation với 3 phương pháp (TF-IDF, MiniLM, FAISS)
 - **Performance:** 94.3% Precision@5, <50ms search time
 - **UI:** Streamlit web application với filters và real-time search
+- **System Requirements:** ~300 MB RAM (207 MB models + 100 MB data)
 
 ## ✨ Features
 
@@ -27,12 +29,12 @@ DS-RS/
 │   ├── archive/           # Original dataset snapshot
 │   ├── raw/               # Working copy of data
 │   └── processed/         # Cleaned data (clean_jobs.parquet)
-├── models/                # Saved models & embeddings (42MB)
-│   ├── tfidf_vectorizer.pkl
-│   ├── tfidf_matrix.npz
-│   ├── minilm_embeddings.npy
-│   ├── faiss_index.bin
-│   └── sample_indices.pkl
+├── models/                # Saved models & embeddings (~207MB for 50k jobs)
+│   ├── tfidf_vectorizer.pkl    # 181 KB
+│   ├── tfidf_matrix.npz        # 60 MB (50k × 5000 vocab)
+│   ├── minilm_embeddings.npy   # 73 MB (50k × 384 dims)
+│   ├── faiss_index.bin         # 73 MB (50k vectors)
+│   └── sample_indices.pkl      # 177 KB (50k indices)
 ├── documents/
 │   ├── plan.md            # Main project specification & timeline
 │   ├── day2/              # Day 2 cleaning documentation

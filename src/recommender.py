@@ -75,13 +75,14 @@ class JobRecommender:
             DataFrame with recommended jobs, sorted by relevance
         """
         # Get initial candidates (fetch more for filtering)
-        # Increase fetch_k significantly when filters are applied
+        # With 50k indexed jobs, we can use lower multiplier than with 10k
         if filters and len(filters) > 0:
-            # Fetch 15-20x more to ensure enough candidates after filtering
-            fetch_k = top_k * 20
+            # Fetch 10-15x more to ensure enough candidates after filtering
+            # Reduced from 20x since we have 5x more coverage (50k vs 10k)
+            fetch_k = top_k * 12
         else:
             fetch_k = top_k
-            
+
         results = self.vector_store.search(query, top_k=fetch_k, method=method)
 
         # Apply filters

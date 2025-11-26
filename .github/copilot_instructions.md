@@ -47,7 +47,7 @@ reports/             # báo cáo audit/EDA và bản viết cuối
 
 ## 5. Quy ước code & công cụ
 
-- conda activate trước khi chạy lệnh với terminal.
+- **Luôn luôn `conda activate` trước khi chạy lệnh với terminal**.
 - Tuân PEP8, ưu tiên snake_case mô tả rõ. Chỉ thêm comment ngắn cho logic khó (ví dụ chiến lược cache vector).
 - Dùng Pandas cho ETL, ưu tiên Parquet cho dữ liệu xử lý; với merge lớn nên stream/chunk để tránh full RAM.
 - Script phải determinisitic: không hard-code đường dẫn máy; đọc từ config/env nếu cần.
