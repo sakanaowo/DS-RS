@@ -8,6 +8,7 @@
 ## Problem Statement
 
 After completing Indeed.com UI redesign (Day 6-7), discovered critical bug:
+
 - **Bug**: Search with location/work_type filters returned "No results found"
 - **Root Cause 1**: Column name mismatch (`work_type` vs `formatted_work_type`)
 - **Root Cause 2**: Only 10k jobs indexed (8% coverage) - insufficient for filters
@@ -20,18 +21,21 @@ After completing Indeed.com UI redesign (Day 6-7), discovered critical bug:
 ### 1. Re-Index with 50k Jobs (Day 4 Re-run)
 
 **Before**:
+
 - SAMPLE_SIZE = 10,000 (experimental phase)
 - Coverage: 8% of dataset
 - Model size: 42 MB total
 - Fetch multiplier: 20x (aggressive due to poor coverage)
 
 **After**:
+
 - SAMPLE_SIZE = 50,000 (production-ready)
 - Coverage: 40% of dataset
 - Model size: 207 MB total (~300 MB RAM with data)
 - Fetch multiplier: 12x (optimized, better coverage allows lower overhead)
 
 **Models Generated**:
+
 ```
 models/
 ├── tfidf_vectorizer.pkl       181 KB
@@ -48,7 +52,9 @@ Total: ~207 MB
 ## Code Changes
 
 ### 1. notebooks/3_model_experiment.ipynb (Day 4)
+
 **File**: Cell 4 - Sample data extraction
+
 ```python
 # OLD
 SAMPLE_SIZE = 10000
@@ -58,7 +64,9 @@ SAMPLE_SIZE = 50000  # 50k jobs for production deployment
 ```
 
 ### 2. src/recommender.py
+
 **Bug Fix (Line 126)**:
+
 ```python
 # OLD
 filtered["work_type"]
@@ -68,6 +76,7 @@ filtered["formatted_work_type"]  # Match column name from preprocessing
 ```
 
 **Optimization (Lines 77-83)**:
+
 ```python
 if filters and len(filters) > 0:
     # Fetch 10-15x more to ensure enough candidates after filtering
@@ -76,7 +85,9 @@ if filters and len(filters) > 0:
 ```
 
 ### 3. app.py
+
 **Enhancement 1 - Loading Indicator (Lines 241-246)**:
+
 ```python
 @st.cache_resource
 def load_recommender():
@@ -88,25 +99,30 @@ def load_recommender():
 ```
 
 **Enhancement 2 - Stats Display (Lines 768-777)**:
+
 ```python
 # OLD
 st.markdown('<div class="metric-value">94.3%</div>', unsafe_allow_html=True)
 st.markdown('<div class="metric-label">Match Accuracy</div>', unsafe_allow_html=True)
 
 # NEW
-st.markdown(f'<div class="metric-value">{len(recommender.vector_store.sample_indices):,}</div>', 
+st.markdown(f'<div class="metric-value">{len(recommender.vector_store.sample_indices):,}</div>',
             unsafe_allow_html=True)
 st.markdown('<div class="metric-label">Indexed Jobs</div>', unsafe_allow_html=True)
 ```
 
 ### 4. README.md
+
 **Added to Project Overview**:
+
 - **Indexed Jobs**: 50,000 jobs (40% coverage, production-ready)
 - **System Requirements**: ~300 MB RAM (207 MB models + 100 MB data)
 
 **Updated Models Section**:
+
 ```markdown
 models/ (~207MB for 50k jobs)
+
 - tfidf_vectorizer.pkl: 181 KB
 - tfidf_matrix.npz: 60 MB (50,000 × 5,000 vocabulary)
 - minilm_embeddings.npy: 73 MB (50,000 × 384 dimensions)
@@ -118,15 +134,15 @@ models/ (~207MB for 50k jobs)
 
 ## Performance Comparison
 
-| Metric | 10k Index | 50k Index | Change |
-|--------|-----------|-----------|--------|
-| **Coverage** | 8% | 40% | +5x |
-| **Model Size** | 42 MB | 207 MB | +4.9x |
-| **RAM Required** | ~150 MB | ~300 MB | +2x |
-| **Search Speed** | ~15ms | ~20-25ms | +33% |
-| **Filter Success** | Low | High | ✅ |
-| **Location Diversity** | Limited | Comprehensive | ✅ |
-| **fetch_k Multiplier** | 20x | 12x | -40% |
+| Metric                 | 10k Index | 50k Index     | Change |
+| ---------------------- | --------- | ------------- | ------ |
+| **Coverage**           | 8%        | 40%           | +5x    |
+| **Model Size**         | 42 MB     | 207 MB        | +4.9x  |
+| **RAM Required**       | ~150 MB   | ~300 MB       | +2x    |
+| **Search Speed**       | ~15ms     | ~20-25ms      | +33%   |
+| **Filter Success**     | Low       | High          | ✅     |
+| **Location Diversity** | Limited   | Comprehensive | ✅     |
+| **fetch_k Multiplier** | 20x       | 12x           | -40%   |
 
 ---
 
@@ -172,7 +188,7 @@ models/                       # All artifacts regenerated (207 MB)
 ✅ **Section 2 (Organization)**: Created `documents/day7_50k_upgrade/` folder  
 ✅ **Section 3 (Backup)**: Created `archive/app_backup_20241126_50k.py`  
 ✅ **Section 4 (Documentation)**: This file documents all changes  
-✅ **Section 5 (Commit)**: Following comprehensive commit message format  
+✅ **Section 5 (Commit)**: Following comprehensive commit message format
 
 ---
 
@@ -188,6 +204,7 @@ models/                       # All artifacts regenerated (207 MB)
 ## Conclusion
 
 Successfully upgraded from 10k to 50k indexed jobs:
+
 - ✅ Fixed "no results" bug (column name + coverage)
 - ✅ Production-ready coverage (40% vs 8%)
 - ✅ Optimized fetch strategy (12x vs 20x)

@@ -181,6 +181,7 @@ job-recommendation-system/
 ### Giai đoạn 3.5: Production Upgrade (Ngày 7+ Continuation - 26/11/2025)
 
 - [x] **50k Index Production Upgrade** _(Hoàn thành 26/11/2025)_
+
   - [x] **Phát hiện bug**: Search với filters trả về "No results found".
     - Root cause 1: Column name mismatch (`work_type` vs `formatted_work_type`).
     - Root cause 2: Chỉ có 10k jobs indexed (8% coverage) - không đủ cho filters.

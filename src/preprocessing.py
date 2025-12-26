@@ -226,7 +226,19 @@ def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
         if dropped > 0:
             print(f"Dropped {dropped:,} duplicate rows based on {dup_cols}")
 
-    # 3. Clean text fields
+    # 3. Apply Data Quality Strategies (NEW - Day 7+)
+    # Smart imputation for missing data based on LinkedIn/Indeed best practices
+    try:
+        from .data_quality import DataQualityHandler
+
+        print("Applying data quality strategies...")
+        cleaned = DataQualityHandler.apply_all_strategies(cleaned)
+        print("✓ Data quality enhancement complete")
+    except ImportError:
+        # Fallback if data_quality module not available
+        print("⚠ data_quality module not found, skipping smart imputation")
+
+    # 4. Clean text fields
     text_fields = ["title", "description", "skills_desc"]
     for field in text_fields:
         if field in cleaned.columns:
@@ -237,7 +249,7 @@ def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
                 .apply(lambda x: clean_text(x, remove_stops=False))
             )
 
-    # 4. Create combined content field for vectorization
+    # 5. Create combined content field for vectorization
     # Combine title (weighted higher) + description + skills
     content_parts = []
     if "title_clean" in cleaned.columns:
@@ -254,7 +266,7 @@ def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
             cleaned["content"] = cleaned["content"] + " " + part
         print("Created combined 'content' field")
 
-    # 5. Parse and standardize location
+    # 6. Parse and standardize location
     if "location" in cleaned.columns:
         print("Parsing location field...")
         location_parsed = cleaned["location"].fillna("Unknown").apply(parse_location)
@@ -262,7 +274,7 @@ def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
         cleaned["state"] = location_parsed.apply(lambda x: x["state"])
         cleaned["country"] = location_parsed.apply(lambda x: x["country"])
 
-    # 6. Standardize categorical fields
+    # 7. Standardize categorical fields
     if "formatted_work_type" in cleaned.columns:
         # Convert category to string first to allow fillna with new value
         if cleaned["formatted_work_type"].dtype.name == "category":
@@ -285,7 +297,7 @@ def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
                 "Unknown"
             )
 
-    # 7. Create binary flags for missing data
+    # 8. Create binary flags for missing data
     if "min_salary" in cleaned.columns or "max_salary" in cleaned.columns:
         has_salary = False
         if "min_salary" in cleaned.columns:
@@ -299,7 +311,7 @@ def prepare_features(df: pd.DataFrame) -> pd.DataFrame:
         # Fill NA before converting to avoid ValueError with nullable Int8
         cleaned["is_remote"] = (cleaned["remote_allowed"].fillna(0) == 1).astype(int)
 
-    # 8. Normalize salary to yearly for comparison
+    # 9. Normalize salary to yearly for comparison
     if all(col in cleaned.columns for col in ["med_salary", "pay_period"]):
 
         def normalize_salary(row):

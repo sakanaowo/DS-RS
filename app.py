@@ -12,8 +12,17 @@ from datetime import datetime
 from typing import Dict, List, Optional
 import plotly.express as px
 import plotly.graph_objects as go
+import logging
 
 from src.recommender import JobRecommender
+
+# Setup logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s",
+    handlers=[logging.FileHandler("logs/app_debug.log"), logging.StreamHandler()],
+)
+logger = logging.getLogger(__name__)
 
 # Page config
 st.set_page_config(
@@ -240,8 +249,28 @@ st.markdown(
 @st.cache_resource
 def load_recommender() -> JobRecommender:
     """Load and cache the recommender system (50k indexed jobs, ~207 MB)."""
-    with st.spinner("🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"):
+    logger.info("=" * 80)
+    logger.info("LOADING RECOMMENDER SYSTEM")
+    logger.info("=" * 80)
+
+    with st.spinner(
+        "🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"
+    ):
+        start_time = time.time()
         recommender = JobRecommender(auto_load=True)
+        load_time = time.time() - start_time
+
+        logger.info(f"✓ Recommender loaded in {load_time:.2f}s")
+        logger.info(
+            f"✓ Total jobs in dataset: {len(recommender.vector_store.job_data)}"
+        )
+        logger.info(
+            f"✓ Total indexed jobs: {len(recommender.vector_store.sample_indices)}"
+        )
+        logger.info(
+            f"✓ Available columns: {recommender.vector_store.job_data.columns.tolist()}"
+        )
+
     st.success("✅ Loaded 50,000 indexed jobs successfully!")
     return recommender
 
@@ -674,25 +703,40 @@ def show_home_page(recommender: JobRecommender):
 
     # Process search
     if search_clicked and query:
+        logger.info("\n" + "=" * 80)
+        logger.info("NEW SEARCH REQUEST FROM FRONTEND")
+        logger.info("=" * 80)
+        logger.info(f"Query: '{query}'")
+
         with st.spinner("🔎 Searching for jobs..."):
             # Build filters
             filters = {}
             if location and location != "Any":
                 filters["location"] = location
+                logger.info(f"Filter - Location: {location}")
             if work_type:
                 filters["work_type"] = (
                     work_type[0] if len(work_type) == 1 else work_type
                 )
+                logger.info(f"Filter - Work Type: {filters['work_type']}")
             if experience:
                 filters["experience_level"] = (
                     experience[0] if len(experience) == 1 else experience
                 )
+                logger.info(f"Filter - Experience: {filters['experience_level']}")
             if remote_filter == "Remote Only":
                 filters["remote_allowed"] = True
+                logger.info("Filter - Remote: True")
             elif remote_filter == "On-site Only":
                 filters["remote_allowed"] = False
+                logger.info("Filter - Remote: False")
             if min_salary:
                 filters["min_salary"] = min_salary
+                logger.info(f"Filter - Min Salary: ${min_salary:,}")
+
+            logger.info(f"Search Method: {search_method}")
+            logger.info(f"Total Filters Applied: {len(filters)}")
+            logger.info(f"Filters Dict: {filters}")
 
             # Search
             start_time = time.time()
@@ -775,7 +819,11 @@ def show_home_page(recommender: JobRecommender):
 
     with col_stat4:
         # Show indexed count instead of accuracy
-        indexed_count = len(recommender.vector_store.sample_indices) if recommender.vector_store.sample_indices else 50000
+        indexed_count = (
+            len(recommender.vector_store.sample_indices)
+            if recommender.vector_store.sample_indices
+            else 50000
+        )
         st.markdown(
             f"""
             <div class="stat-box">
