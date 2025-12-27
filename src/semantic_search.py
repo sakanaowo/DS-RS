@@ -81,16 +81,17 @@ class SemanticJobSearch:
     def load_data(self):
         """Load job data."""
         import pickle
+
         if self.verbose:
             print("Loading job data...")
 
         tables = load_normalized_tables()
         all_jobs = tables["jobs"]
-        
+
         # CRITICAL: Use same 50K sample as BM25 for consistency
         sample_indices_path = PROCESSED_DIR.parent / "models" / "sample_indices.pkl"
         if sample_indices_path.exists():
-            with open(sample_indices_path, 'rb') as f:
+            with open(sample_indices_path, "rb") as f:
                 sample_indices = pickle.load(f)
             self.jobs = all_jobs.iloc[sample_indices].copy()
             if self.verbose:
@@ -101,7 +102,9 @@ class SemanticJobSearch:
             target_size = min(target_size, len(all_jobs))
             self.jobs = all_jobs.head(target_size).copy()
             if self.verbose:
-                print(f"⚠️  Sample indices not found, using first {len(self.jobs):,} jobs")
+                print(
+                    f"⚠️  Sample indices not found, using first {len(self.jobs):,} jobs"
+                )
 
         if self.verbose:
             print(f"✓ Loaded {len(self.jobs):,} jobs")
@@ -178,17 +181,19 @@ class SemanticJobSearch:
         # Encode with progress bar
         if self.verbose:
             print(f"  Encoding {len(search_texts):,} job descriptions...")
-            print(f"  Batch size: 32, Estimated time: ~{len(search_texts)//32//10} seconds")
+            print(
+                f"  Batch size: 32, Estimated time: ~{len(search_texts)//32//10} seconds"
+            )
 
         # Use larger batch size for faster encoding (if memory allows)
         batch_size = 64 if len(search_texts) < 10000 else 32
-        
+
         self.embeddings = self.model.encode(
             search_texts,
             show_progress_bar=True,  # Always show for transparency
             batch_size=batch_size,
             convert_to_numpy=True,
-            normalize_embeddings=True  # Normalize for faster cosine similarity
+            normalize_embeddings=True,  # Normalize for faster cosine similarity
         )
 
         print("[DEBUG] Encoding completed!", file=sys.stderr, flush=True)

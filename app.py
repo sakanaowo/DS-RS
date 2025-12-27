@@ -105,7 +105,7 @@ def initialize_search_engine():
             # semantic_search.py loads same sample_indices as BM25
             hybrid = HybridJobSearch(
                 sample_size=None,  # Will use BM25's 50K sample
-                verbose=True  # Show progress
+                verbose=True,  # Show progress
             )
             print("[DEBUG] Calling hybrid.initialize()...", file=sys.stderr, flush=True)
             hybrid.initialize()
