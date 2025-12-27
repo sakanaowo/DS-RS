@@ -80,17 +80,28 @@ class SemanticJobSearch:
 
     def load_data(self):
         """Load job data."""
+        import pickle
         if self.verbose:
             print("Loading job data...")
 
         tables = load_normalized_tables()
-        self.jobs = tables["jobs"]
-
-        # Apply sampling if specified
-        if self.sample_size is not None and self.sample_size < len(self.jobs):
+        all_jobs = tables["jobs"]
+        
+        # CRITICAL: Use same 50K sample as BM25 for consistency
+        sample_indices_path = PROCESSED_DIR.parent / "models" / "sample_indices.pkl"
+        if sample_indices_path.exists():
+            with open(sample_indices_path, 'rb') as f:
+                sample_indices = pickle.load(f)
+            self.jobs = all_jobs.iloc[sample_indices].copy()
             if self.verbose:
-                print(f"⚠️  SAMPLING: Using {self.sample_size:,} jobs")
-            self.jobs = self.jobs.head(self.sample_size).copy()
+                print(f"✓ Using BM25 sample: {len(self.jobs):,} jobs")
+        else:
+            # Fallback: use first 50K or specified sample_size
+            target_size = self.sample_size if self.sample_size else 50000
+            target_size = min(target_size, len(all_jobs))
+            self.jobs = all_jobs.head(target_size).copy()
+            if self.verbose:
+                print(f"⚠️  Sample indices not found, using first {len(self.jobs):,} jobs")
 
         if self.verbose:
             print(f"✓ Loaded {len(self.jobs):,} jobs")
@@ -144,24 +155,43 @@ class SemanticJobSearch:
                     print("⚠️  Cache mismatch, recomputing...")
 
         # Compute embeddings
+        import sys
+
         if self.verbose:
             print("Generating embeddings...")
+        print(
+            f"[DEBUG] Starting embeddings generation for {len(self.jobs):,} jobs...",
+            file=sys.stderr,
+            flush=True,
+        )
 
         start_time = time.time()
 
         # Create search texts
         search_texts = self.jobs.apply(self._create_search_text, axis=1).tolist()
+        print(
+            f"[DEBUG] Search texts created, encoding now (may take 1-3 minutes)...",
+            file=sys.stderr,
+            flush=True,
+        )
 
-        # Encode
+        # Encode with progress bar
         if self.verbose:
             print(f"  Encoding {len(search_texts):,} job descriptions...")
+            print(f"  Batch size: 32, Estimated time: ~{len(search_texts)//32//10} seconds")
 
+        # Use larger batch size for faster encoding (if memory allows)
+        batch_size = 64 if len(search_texts) < 10000 else 32
+        
         self.embeddings = self.model.encode(
             search_texts,
-            show_progress_bar=self.verbose,
-            batch_size=32,
+            show_progress_bar=True,  # Always show for transparency
+            batch_size=batch_size,
             convert_to_numpy=True,
+            normalize_embeddings=True  # Normalize for faster cosine similarity
         )
+
+        print("[DEBUG] Encoding completed!", file=sys.stderr, flush=True)
 
         elapsed = time.time() - start_time
 

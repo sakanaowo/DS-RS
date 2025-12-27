@@ -98,11 +98,14 @@ def initialize_search_engine():
     print("[DEBUG] initialize_search_engine() called", file=sys.stderr, flush=True)
     try:
         with st.spinner(
-            "🚀 Loading search engine (this may take a minute first time)..."
+            "🚀 Loading search engine (matching BM25's 50K indexed jobs)..."
         ):
             print("[DEBUG] Creating HybridJobSearch...", file=sys.stderr, flush=True)
+            # IMPORTANT: sample_size=None will auto-match BM25's 50K sample
+            # semantic_search.py loads same sample_indices as BM25
             hybrid = HybridJobSearch(
-                sample_size=None, verbose=False  # Use full dataset
+                sample_size=None,  # Will use BM25's 50K sample
+                verbose=True  # Show progress
             )
             print("[DEBUG] Calling hybrid.initialize()...", file=sys.stderr, flush=True)
             hybrid.initialize()
