@@ -25,38 +25,60 @@ Hệ thống gợi ý việc làm thông minh sử dụng Vector Search và Sema
 
 ```
 DS-RS/
-├── data/
-│   ├── archive/           # Original dataset snapshot
-│   ├── raw/               # Working copy of data
-│   └── processed/         # Cleaned data (clean_jobs.parquet)
-├── models/                # Saved models & embeddings (~207MB for 50k jobs)
-│   ├── tfidf_vectorizer.pkl    # 181 KB
-│   ├── tfidf_matrix.npz        # 60 MB (50k × 5000 vocab)
-│   ├── minilm_embeddings.npy   # 73 MB (50k × 384 dims)
-│   ├── faiss_index.bin         # 73 MB (50k vectors)
-│   └── sample_indices.pkl      # 177 KB (50k indices)
-├── documents/
-│   ├── plan.md            # Main project specification & timeline
-│   ├── day2/              # Day 2 cleaning documentation
-│   ├── day3/              # Day 3 EDA documentation
-│   ├── day4/              # Day 4 model experiments
-│   └── day5/              # Day 5 evaluation reports
-├── notebooks/
-│   ├── 1_data_cleaning.ipynb     # Data audit & cleaning
-│   ├── 2_eda_visualization.ipynb # Exploratory analysis
-│   ├── 3_model_experiment.ipynb  # Model benchmarking
-│   └── 4_evaluation.ipynb        # System evaluation
-├── src/
+├── app.py                 # Main Streamlit UI (Hybrid Search)
+├── start.sh               # Quick start script
+├── requirements.txt       # Python dependencies
+│
+├── src/                   # Core modules
 │   ├── loader.py          # Data loading & enrichment
-│   ├── preprocessing.py   # Text cleaning & feature engineering
-│   ├── vector_store.py    # Vector management (TF-IDF, MiniLM, FAISS)
-│   └── recommender.py     # Recommendation engine with filters
-├── tests/
-│   └── test_recommender.py # Unit tests (20+ tests)
-├── reports/               # Generated reports (audit, EDA)
-├── images/                # Visualizations & evaluation charts
-├── app.py                 # Streamlit web application ⭐
-└── requirements.txt       # Python dependencies
+│   ├── recommender.py     # Main recommendation engine (BM25)
+│   ├── semantic_search.py # Semantic search with embeddings
+│   ├── hybrid_search.py   # Hybrid BM25 + Semantic search
+│   ├── evaluation.py      # IR metrics (P@K, NDCG, MRR, MAP)
+│   ├── vector_store.py    # TF-IDF/MiniLM/FAISS vector storage
+│   └── preprocessing.py   # Text cleaning utilities
+│
+├── scripts/               # Utility scripts
+│   ├── start_server.sh    # Start Streamlit server
+│   ├── start_with_progress.sh  # Start with progress tracking
+│   ├── generate_search_results.py  # Generate test results
+│   ├── generate_pseudo_labels.py   # Auto-labeling
+│   └── label_results.py   # Manual labeling interface
+│
+├── tests/                 # Test suites
+│   ├── test_evaluation.py # Evaluation metrics tests (26 tests)
+│   ├── test_bm25_search.py  # BM25 search tests
+│   ├── test_loader.py     # Data loader tests
+│   ├── test_fix.py        # Quick verification tests
+│   └── test_encoding_speed.py  # Performance benchmarks
+│
+├── documents/             # Documentation
+│   ├── QUICKSTART.md      # Quick start guide
+│   ├── DEBUG_GUIDE.md     # Debug & troubleshooting
+│   ├── ROOT_CAUSE_FIX.md  # Performance optimization
+│   ├── DAY2_BM25_SEARCH_SUMMARY.md  # Day 2 summary
+│   ├── DAY3_EVALUATION_SUMMARY.md   # Day 3 summary
+│   └── plan.md            # Original project plan
+│
+├── data/
+│   ├── raw/               # Original dataset (123K jobs)
+│   ├── processed/         # Cleaned data & embeddings
+│   └── test_queries.json  # Evaluation test queries (20)
+│
+├── models/                # Pre-built search indices (50K jobs)
+│   ├── tfidf_vectorizer.pkl    # 181 KB
+│   ├── tfidf_matrix.npz        # 60 MB
+│   ├── minilm_embeddings.npy   # 73 MB
+│   ├── faiss_index.bin         # 73 MB
+│   └── sample_indices.pkl      # 50K job indices
+│
+├── notebooks/             # Jupyter notebooks
+│   ├── 1_data_cleaning.ipynb
+│   ├── 2_eda_visualization.ipynb
+│   └── 3_model_experiment.ipynb
+│
+└── archive/               # Old versions & backups
+    └── old_apps/          # Previous app versions
 ```
 
 ## 🚀 Quick Start
@@ -64,8 +86,47 @@ DS-RS/
 ### 1. Install Dependencies
 
 ```bash
-conda activate base  # Or your preferred environment
+# Activate conda environment
+conda activate base
+
+# Install required packages
 pip install -r requirements.txt
+```
+
+**Required packages:**
+- pandas, numpy, pyarrow (data)
+- sentence-transformers (semantic search)
+- streamlit, plotly (UI)
+- rank-bm25, scikit-learn (search)
+- pytest (testing)
+
+### 2. Start Application
+
+**Option A: Quick Start (Recommended)**
+```bash
+./start.sh
+```
+
+**Option B: With Progress Tracking**
+```bash
+./scripts/start_with_progress.sh
+```
+
+**Option C: Manual Start**
+```bash
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate base
+streamlit run app.py --server.port 8501
+```
+
+### 3. Open Browser
+
+Once you see "✅ READY!" in the terminal:
+- Open http://localhost:8501
+- Try searches: "software engineer", "data scientist remote", etc.
+
+**⏳ First startup:** 4-6 minutes (generating embeddings for 50K jobs)  
+**⚡ Subsequent startups:** ~10 seconds (uses cached embeddings)
 ```
 
 **Key packages:**
