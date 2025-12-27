@@ -1,244 +1,90 @@
 """
-Streamlit UI for Job Recommendation System
-Day 7+ Implementation - Indeed.com Style Multi-Page Flow
+Streamlit UI for Job Search System
+
+Day 4 Implementation - Production UI
+
+Features:
+- Clean, modern interface
+- Search with filters
+- Hybrid search (BM25 + Semantic)
+- Pagination
+- Job details view
+- Performance metrics
 """
 
 import streamlit as st
 import pandas as pd
-from pathlib import Path
 import time
-import json
-from datetime import datetime
-from typing import Dict, List, Optional
-import plotly.express as px
-import plotly.graph_objects as go
-import logging
+import traceback
+import sys
+from typing import Optional, Dict
 
-from src.recommender import JobRecommender
+from src.hybrid_search import HybridJobSearch
 
-# Setup logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s",
-    handlers=[logging.FileHandler("logs/app_debug.log"), logging.StreamHandler()],
-)
-logger = logging.getLogger(__name__)
+# Debug logging
+print("[DEBUG] app.py starting...", file=sys.stderr, flush=True)
+
 
 # Page config
 st.set_page_config(
-    page_title="JobMatch - Find Your Perfect Job",
-    page_icon="💼",
+    page_title="Job Search Engine",
+    page_icon="🔍",
     layout="wide",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
 )
 
-# Initialize session state for navigation
-if "page" not in st.session_state:
-    st.session_state.page = "home"
-if "search_results" not in st.session_state:
-    st.session_state.search_results = None
-if "selected_job" not in st.session_state:
-    st.session_state.selected_job = None
-if "search_params" not in st.session_state:
-    st.session_state.search_params = {}
-
-# Custom CSS - Indeed.com inspired
+# Custom CSS
 st.markdown(
     """
 <style>
-    /* Global Styles */
-    .main {
-        background-color: #f5f5f5;
-    }
-    
-    /* Home Page Hero */
-    .hero-section {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 4rem 2rem;
-        border-radius: 15px;
-        text-align: center;
-        color: white;
-        margin-bottom: 2rem;
-    }
-    .hero-title {
+    .main-header {
         font-size: 3rem;
         font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    .hero-subtitle {
-        font-size: 1.3rem;
-        opacity: 0.9;
-    }
-    
-    /* Search Box */
-    .search-container {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        margin: 2rem 0;
-    }
-    
-    /* Job Card - List View (Indeed style) */
-    .job-card-compact {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        border: 1px solid #e0e0e0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .job-card-compact:hover {
-        border-color: #2557a7;
-        box-shadow: 0 4px 12px rgba(37,87,167,0.15);
-        transform: translateY(-2px);
-    }
-    .job-card-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        color: #2557a7;
-        margin-bottom: 0.5rem;
-        cursor: pointer;
-    }
-    .job-card-title:hover {
-        text-decoration: underline;
-    }
-    .job-card-company {
-        font-size: 1.1rem;
-        color: #2d2d2d;
-        margin-bottom: 0.3rem;
-    }
-    .job-card-location {
-        font-size: 0.95rem;
-        color: #595959;
-        margin-bottom: 0.8rem;
-    }
-    .job-card-snippet {
-        font-size: 0.9rem;
-        color: #595959;
-        line-height: 1.5;
-        margin-bottom: 0.8rem;
-    }
-    .job-card-meta {
-        font-size: 0.85rem;
-        color: #888;
-    }
-    
-    /* Job Detail Page */
-    .job-detail-header {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .job-detail-title {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #2d2d2d;
-        margin-bottom: 0.8rem;
-    }
-    .job-detail-company {
-        font-size: 1.3rem;
-        color: #2557a7;
-        margin-bottom: 0.5rem;
-    }
-    .job-detail-location {
-        font-size: 1.1rem;
-        color: #595959;
-        margin-bottom: 1rem;
-    }
-    .job-detail-body {
-        background: white;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    /* Badges */
-    .badge {
-        display: inline-block;
-        padding: 0.4rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-    .badge-salary {
-        background-color: #e8f5e9;
-        color: #2e7d32;
-        font-weight: 600;
-    }
-    .badge-type {
-        background-color: #e3f2fd;
-        color: #1565c0;
-    }
-    .badge-experience {
-        background-color: #f3e5f5;
-        color: #6a1b9a;
-    }
-    .badge-remote {
-        background-color: #fff3e0;
-        color: #e65100;
-    }
-    .badge-skill {
-        background-color: #f5f5f5;
-        color: #424242;
-        border: 1px solid #e0e0e0;
-    }
-    
-    /* Navigation */
-    .nav-button {
-        background-color: transparent;
-        border: none;
-        color: #2557a7;
-        cursor: pointer;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-    }
-    
-    /* Stats */
-    .stat-box {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 8px;
+        color: #1f77b4;
         text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: 2rem;
     }
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #2557a7;
-    }
-    .stat-label {
-        color: #595959;
-        font-size: 0.95rem;
-        margin-top: 0.5rem;
-    }
-    
-    /* Filter sidebar */
-    .filter-section {
-        background: white;
+    .job-card {
         padding: 1.5rem;
-        border-radius: 8px;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
         margin-bottom: 1rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        background-color: #f9f9f9;
     }
-    
-    /* Buttons */
-    .stButton>button {
-        background-color: #2557a7;
-        color: white;
-        border-radius: 6px;
-        padding: 0.6rem 1.5rem;
-        font-weight: 600;
-        border: none;
-        transition: all 0.3s ease;
+    .job-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
     }
-    .stButton>button:hover {
-        background-color: #1e4586;
-        box-shadow: 0 4px 12px rgba(37,87,167,0.3);
+    .job-company {
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 0.5rem;
+    }
+    .job-location {
+        font-size: 1rem;
+        color: #95a5a6;
+    }
+    .score-badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+    .score-high {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .score-medium {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+    .score-low {
+        background-color: #f8d7da;
+        color: #721c24;
     }
 </style>
 """,
@@ -246,793 +92,288 @@ st.markdown(
 )
 
 
-@st.cache_resource
-def load_recommender() -> JobRecommender:
-    """Load and cache the recommender system (50k indexed jobs, ~207 MB)."""
-    logger.info("=" * 80)
-    logger.info("LOADING RECOMMENDER SYSTEM")
-    logger.info("=" * 80)
-
-    with st.spinner(
-        "🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"
-    ):
-        start_time = time.time()
-        recommender = JobRecommender(auto_load=True)
-        load_time = time.time() - start_time
-
-        logger.info(f"✓ Recommender loaded in {load_time:.2f}s")
-        logger.info(
-            f"✓ Total jobs in dataset: {len(recommender.vector_store.job_data)}"
-        )
-        logger.info(
-            f"✓ Total indexed jobs: {len(recommender.vector_store.sample_indices)}"
-        )
-        logger.info(
-            f"✓ Available columns: {recommender.vector_store.job_data.columns.tolist()}"
-        )
-
-    st.success("✅ Loaded 50,000 indexed jobs successfully!")
-    return recommender
-
-
-@st.cache_data
-def get_top_locations(_recommender: JobRecommender, top_n: int = 50) -> List[str]:
-    """Get top N most common locations from job data."""
-    job_data = _recommender.vector_store.job_data
-    if "location" in job_data.columns:
-        # Get top cities
-        top_locs = job_data["location"].value_counts().head(top_n).index.tolist()
-        return ["Any"] + top_locs
-    return ["Any"]
-
-
-def log_query(
-    query: str, method: str, filters: Dict, num_results: int, search_time: float
-):
-    """Log search queries for analytics."""
-    logs_dir = Path("logs")
-    logs_dir.mkdir(exist_ok=True)
-
-    log_entry = {
-        "timestamp": datetime.now().isoformat(),
-        "query": query,
-        "method": method,
-        "filters": filters,
-        "num_results": num_results,
-        "search_time_ms": search_time,
-    }
-
-    log_file = logs_dir / "query_history.json"
-
-    # Append to log file
+@st.cache_resource(show_spinner=False)
+def initialize_search_engine():
+    """Initialize hybrid search engine (cached)."""
+    print("[DEBUG] initialize_search_engine() called", file=sys.stderr, flush=True)
     try:
-        if log_file.exists():
-            with open(log_file, "r") as f:
-                logs = json.load(f)
-        else:
-            logs = []
-
-        logs.append(log_entry)
-
-        with open(log_file, "w") as f:
-            json.dump(logs, f, indent=2)
-    except Exception as e:
-        st.warning(f"Could not save query log: {e}")
-
-
-def export_to_csv(results: pd.DataFrame, query: str, method: str, filters: Dict) -> str:
-    """Export results to CSV format."""
-    export_df = results.copy()
-
-    # Select key columns
-    export_cols = [
-        "title",
-        "company_name_x",
-        "location",
-        "work_type",
-        "experience_level",
-        "min_salary",
-        "max_salary",
-        "similarity_score",
-    ]
-    available_cols = [col for col in export_cols if col in export_df.columns]
-
-    export_df = export_df[available_cols]
-
-    # Create metadata header
-    metadata = f"# Search Query: {query}\n# Method: {method}\n# Filters: {filters}\n# Export Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
-
-    return metadata + export_df.to_csv(index=False)
-
-
-def export_to_json(
-    results: pd.DataFrame, query: str, method: str, filters: Dict, search_time: float
-) -> str:
-    """Export results to JSON format."""
-    export_data = {
-        "metadata": {
-            "query": query,
-            "method": method,
-            "filters": filters,
-            "export_time": datetime.now().isoformat(),
-            "search_time_ms": search_time,
-            "num_results": len(results),
-        },
-        "results": [],
-    }
-
-    for idx, (_, job) in enumerate(results.iterrows(), 1):
-        job_data = {
-            "rank": idx,
-            "title": job.get("title", "N/A"),
-            "company": job.get("company_name_x", "N/A"),
-            "location": job.get("location", "N/A"),
-            "work_type": job.get("work_type", "N/A"),
-            "experience_level": job.get("experience_level", "N/A"),
-            "salary_range": format_salary(job),
-            "similarity_score": (
-                float(job.get("similarity_score", 0))
-                if "similarity_score" in job.index
-                else 0
-            ),
-        }
-        export_data["results"].append(job_data)
-
-    return json.dumps(export_data, indent=2)
-
-
-def create_performance_comparison() -> go.Figure:
-    """Create performance comparison chart for 3 methods."""
-    methods_data = {
-        "Method": ["FAISS", "MiniLM", "TF-IDF"],
-        "Speed (ms)": [14.6, 13.3, 49.1],
-        "Precision@5 (%)": [93.3, 93.3, 86.7],
-    }
-
-    df = pd.DataFrame(methods_data)
-
-    fig = go.Figure()
-
-    # Add speed bars
-    fig.add_trace(
-        go.Bar(
-            name="Speed (ms)",
-            x=df["Method"],
-            y=df["Speed (ms)"],
-            marker_color="#3498db",
-            text=df["Speed (ms)"],
-            textposition="auto",
-            yaxis="y",
-        )
-    )
-
-    # Add precision line
-    fig.add_trace(
-        go.Scatter(
-            name="Precision@5 (%)",
-            x=df["Method"],
-            y=df["Precision@5 (%)"],
-            mode="lines+markers+text",
-            marker_color="#2ecc71",
-            line=dict(width=3),
-            text=df["Precision@5 (%)"],
-            textposition="top center",
-            yaxis="y2",
-        )
-    )
-
-    fig.update_layout(
-        title="Method Performance Comparison",
-        xaxis=dict(title="Search Method"),
-        yaxis=dict(title="Speed (ms)", side="left"),
-        yaxis2=dict(
-            title="Precision@5 (%)", overlaying="y", side="right", range=[80, 100]
-        ),
-        legend=dict(x=0.01, y=0.99),
-        height=350,
-        hovermode="x unified",
-    )
-
-    return fig
-
-
-def format_salary(row: pd.Series) -> str:
-    """Format salary information for display."""
-    if pd.notna(row.get("min_salary")) and pd.notna(row.get("max_salary")):
-        min_sal = f"${row['min_salary']:,.0f}"
-        max_sal = f"${row['max_salary']:,.0f}"
-        return f"{min_sal} - {max_sal}"
-    elif pd.notna(row.get("med_salary")):
-        return f"${row['med_salary']:,.0f}"
-    return "Not specified"
-
-
-def get_job_snippet(job: pd.Series, max_length: int = 200) -> str:
-    """Get a snippet of job description."""
-    desc = job.get("description", "") or job.get("clean_text", "") or ""
-    if len(desc) > max_length:
-        return desc[:max_length] + "..."
-    return desc
-
-
-def display_job_card_compact(
-    job: pd.Series, idx: int, matched_skills: Optional[List[str]] = None
-):
-    """Display a compact job card for list view (Indeed style)."""
-    job_id = job.name if hasattr(job, "name") else idx
-
-    # Create clickable card
-    with st.container():
-        col1, col2 = st.columns([4, 1])
-
-        with col1:
-            st.markdown(
-                f"""
-                <div class="job-card-compact">
-                    <div class="job-card-title">{job.get('title', 'N/A')}</div>
-                    <div class="job-card-company">{job.get('company_name_x', 'N/A')}</div>
-                    <div class="job-card-location">📍 {job.get('location', 'N/A')}</div>
-                    <div class="job-card-snippet">{get_job_snippet(job)}</div>
-                    <div class="job-card-meta">
-                        <span class="badge badge-type">{job.get('work_type', 'N/A')}</span>
-                        <span class="badge badge-salary">{format_salary(job)}</span>
-                """,
-                unsafe_allow_html=True,
+        with st.spinner(
+            "🚀 Loading search engine (this may take a minute first time)..."
+        ):
+            print("[DEBUG] Creating HybridJobSearch...", file=sys.stderr, flush=True)
+            hybrid = HybridJobSearch(
+                sample_size=None, verbose=False  # Use full dataset
             )
-
-            # Display matched skills
-            if matched_skills and len(matched_skills) > 0:
-                skills_html = "".join(
-                    [
-                        f'<span class="badge badge-skill">{skill}</span>'
-                        for skill in matched_skills[:3]
-                    ]
-                )
-                st.markdown(skills_html, unsafe_allow_html=True)
-
-            st.markdown("</div></div>", unsafe_allow_html=True)
-
-        with col2:
-            if st.button("View Details →", key=f"view_{idx}", use_container_width=True):
-                st.session_state.selected_job = job
-                st.session_state.page = "detail"
-                st.rerun()
+            print("[DEBUG] Calling hybrid.initialize()...", file=sys.stderr, flush=True)
+            hybrid.initialize()
+            print("[DEBUG] Initialization complete!", file=sys.stderr, flush=True)
+        return hybrid
+    except Exception as e:
+        print(f"[ERROR] Failed to initialize: {e}", file=sys.stderr, flush=True)
+        print(
+            f"[ERROR] Traceback: {traceback.format_exc()}", file=sys.stderr, flush=True
+        )
+        raise
 
 
-def display_job_detail(job: pd.Series, matched_skills: Optional[List[str]] = None):
-    """Display full job details page (Indeed style)."""
-    # Back button
-    if st.button("← Back to Results", key="back_to_results"):
-        st.session_state.page = "results"
-        st.session_state.selected_job = None
-        st.rerun()
+def format_score_badge(score: float) -> str:
+    """Format score as colored badge."""
+    if score >= 0.7:
+        css_class = "score-high"
+        label = "High Match"
+    elif score >= 0.4:
+        css_class = "score-medium"
+        label = "Medium Match"
+    else:
+        css_class = "score-low"
+        label = "Low Match"
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    return f'<span class="score-badge {css_class}">{label} ({score:.2f})</span>'
 
-    # Job header
+
+def display_job_card(job: pd.Series, rank: int):
+    """Display a job posting as a card."""
+    # Score badge
+    score_html = format_score_badge(job.get("hybrid_score", 0.0))
+
+    # Job card
     st.markdown(
         f"""
-        <div class="job-detail-header">
-            <div class="job-detail-title">{job.get('title', 'N/A')}</div>
-            <div class="job-detail-company">🏢 {job.get('company_name_x', 'N/A')}</div>
-            <div class="job-detail-location">📍 {job.get('location', 'N/A')}</div>
-            <div style="margin-top: 1rem;">
-                <span class="badge badge-type">{job.get('work_type', 'Full-time')}</span>
-                <span class="badge badge-experience">{job.get('experience_level', 'Not specified')}</span>
-                <span class="badge badge-salary">{format_salary(job)}</span>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # Remote badge
-    if pd.notna(job.get("remote_allowed")) and job.get("remote_allowed"):
-        st.markdown(
-            '<span class="badge badge-remote">🏠 Remote</span>', unsafe_allow_html=True
-        )
-
-    # Match score
-    if "similarity_score" in job.index and pd.notna(job.get("similarity_score")):
-        score = job["similarity_score"] * 100
-        st.markdown(
-            f'<div style="margin-top: 1rem;"><strong>Match Score:</strong> <span style="color: #2e7d32; font-size: 1.2rem; font-weight: bold;">{score:.1f}%</span></div>',
-            unsafe_allow_html=True,
-        )
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Job description
-    st.markdown('<div class="job-detail-body">', unsafe_allow_html=True)
-
-    st.markdown("### 📄 Job Description")
-    description = (
-        job.get("description") or job.get("clean_text") or "No description available."
-    )
-    st.markdown(description)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # Matched skills section
-    if matched_skills and len(matched_skills) > 0:
-        st.markdown("### 🎯 Your Matched Skills")
-        skills_html = "".join(
-            [
-                f'<span class="badge badge-skill" style="font-size: 1rem; padding: 0.6rem 1rem;">{skill}</span>'
-                for skill in matched_skills
-            ]
-        )
-        st.markdown(skills_html, unsafe_allow_html=True)
-        st.markdown("<br>", unsafe_allow_html=True)
-
-    # Additional information in columns
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown("#### 💼 Job Type")
-        st.write(job.get("work_type", "Not specified"))
-
-        st.markdown("#### 📊 Experience Level")
-        st.write(job.get("experience_level", "Not specified"))
-
-    with col2:
-        st.markdown("#### 💰 Salary Range")
-        st.write(format_salary(job))
-
-        st.markdown("#### 🏠 Work Location")
-        if pd.notna(job.get("remote_allowed")) and job.get("remote_allowed"):
-            st.write("Remote Allowed")
-        else:
-            st.write("On-site")
-
-    with col3:
-        st.markdown("#### 🏢 Company")
-        st.write(job.get("company_name_x", "N/A"))
-
-        st.markdown("#### 📍 Location")
-        st.write(job.get("location", "N/A"))
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Action buttons
-    st.markdown("<br>", unsafe_allow_html=True)
-    col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 3])
-
-    with col_btn1:
-        st.button("💾 Save Job", use_container_width=True)
-
-    with col_btn2:
-        st.button("📧 Apply Now", type="primary", use_container_width=True)
-
-
-def show_home_page(recommender: JobRecommender):
-    """Home page - Search interface (Indeed style)."""
-    # Hero section
-    st.markdown(
-        """
-        <div class="hero-section">
-            <div class="hero-title">Find Your Dream Job</div>
-            <div class="hero-subtitle">Search from 123,000+ jobs across multiple industries</div>
+    <div class="job-card">
+        <div class="job-title">#{rank}. {job['title']}</div>
+        <div class="job-company">🏢 {job.get('company_name', 'N/A')}</div>
+        <div class="job-location">📍 {job.get('location', 'N/A')}</div>
+        <div style="margin-top: 1rem;">
+            {score_html}
         </div>
-        """,
+    </div>
+    """,
         unsafe_allow_html=True,
     )
 
-    # Search box
-    st.markdown('<div class="search-container">', unsafe_allow_html=True)
+    # Expandable details
+    with st.expander("📄 View Details"):
+        col1, col2 = st.columns(2)
 
-    st.markdown("### 🔍 What job are you looking for?")
-
-    # Main search input
-    query = st.text_area(
-        "Job title, keywords, or skills",
-        placeholder="e.g., Python Developer, Data Scientist, Marketing Manager...",
-        height=100,
-        key="home_query",
-        label_visibility="collapsed",
-    )
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # Filters in expandable sections
-    col1, col2, col3 = st.columns(3)
-
-    # Get top locations
-    top_locations = get_top_locations(recommender, top_n=50)
-
-    with col1:
-        location = st.selectbox(
-            "📍 Location",
-            options=top_locations,
-            index=0,
-        )
-
-    with col2:
-        work_type = st.multiselect(
-            "💼 Job Type",
-            ["Full-time", "Part-time", "Contract", "Temporary", "Internship"],
-        )
-
-    with col3:
-        experience = st.multiselect(
-            "📊 Experience",
-            ["Entry level", "Mid-Senior level", "Associate", "Director", "Executive"],
-        )
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # Advanced filters
-    with st.expander("⚙️ Advanced Filters"):
-        col_a1, col_a2, col_a3 = st.columns(3)
-
-        with col_a1:
-            remote_filter = st.radio(
-                "🏠 Work Location", ["Any", "Remote Only", "On-site Only"], index=0
+        with col1:
+            st.write("**Work Type:**", job.get("formatted_work_type", "N/A"))
+            st.write(
+                "**Experience Level:**", job.get("formatted_experience_level", "N/A")
+            )
+            st.write(
+                "**Remote Allowed:**",
+                "✅ Yes" if job.get("remote_allowed") else "❌ No",
             )
 
-        with col_a2:
-            use_salary = st.checkbox("💰 Minimum Salary")
-            min_salary = None
-            if use_salary:
-                min_salary = st.number_input(
-                    "Minimum Salary ($)",
-                    min_value=0,
-                    max_value=500000,
-                    value=50000,
-                    step=5000,
-                )
+        with col2:
+            st.write("**BM25 Score:**", f"{job.get('bm25_score', 0):.3f}")
+            st.write("**Semantic Score:**", f"{job.get('semantic_score', 0):.3f}")
+            st.write("**Hybrid Score:**", f"{job.get('hybrid_score', 0):.3f}")
 
-        with col_a3:
-            search_method = st.selectbox(
-                "🔬 Search Method",
-                ["faiss", "minilm", "tfidf"],
-                index=0,
-                format_func=lambda x: {
-                    "faiss": "🚀 FAISS (Fastest)",
-                    "minilm": "🧠 MiniLM (Semantic)",
-                    "tfidf": "📝 TF-IDF (Keyword)",
-                }[x],
-            )
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    # Search button
-    col_search1, col_search2, col_search3 = st.columns([2, 1, 2])
-    with col_search2:
-        search_clicked = st.button(
-            "🔍 Find Jobs", type="primary", use_container_width=True
-        )
-
-    # Process search
-    if search_clicked and query:
-        logger.info("\n" + "=" * 80)
-        logger.info("NEW SEARCH REQUEST FROM FRONTEND")
-        logger.info("=" * 80)
-        logger.info(f"Query: '{query}'")
-
-        with st.spinner("🔎 Searching for jobs..."):
-            # Build filters
-            filters = {}
-            if location and location != "Any":
-                filters["location"] = location
-                logger.info(f"Filter - Location: {location}")
-            if work_type:
-                filters["work_type"] = (
-                    work_type[0] if len(work_type) == 1 else work_type
-                )
-                logger.info(f"Filter - Work Type: {filters['work_type']}")
-            if experience:
-                filters["experience_level"] = (
-                    experience[0] if len(experience) == 1 else experience
-                )
-                logger.info(f"Filter - Experience: {filters['experience_level']}")
-            if remote_filter == "Remote Only":
-                filters["remote_allowed"] = True
-                logger.info("Filter - Remote: True")
-            elif remote_filter == "On-site Only":
-                filters["remote_allowed"] = False
-                logger.info("Filter - Remote: False")
-            if min_salary:
-                filters["min_salary"] = min_salary
-                logger.info(f"Filter - Min Salary: ${min_salary:,}")
-
-            logger.info(f"Search Method: {search_method}")
-            logger.info(f"Total Filters Applied: {len(filters)}")
-            logger.info(f"Filters Dict: {filters}")
-
-            # Search
-            start_time = time.time()
-            try:
-                results = recommender.get_recommendations(
-                    query=query,
-                    method=search_method,
-                    top_k=20,
-                    filters=filters if filters else None,
-                )
-                search_time = (time.time() - start_time) * 1000
-
-                # Log query
-                log_query(query, search_method, filters, len(results), search_time)
-
-                # Save to session state
-                st.session_state.search_results = results
-                st.session_state.search_params = {
-                    "query": query,
-                    "method": search_method,
-                    "filters": filters,
-                    "search_time": search_time,
-                }
-                st.session_state.page = "results"
-                st.rerun()
-
-            except Exception as e:
-                st.error(f"❌ Search failed: {str(e)}")
-
-    elif search_clicked and not query:
-        st.warning("⚠️ Please enter a job title or keywords to search.")
-
-    # Stats section
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    st.markdown("### 📊 Our Platform")
-
-    job_data = recommender.vector_store.job_data
-    col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
-
-    with col_stat1:
-        st.markdown(
-            f"""
-            <div class="stat-box">
-                <div class="stat-number">{len(job_data):,}</div>
-                <div class="stat-label">Total Jobs</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with col_stat2:
-        unique_companies = (
-            job_data["company_name_x"].nunique()
-            if "company_name_x" in job_data.columns
-            else 0
-        )
-        st.markdown(
-            f"""
-            <div class="stat-box">
-                <div class="stat-number">{unique_companies:,}</div>
-                <div class="stat-label">Companies</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with col_stat3:
-        unique_locations = (
-            job_data["location"].nunique() if "location" in job_data.columns else 0
-        )
-        st.markdown(
-            f"""
-            <div class="stat-box">
-                <div class="stat-number">{unique_locations:,}</div>
-                <div class="stat-label">Locations</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    with col_stat4:
-        # Show indexed count instead of accuracy
-        indexed_count = (
-            len(recommender.vector_store.sample_indices)
-            if recommender.vector_store.sample_indices
-            else 50000
-        )
-        st.markdown(
-            f"""
-            <div class="stat-box">
-                <div class="stat-number">{indexed_count:,}</div>
-                <div class="stat-label">Indexed Jobs</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    # EDA Insights Section
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    st.markdown("### 📈 Market Insights")
-
-    # Top Industries & Skills
-    col_ins1, col_ins2 = st.columns(2)
-
-    with col_ins1:
-        st.markdown("#### 🏢 Top Industries")
-        if "industries" in job_data.columns:
-            # Parse industries (comma-separated)
-            all_industries = []
-            for ind_str in job_data["industries"].dropna():
-                if isinstance(ind_str, str):
-                    all_industries.extend([i.strip() for i in ind_str.split(",")])
-
-            if all_industries:
-                from collections import Counter
-
-                top_industries = Counter(all_industries).most_common(5)
-                for idx, (industry, count) in enumerate(top_industries, 1):
-                    pct = (count / len(job_data)) * 100
-                    st.markdown(f"**{idx}.** {industry} — {count:,} jobs ({pct:.1f}%)")
-        else:
-            st.info("Industry data not available")
-
-    with col_ins2:
-        st.markdown("#### 💡 Top Skills")
-        if "skills" in job_data.columns:
-            # Parse skills (comma-separated)
-            all_skills = []
-            for skill_str in job_data["skills"].dropna():
-                if isinstance(skill_str, str):
-                    all_skills.extend([s.strip() for s in skill_str.split(",")])
-
-            if all_skills:
-                from collections import Counter
-
-                top_skills = Counter(all_skills).most_common(5)
-                for idx, (skill, count) in enumerate(top_skills, 1):
-                    pct = (count / len(job_data)) * 100
-                    st.markdown(f"**{idx}.** {skill} — {count:,} jobs ({pct:.1f}%)")
-        else:
-            st.info("Skills data not available")
-
-    # Salary & Work Type Distribution
-    st.markdown("<br>", unsafe_allow_html=True)
-    col_ins3, col_ins4 = st.columns(2)
-
-    with col_ins3:
-        st.markdown("#### 💰 Salary Insights")
-        if "salary_median" in job_data.columns:
-            salary_data = job_data["salary_median"].dropna()
-            if len(salary_data) > 0:
-                avg_salary = salary_data.mean()
-                median_salary = salary_data.median()
-                st.markdown(f"**Average:** ${avg_salary:,.0f}/year")
-                st.markdown(f"**Median:** ${median_salary:,.0f}/year")
-                st.markdown(
-                    f"**Range:** ${salary_data.min():,.0f} - ${salary_data.max():,.0f}"
-                )
-            else:
-                st.info("Salary data limited")
-        else:
-            st.info("Salary data not available")
-
-    with col_ins4:
-        st.markdown("#### 🔄 Work Type Distribution")
-        if "formatted_work_type" in job_data.columns:
-            work_type_counts = job_data["formatted_work_type"].value_counts().head(4)
-            for work_type, count in work_type_counts.items():
-                pct = (count / len(job_data)) * 100
-                st.markdown(f"**{work_type}:** {count:,} ({pct:.1f}%)")
-        else:
-            st.info("Work type data not available")
-
-
-def show_results_page():
-    """Results page - Job listings (Indeed style)."""
-    results = st.session_state.search_results
-    params = st.session_state.search_params
-
-    if results is None or len(results) == 0:
-        st.warning("No results found. Please try a different search.")
-        if st.button("← Back to Home"):
-            st.session_state.page = "home"
-            st.rerun()
-        return
-
-    # Header with back button and stats
-    col_back, col_stats = st.columns([1, 4])
-
-    with col_back:
-        if st.button("← New Search", key="back_home"):
-            st.session_state.page = "home"
-            st.rerun()
-
-    with col_stats:
-        st.markdown(
-            f"""
-            <div style="padding: 1rem; background: white; border-radius: 8px; margin-bottom: 1rem;">
-                <strong>🔍 "{params.get('query', '')}"</strong> • 
-                Found <strong>{len(results)}</strong> jobs in <strong>{params.get('search_time', 0):.1f}ms</strong>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-    # Export buttons
-    col_exp1, col_exp2, col_exp3, col_exp4 = st.columns([3, 1, 1, 6])
-
-    with col_exp2:
-        csv_data = export_to_csv(
-            results, params["query"], params["method"], params.get("filters", {})
-        )
-        st.download_button(
-            label="📄 Export CSV",
-            data=csv_data,
-            file_name=f"jobs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv",
-            use_container_width=True,
-        )
-
-    with col_exp3:
-        json_data = export_to_json(
-            results,
-            params["query"],
-            params["method"],
-            params.get("filters", {}),
-            params["search_time"],
-        )
-        st.download_button(
-            label="📋 Export JSON",
-            data=json_data,
-            file_name=f"jobs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-            mime="application/json",
-            use_container_width=True,
-        )
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # Display job cards
-    query_keywords = set(params["query"].lower().split())
-
-    for idx, (_, job) in enumerate(results.iterrows(), 1):
-        # Find matched skills
-        matched_skills = []
-        if "clean_text" in job.index and pd.notna(job["clean_text"]):
-            job_text = job["clean_text"].lower()
-            matched_skills = [kw for kw in query_keywords if kw in job_text]
-
-        display_job_card_compact(job, idx, matched_skills)
-
-
-def show_detail_page():
-    """Job detail page (Indeed style)."""
-    job = st.session_state.selected_job
-    params = st.session_state.search_params
-
-    if job is None:
-        st.warning("No job selected.")
-        if st.button("← Back to Home"):
-            st.session_state.page = "home"
-            st.rerun()
-        return
-
-    # Find matched skills from search query
-    matched_skills = []
-    if params and "query" in params:
-        query_keywords = set(params["query"].lower().split())
-        if "clean_text" in job.index and pd.notna(job["clean_text"]):
-            job_text = job["clean_text"].lower()
-            matched_skills = [kw for kw in query_keywords if kw in job_text]
-
-    display_job_detail(job, matched_skills)
+        # Description
+        st.write("**Description:**")
+        description = job.get("description", "No description available")
+        if len(description) > 500:
+            description = description[:500] + "..."
+        st.write(description)
 
 
 def main():
-    """Main application with page routing."""
-    # Load recommender
+    """Main Streamlit app."""
+    print("[DEBUG] main() called", file=sys.stderr, flush=True)
+
+    # Header
     try:
-        recommender = load_recommender()
+        print("[DEBUG] Rendering header...", file=sys.stderr, flush=True)
+        st.markdown(
+            '<div class="main-header">🔍 Job Search Engine</div>',
+            unsafe_allow_html=True,
+        )
+        st.markdown("---")
+        print("[DEBUG] Header rendered", file=sys.stderr, flush=True)
     except Exception as e:
-        st.error(f"❌ Failed to load recommendation system: {str(e)}")
+        print(f"[ERROR] Header rendering failed: {e}", file=sys.stderr, flush=True)
+        st.error(f"Header error: {e}")
+
+    # Initialize search engine
+    try:
+        print("[DEBUG] Initializing search engine...", file=sys.stderr, flush=True)
+        hybrid = initialize_search_engine()
+        print(
+            f"[DEBUG] Search engine initialized: {type(hybrid)}",
+            file=sys.stderr,
+            flush=True,
+        )
+    except Exception as e:
+        print(f"[ERROR] Search engine init failed: {e}", file=sys.stderr, flush=True)
+        print(
+            f"[ERROR] Traceback: {traceback.format_exc()}", file=sys.stderr, flush=True
+        )
+        st.error(f"❌ Failed to initialize search engine: {str(e)}")
+        st.error(f"Details: {traceback.format_exc()}")
         st.stop()
 
-    # Page routing
-    if st.session_state.page == "home":
-        show_home_page(recommender)
-    elif st.session_state.page == "results":
-        show_results_page()
-    elif st.session_state.page == "detail":
-        show_detail_page()
-
-
-def main_old_sidebar():
-    """OLD CODE - Keep for reference, will be removed."""
     # Sidebar - Filters
+    print("[DEBUG] Rendering sidebar...", file=sys.stderr, flush=True)
+    st.sidebar.header("🎯 Search Filters")
+
+    # Search query
+    print("[DEBUG] Rendering search input...", file=sys.stderr, flush=True)
+    query = st.text_input(
+        "🔎 Search Query",
+        placeholder="e.g., Python developer, Data scientist, Product manager",
+        help="Enter keywords to search for jobs",
+    )
+    print(f"[DEBUG] Query: '{query}'", file=sys.stderr, flush=True)
+
+    # Advanced filters
+    with st.sidebar.expander("🔧 Advanced Filters", expanded=False):
+        location = st.text_input("📍 Location", placeholder="e.g., New York, Remote")
+
+        work_types = st.multiselect(
+            "💼 Work Type",
+            options=["Full-time", "Part-time", "Contract", "Internship"],
+            default=[],
+        )
+
+        experience_levels = st.multiselect(
+            "📊 Experience Level",
+            options=["Entry level", "Mid-Senior level", "Director", "Executive"],
+            default=[],
+        )
+
+        remote_only = st.checkbox("🏠 Remote Only", value=False)
+
+    # Search settings
+    with st.sidebar.expander("⚙️ Search Settings", expanded=False):
+        top_k = st.slider(
+            "Number of results", min_value=5, max_value=50, value=10, step=5
+        )
+
+        st.write("**Score Weights:**")
+        bm25_weight = st.slider(
+            "BM25 Weight", min_value=0.0, max_value=1.0, value=0.7, step=0.1
+        )
+        semantic_weight = 1.0 - bm25_weight
+        st.write(f"Semantic Weight: {semantic_weight:.1f}")
+
+    # Update weights
+    hybrid.bm25_weight = bm25_weight
+    hybrid.semantic_weight = semantic_weight
+
+    # Search button
+    search_clicked = st.button("🔍 Search", type="primary", use_container_width=True)
+
+    # Perform search
+    if search_clicked or query:
+        if not query or query.strip() == "":
+            st.warning("⚠️ Please enter a search query")
+            st.stop()
+
+        # Build filters
+        filters = {}
+        if location:
+            filters["location"] = location
+        if work_types:
+            filters["work_type"] = work_types
+        if experience_levels:
+            filters["experience_level"] = experience_levels
+        if remote_only:
+            filters["remote_allowed"] = True
+
+        # Search
+        with st.spinner("🔎 Searching..."):
+            start_time = time.time()
+
+            try:
+                results = hybrid.search(
+                    query=query, top_k=top_k, filters=filters if filters else None
+                )
+
+                search_time = time.time() - start_time
+
+            except Exception as e:
+                st.error(f"❌ Search failed: {str(e)}")
+                st.stop()
+
+        # Display results
+        st.markdown("---")
+
+        # Stats
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric("📊 Results Found", len(results))
+        with col2:
+            st.metric("⏱️ Search Time", f"{search_time:.2f}s")
+        with col3:
+            avg_score = results["hybrid_score"].mean() if len(results) > 0 else 0
+            st.metric("📈 Avg Score", f"{avg_score:.2f}")
+        with col4:
+            st.metric(
+                "🎯 BM25/Semantic", f"{int(bm25_weight*100)}/{int(semantic_weight*100)}"
+            )
+
+        st.markdown("---")
+
+        # Results
+        if len(results) == 0:
+            st.warning("😔 No results found. Try different keywords or filters.")
+        else:
+            st.subheader(f"🎯 Top {len(results)} Results")
+
+            # Display jobs
+            for idx, (_, job) in enumerate(results.iterrows(), start=1):
+                display_job_card(job, idx)
+
+            # Download results
+            st.markdown("---")
+            st.download_button(
+                label="📥 Download Results (CSV)",
+                data=results.to_csv(index=False),
+                file_name=f"job_search_{query[:30]}_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv",
+            )
+
+    else:
+        # Welcome message
+        print("[DEBUG] Displaying welcome message...", file=sys.stderr, flush=True)
+        st.info(
+            """
+        👋 **Welcome to the Job Search Engine!**
+        
+        This system uses **hybrid search** combining:
+        - **BM25** (70%): Fast keyword matching
+        - **Semantic Search** (30%): Understands synonyms and context
+        
+        **How to use:**
+        1. Enter your search query (e.g., "Python developer")
+        2. Optionally add filters (location, work type, etc.)
+        3. Click "Search" to find relevant jobs
+        
+        **Tips:**
+        - Use natural language: "machine learning engineer remote"
+        - Try synonyms: "developer" and "engineer" work similarly
+        - Adjust weights in settings for different search strategies
+        """
+        )
+        print("[DEBUG] Welcome message displayed", file=sys.stderr, flush=True)
 
 
 if __name__ == "__main__":
-    main()
+    print("[DEBUG] __main__ block executing...", file=sys.stderr, flush=True)
+    try:
+        main()
+        print("[DEBUG] main() completed successfully", file=sys.stderr, flush=True)
+    except Exception as e:
+        print(
+            f"[FATAL ERROR] Unhandled exception in main: {e}",
+            file=sys.stderr,
+            flush=True,
+        )
+        print(
+            f"[FATAL ERROR] Traceback: {traceback.format_exc()}",
+            file=sys.stderr,
+            flush=True,
+        )
+        st.error(f"💥 Fatal error: {e}")
+        st.code(traceback.format_exc())
