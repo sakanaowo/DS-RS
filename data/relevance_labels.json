@@ -1,0 +1,2810 @@
+{
+  "metadata": {
+    "created_date": "2024-12-27",
+    "labeling_method": "automated_heuristic",
+    "note": "Pseudo-labels generated for demo purposes. Use manual labels in production.",
+    "total_labels": 200
+  },
+  "labels": [
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3902859966,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "ALTA IT Services, LLC",
+      "bm25_score": 34.872025050787165,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3905312135,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Software Engineer / Principal Software Engineer",
+      "company": "Northrop Grumman",
+      "bm25_score": 34.501066619782854,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3906258335,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Software Engineer 3",
+      "company": "IDR, Inc.",
+      "bm25_score": 34.285607269238525,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3904361224,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "Tailored Management",
+      "bm25_score": 34.20694254135593,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3884811061,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "LemaTech LLC",
+      "bm25_score": 34.07347225848129,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3888484347,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "EVONA",
+      "bm25_score": 34.03677742253359,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3885114238,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "None",
+      "bm25_score": 33.91016920732213,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3905339036,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "Ford Motor Company",
+      "bm25_score": 33.63562696297751,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3888036174,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "Dice",
+      "bm25_score": 33.59844847997811,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "job_id": 3904371120,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Software Engineer",
+      "company": "hackajob",
+      "bm25_score": 33.5327110329191,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3904725790,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "RTeams",
+      "bm25_score": 47.842041610167236,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3904718097,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "BizCoder AI",
+      "bm25_score": 47.805511276931696,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3905292347,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "Brand Advance // SSP",
+      "bm25_score": 47.677316316239704,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3905254737,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "Paragon IT Professionals",
+      "bm25_score": 47.44756940270695,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3906092917,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "One to One Health",
+      "bm25_score": 47.36328900074138,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3905875688,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "hackajob",
+      "bm25_score": 47.01133204526106,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3905875652,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "hackajob",
+      "bm25_score": 47.01133204526106,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3903482860,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "LS Solutions",
+      "bm25_score": 46.180805571577714,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3904971548,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "Skywalk Global",
+      "bm25_score": 45.99489892035612,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "job_id": 3901342614,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Data Scientist",
+      "company": "Insight Global",
+      "bm25_score": 45.63472102676282,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3903846713,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "OSW",
+      "bm25_score": 39.13138079815969,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3903844606,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "Sigmaways Inc",
+      "bm25_score": 38.95453746227286,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3906221930,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "BlueScope Buildings North America, Inc.",
+      "bm25_score": 38.56710849927448,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3902951319,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "BlueScope Buildings North America, Inc.",
+      "bm25_score": 38.56429406640366,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3901934987,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "Apex Systems",
+      "bm25_score": 37.838818158148825,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3902361064,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "TriNetX",
+      "bm25_score": 37.78623636111265,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3902869138,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "Apex Systems",
+      "bm25_score": 37.76308663677879,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3884842905,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "IBM",
+      "bm25_score": 37.657897623555115,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3902320466,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "Allied Telesis",
+      "bm25_score": 37.558670341553544,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "job_id": 3895204787,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Product Manager",
+      "company": "Jowat Corporation",
+      "bm25_score": 37.2518929188997,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3904577809,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Apex Service Partners",
+      "bm25_score": 39.41243642698367,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3901669994,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Fin",
+      "bm25_score": 38.94305193233465,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3901806062,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "HumanEdge",
+      "bm25_score": 38.77528793900449,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3901348280,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "None",
+      "bm25_score": 38.64404416800306,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3903865722,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Fastwyre Broadband",
+      "bm25_score": 38.58789980407788,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3885112281,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "The Dog Stop",
+      "bm25_score": 38.587513252195166,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3902876843,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Ultimate Staffing",
+      "bm25_score": 38.50652989266575,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3891001480,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "UNLEADED",
+      "bm25_score": 38.49035459155095,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3904990606,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Friday Services",
+      "bm25_score": 38.39550600336508,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "job_id": 3895539104,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Miga Solutions",
+      "bm25_score": 38.29932526308,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3887467925,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Impact Property Solutions",
+      "bm25_score": 36.739356979960334,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3906083225,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "CONMED Corporation",
+      "bm25_score": 35.656562413870795,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3906084477,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "CONMED Corporation",
+      "bm25_score": 35.656562413870795,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3902809401,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Clarity Connections, Inc",
+      "bm25_score": 35.43631123132934,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3902861740,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Essentra",
+      "bm25_score": 35.432655464691656,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3906255209,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Champion Windows & Home Exteriors",
+      "bm25_score": 35.287414436201836,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3900948672,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Lionsden Enterprise",
+      "bm25_score": 35.15387467770449,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3900065707,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Avtale Solutions",
+      "bm25_score": 35.06655055165334,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3894939843,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "CONMED Corporation",
+      "bm25_score": 34.98201506675555,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "job_id": 3901388904,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Sales Representative",
+      "company": "Insight Global",
+      "bm25_score": 34.78816597750514,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3899540477,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "Cloud Resources LLC",
+      "bm25_score": 57.447690335118104,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3901627750,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "BlackSky",
+      "bm25_score": 57.06177013681797,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3887589439,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "Jobot",
+      "bm25_score": 56.54690960298343,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3888480924,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "Stat Duck",
+      "bm25_score": 56.223647159453336,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3902371576,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "Indotronix Avani Group",
+      "bm25_score": 56.189262347684654,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3894965635,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "Searchability®",
+      "bm25_score": 55.751176351584874,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3902350998,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Machine Learning Specialist",
+      "company": "None",
+      "bm25_score": 55.07792202628738,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3902859964,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "System One",
+      "bm25_score": 54.47834752434095,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3902860521,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "System One",
+      "bm25_score": 54.47834752434095,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "job_id": 3894958297,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Machine Learning Engineer",
+      "company": "BoldPine",
+      "bm25_score": 53.76186211743094,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3905242128,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "IntePros",
+      "bm25_score": 49.463806258237454,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3901944288,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "NES Fircroft",
+      "bm25_score": 47.27966966908139,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3905334113,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "TalentBurst, an Inc 5000 company",
+      "bm25_score": 46.880250075799374,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3886885739,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "Software Methods, Incorporated",
+      "bm25_score": 46.27429884910394,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3884432610,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "Aya Healthcare",
+      "bm25_score": 46.23015454597399,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3902918604,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "AquantUs, LLC",
+      "bm25_score": 46.1158836845901,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3887897352,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "Solomon Page",
+      "bm25_score": 45.825259114550654,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3902845606,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Program Financial Analyst",
+      "company": "Sealing Technologies, a Parsons Company",
+      "bm25_score": 45.05812286923052,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3906223563,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Senior Financial Analyst",
+      "company": "ICX Group",
+      "bm25_score": 44.89767141542447,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "job_id": 3888029694,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Financial Analyst",
+      "company": "Tree Top Staffing LLC",
+      "bm25_score": 44.71944246941183,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3905874204,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Marketing Analytics Specialist",
+      "company": "Henry Schein",
+      "bm25_score": 51.480209666079176,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3901903054,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Business Analytics Manager",
+      "company": "Freemont Yardley Search",
+      "bm25_score": 37.15606392427816,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3905887769,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Director of Analytics",
+      "company": "Fingerpaint Group",
+      "bm25_score": 34.42746616403902,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3905290835,
+      "rank": 4,
+      "relevance": 0,
+      "title": "Director eCommerce Insights & Analytics",
+      "company": "The Connors Group",
+      "bm25_score": 33.57070810451944,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3905819298,
+      "rank": 5,
+      "relevance": 0,
+      "title": "Director of Partnership Distribution Analytics",
+      "company": "Plymouth Rock Assurance",
+      "bm25_score": 30.46921632547486,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3901632153,
+      "rank": 6,
+      "relevance": 0,
+      "title": "Director/Sr. Director, Insights and Analytics",
+      "company": "Invivyd",
+      "bm25_score": 30.234765598348996,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3901960681,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Digital Marketing Specialist",
+      "company": "Fox Racing",
+      "bm25_score": 29.22003581701017,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3891005253,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Marketing Analyst",
+      "company": "Kelly",
+      "bm25_score": 27.57877184142634,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3905249756,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Search Marketing Analyst",
+      "company": "Modco Media",
+      "bm25_score": 27.313598862750986,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "job_id": 3905363385,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "BLUETTI",
+      "bm25_score": 26.676012628823607,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3904429947,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Sales Business Development",
+      "company": "New Solution Healthcare™",
+      "bm25_score": 49.76918626635229,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3889280744,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Sales Business Development",
+      "company": "Apex Consulting",
+      "bm25_score": 49.53286213263536,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3901377504,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Business Development Sales",
+      "company": "Valvoline Global Operations",
+      "bm25_score": 48.55707325604375,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3885109791,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Sales Business Development Executive",
+      "company": "Sell Savings™",
+      "bm25_score": 46.26585028796666,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3898162306,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Business Development Representative - Sales",
+      "company": "EBM Software",
+      "bm25_score": 45.32109775356342,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3901952169,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Business Development Sales Representative",
+      "company": "Amplify Recruiting",
+      "bm25_score": 45.3076511871897,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3894875325,
+      "rank": 7,
+      "relevance": 1,
+      "title": "ServiceNow Sales Business Development",
+      "company": "Kyndryl",
+      "bm25_score": 44.7468030991087,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3891245999,
+      "rank": 8,
+      "relevance": 1,
+      "title": "SVP Sales & Business Development",
+      "company": "Confidential",
+      "bm25_score": 44.636107398210214,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3891250186,
+      "rank": 9,
+      "relevance": 1,
+      "title": "SVP Sales & Business Development",
+      "company": "Confidential",
+      "bm25_score": 44.636107398210214,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "job_id": 3792245483,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Sales Business Development Executive",
+      "company": "Dimerco Express Group",
+      "bm25_score": 44.23822936188034,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3901476687,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Director Project Management",
+      "company": "Confidential",
+      "bm25_score": 40.70484942659053,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3900959228,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Project Management Intern",
+      "company": "AESC US",
+      "bm25_score": 40.44400470236535,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3900959777,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Project Management Specialist",
+      "company": "Acro Service Corp",
+      "bm25_score": 40.06948649463745,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3904954303,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Project Lead, Project Management",
+      "company": "ICE",
+      "bm25_score": 39.51672922691757,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3906252232,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Project Management Supervisor",
+      "company": "AVI-SPL",
+      "bm25_score": 38.09594369278101,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3901641228,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Project Management Associate",
+      "company": "Hyundai Motor Group Metaplant America (HMGMA)",
+      "bm25_score": 38.019827330695186,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3904428281,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Director, Project Management",
+      "company": "JLL",
+      "bm25_score": 37.96193705074163,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3884431542,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Project Management Director",
+      "company": "Service Corporation International",
+      "bm25_score": 37.94503242642507,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3904388706,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Project Management Officer",
+      "company": "GOAL SET COACH, LLC",
+      "bm25_score": 37.80784032622725,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "job_id": 3902787129,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Project Management Specialist",
+      "company": "VT Group (VTG)",
+      "bm25_score": 37.80386463934375,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3895543598,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Staff Software Engineer",
+      "company": "Motion Recruitment",
+      "bm25_score": 24.344417990289788,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3904383775,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Senior Software Engineer (Mobile), Bitkey",
+      "company": "Block",
+      "bm25_score": 19.505021243094717,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3905327602,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Senior Software Engineer (iOS), Bitkey",
+      "company": "Block",
+      "bm25_score": 19.505021243094717,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3906245868,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Staff Software Engineer (Mobile), Bitkey",
+      "company": "Block",
+      "bm25_score": 19.377082969076927,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3894584488,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Data infrastructure engineer",
+      "company": "Watershed",
+      "bm25_score": 15.420051503020678,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3905324952,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Senior Software Engineer, Cash Commerce",
+      "company": "Cash App",
+      "bm25_score": 13.68551749510905,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3904385473,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Senior Software Engineer, Cash Commerce",
+      "company": "Block",
+      "bm25_score": 13.68551749510905,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3904383777,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Principal Software Engineer, Cash Commerce",
+      "company": "Cash App",
+      "bm25_score": 13.65791608647741,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3904951227,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Android Software Engineer, Core and Monetization",
+      "company": "Dice",
+      "bm25_score": 13.6495976100341,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "job_id": 3898162921,
+      "rank": 10,
+      "relevance": 1,
+      "title": "GCP Data Engineer",
+      "company": "Qualitative Financials",
+      "bm25_score": 12.321276864761183,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3898164926,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Data Analyst",
+      "company": "Vervent",
+      "bm25_score": 38.413545171860065,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3905364674,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Research Data Analyst",
+      "company": "University of California, San Francisco",
+      "bm25_score": 36.37021422376591,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3899511988,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Data Analyst",
+      "company": "GLDS",
+      "bm25_score": 34.57008420320034,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3885823900,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Data Programmer Analyst",
+      "company": "TEKsystems",
+      "bm25_score": 32.21307681841188,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3901389257,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Business Data Analyst",
+      "company": "Catapult Solutions Group",
+      "bm25_score": 32.141966444443,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3884441052,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Design Data Analyst",
+      "company": "A.G. KUNZ LLC",
+      "bm25_score": 30.96031884939265,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3901374122,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Senior Data Analyst",
+      "company": "Autodesk",
+      "bm25_score": 30.85010943365379,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3904385276,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Planner/ Data Sales Analyst",
+      "company": "24 Seven Talent",
+      "bm25_score": 30.427015076529365,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3904394509,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Entry Level Data Analyst",
+      "company": "CCS Global Tech",
+      "bm25_score": 29.265119975414663,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "job_id": 3894900178,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Lead Workday Analyst",
+      "company": "Tech Firefly",
+      "bm25_score": 27.439409487006667,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3901806062,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "HumanEdge",
+      "bm25_score": 38.77528793900449,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3902876843,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Ultimate Staffing",
+      "bm25_score": 38.50652989266575,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3904990606,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Friday Services",
+      "bm25_score": 38.39550600336508,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3902952318,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Engage Partners Inc.",
+      "bm25_score": 37.35601116082642,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3906093761,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "ForceBrands",
+      "bm25_score": 36.82531387249115,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3891071533,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "24 Seven Talent",
+      "bm25_score": 36.80381598368902,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3901982497,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "7-Eleven Hawaiʻi, Inc.",
+      "bm25_score": 36.79578721521977,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3902355897,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Dimond Connect",
+      "bm25_score": 36.70098384029274,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3885828039,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Marketing Manager ( SAAS)",
+      "company": "CyberCoders",
+      "bm25_score": 36.387776828122014,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "job_id": 3903828114,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Marketing Manager",
+      "company": "Adobe",
+      "bm25_score": 35.89941259189951,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3901362740,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Senior Product Manager",
+      "company": "Endeavor",
+      "bm25_score": 33.82723341100055,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3905252084,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Sr. Product Manager",
+      "company": "None",
+      "bm25_score": 33.550706965743856,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3901965548,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Data Product Manager",
+      "company": "Hillview Consulting Solutions",
+      "bm25_score": 31.583854817688163,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3889169820,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Technical Product Manager",
+      "company": "Talent Job Seeker",
+      "bm25_score": 31.54335899263534,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3901966424,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Sr. Product Manager - Technical",
+      "company": "Venmo",
+      "bm25_score": 30.78680814383085,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3895813108,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Sr Staff Product Manager",
+      "company": "The Trade Desk",
+      "bm25_score": 29.493274650036653,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3887887867,
+      "rank": 7,
+      "relevance": 0,
+      "title": "Product Success Manager (for product managers who want to guide other product teams)",
+      "company": "Aha!",
+      "bm25_score": 28.28988883797509,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3901945036,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Senior Product Manager - HTS Connect",
+      "company": "Hopper",
+      "bm25_score": 28.029813713550677,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3902356107,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Senior Product Manager - HTS Connect",
+      "company": "Hopper",
+      "bm25_score": 28.029813713550677,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "job_id": 3887889781,
+      "rank": 10,
+      "relevance": 0,
+      "title": "Sr. Product Success Manager (for product managers who want to guide other product teams)",
+      "company": "Aha!",
+      "bm25_score": 27.609689273053178,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3901943474,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "None",
+      "bm25_score": 29.87148315915273,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3886482658,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "None",
+      "bm25_score": 29.8376919225706,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3887881469,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "None",
+      "bm25_score": 29.708793594484664,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3898162197,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "None",
+      "bm25_score": 29.42881536502355,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3901632907,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "Concord Technologies",
+      "bm25_score": 29.390252923372195,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3905852920,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "AVS Life Sciences LLC (acquisition of MWA and C&A Consulting)",
+      "bm25_score": 28.954307803168916,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3905658806,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "Novaris Search",
+      "bm25_score": 28.857330154985405,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3901459057,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "Exclusive Networks",
+      "bm25_score": 28.81252164413438,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3894920417,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "THAT Agency",
+      "bm25_score": 28.321464439633047,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "job_id": 3886880228,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Account Manager",
+      "company": "Movement Search & Delivery",
+      "bm25_score": 28.30134277082493,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3885864801,
+      "rank": 1,
+      "relevance": 0,
+      "title": "Corporate Account Manager",
+      "company": "Porter Group",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3905329335,
+      "rank": 2,
+      "relevance": 0,
+      "title": "Store Driver",
+      "company": "Advance Auto Parts",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3906258355,
+      "rank": 3,
+      "relevance": 0,
+      "title": "Workforce Development Consultant II",
+      "company": "1199SEIU Benefit and Pension Funds",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3902756366,
+      "rank": 4,
+      "relevance": 0,
+      "title": "Software Engineer (Engineer Software 4) - 18587",
+      "company": "Mission Technologies, a division of HII",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3903824958,
+      "rank": 5,
+      "relevance": 0,
+      "title": "Senior GRC Specialist, Customer Trust",
+      "company": "JFrog",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3902349199,
+      "rank": 6,
+      "relevance": 0,
+      "title": "Bilingual Teacher (Spanish)",
+      "company": "Evergreen Bilingual Learning Center",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3901496931,
+      "rank": 7,
+      "relevance": 0,
+      "title": "Capital Markets PM",
+      "company": "Matlen Silver",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3906258331,
+      "rank": 8,
+      "relevance": 0,
+      "title": "Restaurant Assistant General Manager - Asheville Regional Airport",
+      "company": "Paradies Lagardère",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3904958401,
+      "rank": 9,
+      "relevance": 0,
+      "title": "Ultrasonographer | Radiology (R) - Contract - Mids",
+      "company": "HealthTrust Workforce Solutions",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "job_id": 3904420639,
+      "rank": 10,
+      "relevance": 0,
+      "title": "Accounting Specialist - Accounting Initiatives (Hybrid/Remote)",
+      "company": "Prudential Financial",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3906225654,
+      "rank": 1,
+      "relevance": 0,
+      "title": "Program Director for Medical Assistant (Full-time)",
+      "company": "Sterling St James LLC",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3887595509,
+      "rank": 2,
+      "relevance": 0,
+      "title": "Human Resource Generalist",
+      "company": "Specialty1 Partners",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3903848435,
+      "rank": 3,
+      "relevance": 0,
+      "title": "Senior Visual & Communications Designer",
+      "company": "Pursuit",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3903848434,
+      "rank": 4,
+      "relevance": 0,
+      "title": "Inside Sales Representative",
+      "company": "Pregis",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3903848433,
+      "rank": 5,
+      "relevance": 0,
+      "title": "Material Handler (4006)",
+      "company": "Pregis",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3906225651,
+      "rank": 6,
+      "relevance": 0,
+      "title": "ETL Application Support Analyst",
+      "company": "Motion Recruitment",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3903848431,
+      "rank": 7,
+      "relevance": 0,
+      "title": "Hotel Maintenance",
+      "company": "Driftwood Hospitality Management",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3903848429,
+      "rank": 8,
+      "relevance": 0,
+      "title": "Line Cook",
+      "company": "Driftwood Hospitality Management",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3903848428,
+      "rank": 9,
+      "relevance": 0,
+      "title": "Quality Assurance Supervisor",
+      "company": "BBSI",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "job_id": 3906225649,
+      "rank": 10,
+      "relevance": 0,
+      "title": "Account Services Collections Specialist - Remote - Nevada",
+      "company": "Nordstrom",
+      "bm25_score": 0.0,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3901954604,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Engineer 1",
+      "company": "New Jersey Performing Arts Center",
+      "bm25_score": 16.854311222318437,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3904952080,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Network Engineer / Infrastructure Engineer / Systems Engineer",
+      "company": "Dice",
+      "bm25_score": 16.396165846704598,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3900077928,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Engineer",
+      "company": "Tata Consultancy Services",
+      "bm25_score": 16.14095032541641,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3903840116,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Mechatronics Engineer",
+      "company": "Verto People",
+      "bm25_score": 15.93900724934617,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3904099933,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Engineer 3",
+      "company": "SSOE Group",
+      "bm25_score": 15.745843173654926,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3903469911,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Engineer I",
+      "company": "The Mosaic Company",
+      "bm25_score": 15.726171044406641,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3884831624,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Data Engineer",
+      "company": "Piper Companies",
+      "bm25_score": 15.615054112580829,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3902841913,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Data Engineer",
+      "company": "Piper Companies",
+      "bm25_score": 15.615054112580829,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3902785699,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Engineer",
+      "company": "Tata Consultancy Services",
+      "bm25_score": 15.569298637686696,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "job_id": 3900945805,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Electrical Engineer",
+      "company": "Zeektek",
+      "bm25_score": 15.54418176402418,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3905848695,
+      "rank": 1,
+      "relevance": 1,
+      "title": "Work from Home - Sales",
+      "company": "Miller Family Agency",
+      "bm25_score": 66.65168607424364,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3902937983,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Work From Home Opportunity",
+      "company": "None",
+      "bm25_score": 63.97380806728566,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3901942122,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Work From Home Sales Associate",
+      "company": "Workling",
+      "bm25_score": 62.95352796894944,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3901943134,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Work From Home Sales Associate",
+      "company": "Workling",
+      "bm25_score": 62.95352796894944,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3905219453,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Work From Home Account Director ",
+      "company": "INDI Staffing Services",
+      "bm25_score": 62.34091194226483,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3891082609,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Work From Home Account Director",
+      "company": "Workling",
+      "bm25_score": 61.02659166105214,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3905663766,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Sales Associate Work From Home",
+      "company": "RemoteWorker US",
+      "bm25_score": 60.82713383730737,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3905663765,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Sales Associate Work From Home",
+      "company": "RemoteWorker US",
+      "bm25_score": 60.82713383730737,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3905658775,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Work From Home Remote Sales Specialist",
+      "company": "Talentify.io",
+      "bm25_score": 60.01060688819767,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "job_id": 3905675105,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Work From Home – Online Retail Sales",
+      "company": "RemoteWorker UK",
+      "bm25_score": 59.8891535146325,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3894918114,
+      "rank": 1,
+      "relevance": 1,
+      "title": "ENTRY LEVEL BDR + Junior Account Executive",
+      "company": "Rootstack",
+      "bm25_score": 48.53775250564554,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3889702650,
+      "rank": 2,
+      "relevance": 1,
+      "title": "Entry Level Management",
+      "company": "HSO Executives Inc.",
+      "bm25_score": 46.57465227078174,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3905292857,
+      "rank": 3,
+      "relevance": 1,
+      "title": "Junior Data Entry Specialist",
+      "company": "None",
+      "bm25_score": 46.54060681948184,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3904361599,
+      "rank": 4,
+      "relevance": 1,
+      "title": "Junior Level E-Discovery",
+      "company": "Solomon Page",
+      "bm25_score": 42.174007353353396,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3904945286,
+      "rank": 5,
+      "relevance": 1,
+      "title": "Junior Level Engineer",
+      "company": "Actalent",
+      "bm25_score": 42.16805942903291,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3894604764,
+      "rank": 6,
+      "relevance": 1,
+      "title": "Entry Level Accounting Role",
+      "company": "Creative Financial Staffing (CFS)",
+      "bm25_score": 41.73825565925089,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3901678419,
+      "rank": 7,
+      "relevance": 1,
+      "title": "Entry level Leadership",
+      "company": "Globe Life American Income Division: Moore Organization",
+      "bm25_score": 41.58078918900364,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3898162145,
+      "rank": 8,
+      "relevance": 1,
+      "title": "Entry Level Management",
+      "company": "Vincero",
+      "bm25_score": 41.57694975602769,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3901677505,
+      "rank": 9,
+      "relevance": 1,
+      "title": "Entry Level IT",
+      "company": "Oxford Solutions",
+      "bm25_score": 41.20792347827762,
+      "labeling_method": "automated_heuristic"
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "job_id": 3888490113,
+      "rank": 10,
+      "relevance": 1,
+      "title": "Entry Level Marketing",
+      "company": "New Acquisitions",
+      "bm25_score": 41.176745450078755,
+      "labeling_method": "automated_heuristic"
+    }
+  ]
+}

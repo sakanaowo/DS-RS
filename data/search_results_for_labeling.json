@@ -1,0 +1,4260 @@
+{
+  "metadata": {
+    "created_date": "2024-12-27",
+    "total_queries": 20,
+    "total_results": 200,
+    "search_engine": "BM25JobSearch",
+    "top_k": 10
+  },
+  "results": [
+    {
+      "query_id": 1,
+      "query": "Software Engineer",
+      "filters": null,
+      "category": "job_titles",
+      "description": "Common tech job title",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3902859966,
+          "title": "Software Engineer",
+          "company_name": "ALTA IT Services, LLC",
+          "city": "Chantilly",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 34.872025050787165,
+          "description_snippet": "Software Engineer\n\nTop Secret clearance Chantilly, VA\n\nDirect Hire\n\nEnd Client: Booz Allen/ NRO \n\nThe Software Engineer participates in a development team that uses agile methodologies combined with m...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Computer and Network Security",
+            "Software Development",
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3905312135,
+          "title": "Software Engineer / Principal Software Engineer",
+          "company_name": "Northrop Grumman",
+          "city": "Melbourne",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 34.501066619782854,
+          "description_snippet": "At Northrop Grumman, our employees have incredible opportunities to work on revolutionary systems that impact people's lives around the world today, and for generations to come. Our pioneering and inv...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Defense and Space Manufacturing"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3906258335,
+          "title": "Software Engineer 3",
+          "company_name": "IDR, Inc.",
+          "city": "Lenexa",
+          "state": "KS",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 34.285607269238525,
+          "description_snippet": "IDR is seeking a fully remote Software Engineer to join one of our largest clients. If you are looking for an opportunity to join a large organization and work within an ever-growing team-oriented cul...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3904361224,
+          "title": "Software Engineer",
+          "company_name": "Tailored Management",
+          "city": "Redmond",
+          "state": "WA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 34.20694254135593,
+          "description_snippet": "Software Engineer IIILocation: Redmond WADuration: 12 months contract extensions/conversion based on performanceStart: Targeting May 2024Benefits: Medical, dental, vision, disability + PTO & sick time...",
+          "skills": [
+            "Information Technology",
+            "Engineering"
+          ],
+          "industries": [
+            "Technology, Information and Media"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3884811061,
+          "title": "Software Engineer",
+          "company_name": "LemaTech LLC",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Part-time",
+          "remote_allowed": true,
+          "bm25_score": 34.07347225848129,
+          "description_snippet": "Company DescriptionThe Web Developers | LemaTech LLC is a local Las Vegas web design and software development company with over 10 years of experience in the industry. We prioritize providing a great ...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3888484347,
+          "title": "Software Engineer",
+          "company_name": "EVONA",
+          "city": "Long Beach",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 34.03677742253359,
+          "description_snippet": "📍Location: Long Beach, California💲Salary: Up to $250k (Negotiable)\nWe’re exclusively partnered with one of L.A’s most exciting space start-ups, on a mission to launch commercial space-stations by 2025...",
+          "skills": [
+            "Engineering",
+            "Design",
+            "Research"
+          ],
+          "industries": [
+            "Defense and Space Manufacturing",
+            "Space Research and Technology",
+            "Aviation and Aerospace Component Manufacturing"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3885114238,
+          "title": "Software Engineer",
+          "company_name": "None",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 33.91016920732213,
+          "description_snippet": "Company Description\n \nFinancial investment services utilizing cloud, AI, and decentralized ledger currencies.\n\n Role Description\n \nThis is a full-time remote role for a Software Engineer. The Software...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 8,
+          "job_id": 3905339036,
+          "title": "Software Engineer",
+          "company_name": "Ford Motor Company",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 33.63562696297751,
+          "description_snippet": "Job Description\n\nWe are the movers of the world and the makers of the future. We get up every day, roll up our sleeves and build a better world -- together. At Ford, we’re all a part of something bigg...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Motor Vehicle Manufacturing"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3888036174,
+          "title": "Software Engineer",
+          "company_name": "Dice",
+          "city": "East Norwich",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 33.59844847997811,
+          "description_snippet": "Dice is the leading career destination for tech experts at every stage of their careers. Our client, Jobot, is seeking the following. Apply via Dice today!\n\nManufacturing Company in New York looking f...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3904371120,
+          "title": "Software Engineer",
+          "company_name": "hackajob",
+          "city": "McLean",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 33.5327110329191,
+          "description_snippet": "hackajob has partnered with a management consulting company looking for a Software Engineer responsible for supporting the development of systems and capabilities centered on the company’s comprehensi...",
+          "skills": [
+            "Consulting"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 2,
+      "query": "Data Scientist",
+      "filters": null,
+      "category": "job_titles",
+      "description": "Popular analytics role",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3904725790,
+          "title": "Data Scientist",
+          "company_name": "RTeams",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 47.842041610167236,
+          "description_snippet": "\nData Scientist - Remote, USA\nAbout RTeams:RTeams is a groundbreaking technology company dedicated to leveraging data science and artificial intelligence to revolutionize how businesses operate and ma...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3904718097,
+          "title": "Data Scientist",
+          "company_name": "BizCoder AI",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 47.805511276931696,
+          "description_snippet": "Data Scientist - Remote, USA\nAbout Bizcoder:Bizcoder is at the cutting edge of technology, leveraging data to drive innovation, efficiency, and growth for businesses across the United States. With a c...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3905292347,
+          "title": "Data Scientist",
+          "company_name": "Brand Advance // SSP",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Part-time",
+          "remote_allowed": true,
+          "bm25_score": 47.677316316239704,
+          "description_snippet": "Are you passionate about harnessing the power of data to drive positive change and create impact? Do you thrive in a dynamic, forward-thinking environment that celebrates diversity and inclusivity? If...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Technology, Information and Media"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3905254737,
+          "title": "Data Scientist",
+          "company_name": "Paragon IT Professionals",
+          "city": "Des Moines",
+          "state": "IA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": true,
+          "bm25_score": 47.44756940270695,
+          "description_snippet": "Paragon IT Professionals is seeking a Data Scientist for a long contract opportunity. Preference is to be near Des Moines, IA, but a remote situation will work for this role. \nProject Scope:Next-gener...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Farming",
+            "Biotechnology Research",
+            "Wholesale Raw Farm Products"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3906092917,
+          "title": "Data Scientist",
+          "company_name": "One to One Health",
+          "city": "Chattanooga",
+          "state": "TN",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 47.36328900074138,
+          "description_snippet": "Company DescriptionOne to One Health is an integrated workforce healthcare provider that serves over a quarter million lives nationwide. Our focus is to provide high-quality care through personal, pro...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3905875688,
+          "title": "Data Scientist",
+          "company_name": "hackajob",
+          "city": "McLean",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 47.01133204526106,
+          "description_snippet": "hackajob transforms your job search into a personalized experience, where you're in control. We align your skills, salary expectations, and location preferences to deliver tailored opportunities. Expe...",
+          "skills": [
+            "Engineering",
+            "Other",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "Business Consulting and Services",
+            "Government Relations Services"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3905875652,
+          "title": "Data Scientist",
+          "company_name": "hackajob",
+          "city": "McLean",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 47.01133204526106,
+          "description_snippet": "hackajob transforms your job search into a personalized experience, where you're in control. We align your skills, salary expectations, and location preferences to deliver tailored opportunities. Expe...",
+          "skills": [
+            "Engineering",
+            "Other",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "Business Consulting and Services",
+            "Government Relations Services"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3903482860,
+          "title": "Data Scientist",
+          "company_name": "LS Solutions",
+          "city": "Johnston",
+          "state": "IA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 46.180805571577714,
+          "description_snippet": "Role: Data ScientistLocation: Johnston, IA, 50131 (Hybrid)Duration: 8+ months Contract\nJob Description:We need a Data Scientist with demonstrated expertise in training and evaluating transformers such...",
+          "skills": [
+            "Other"
+          ],
+          "industries": [
+            "Pharmaceutical Manufacturing"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3904971548,
+          "title": "Data Scientist",
+          "company_name": "Skywalk Global",
+          "city": "Des Moines",
+          "state": "IA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": true,
+          "bm25_score": 45.99489892035612,
+          "description_snippet": "Project Scope and Brief Description:\nNext-generation Artificial Intelligence for Genomics will use more complex datatypes and be applied to new crop contexts. We need a Data Scientist with demonstrate...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3901342614,
+          "title": "Data Scientist",
+          "company_name": "Insight Global",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 45.63472102676282,
+          "description_snippet": "Insight Global Health is searching for a Data Scientist to join our growing team supporting the top hospital system in Pittsburgh, PA. This team is supporting research related to improvement of patien...",
+          "skills": [
+            "Other"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 3,
+      "query": "Product Manager",
+      "filters": null,
+      "category": "job_titles",
+      "description": "Business role",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3903846713,
+          "title": "Product Manager",
+          "company_name": "OSW",
+          "city": "Arlington",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 39.13138079815969,
+          "description_snippet": "We are on the hunt for an experienced Product Manager to join the team based in our Arlington office!\nThe Product Manager is responsible for managing and driving new and existing products within Compa...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Wholesale",
+            "Services for Renewable Energy"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3903844606,
+          "title": "Product Manager",
+          "company_name": "Sigmaways Inc",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 38.95453746227286,
+          "description_snippet": "We are looking for an experienced Product Manager who is passionate about building products that customers love. You will join a dynamic and fast-paced environment and work with cross-functional teams...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Banking",
+            "Financial Services",
+            "Investment Banking"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3906221930,
+          "title": "Product Manager",
+          "company_name": "BlueScope Buildings North America, Inc.",
+          "city": "Kansas City",
+          "state": "MO",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.56710849927448,
+          "description_snippet": "Company Description\n\nFor over 100 years, BlueScope continues to build on our reputation of quality brands and products, leading technology and a customer-first spirit. Through our global brands, we ar...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Construction"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3902951319,
+          "title": "Product Manager",
+          "company_name": "BlueScope Buildings North America, Inc.",
+          "city": "Kansas City",
+          "state": "MO",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.56429406640366,
+          "description_snippet": "Company Description\n\nFor over 100 years, BlueScope continues to build on our reputation of quality brands and products, leading technology and a customer-first spirit. Through our global brands, we ar...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Construction"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3901934987,
+          "title": "Product Manager",
+          "company_name": "Apex Systems",
+          "city": "Lone Tree",
+          "state": "CO",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 37.838818158148825,
+          "description_snippet": "The Service Cloud & Channel Management Product Manager will be a part of a team that drives world class service experiences for retail clients. You will play a critical role in supporting strategy for...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3902361064,
+          "title": "Product Manager",
+          "company_name": "TriNetX",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 37.78623636111265,
+          "description_snippet": "POSITION TITLE: PRODUCT MANAGER, HEALTHCARE SYSTEMSLOCATION: REMOTE US  This position reports to our global HQ in Cambridge, MA and is fully remote within the US. Travel is expected when needed and lo...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Hospitals and Health Care",
+            "Data Infrastructure and Analytics"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3902869138,
+          "title": "Product Manager",
+          "company_name": "Apex Systems",
+          "city": "Denver Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 37.76308663677879,
+          "description_snippet": "Product Manager Location: Greenwood Village, CO - onsite 3 days per week Duration: Contract through the end of year to start, potential to extend or convert Compliance: Background Check required \nJob ...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Telecommunications",
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3884842905,
+          "title": "Product Manager",
+          "company_name": "IBM",
+          "city": "San Jose",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 37.657897623555115,
+          "description_snippet": "677963BR\n\nIntroduction\n\nAt IBM, work is more than a job - it's a calling: To build. To design. To code. To consult. To think along with clients and sell. To make markets. To invent. To collaborate. No...",
+          "skills": [
+            "Product Management"
+          ],
+          "industries": [
+            "Computer Hardware Manufacturing"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3902320466,
+          "title": "Product Manager",
+          "company_name": "Allied Telesis",
+          "city": "San Francisco Bay Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 37.558670341553544,
+          "description_snippet": "Company Description Allied Telesis is a leading provider of network communications solutions with over 35 years of experience. We focus on developing and producing intelligent and managed systems that...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Computer Networking"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3895204787,
+          "title": "Product Manager",
+          "company_name": "Jowat Corporation",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 37.2518929188997,
+          "description_snippet": "With over 100 years of corporate development and experience, Jowat is a world-wide leader in the manufacture of industrial adhesives. We have a highly motivated team of 1400 employees and are proud to...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Chemical Manufacturing"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 4,
+      "query": "Marketing Manager",
+      "filters": null,
+      "category": "job_titles",
+      "description": "Marketing leadership",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3904577809,
+          "title": "Marketing Manager",
+          "company_name": "Apex Service Partners",
+          "city": "Orange County",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 39.41243642698367,
+          "description_snippet": "About Apex Service Partners: Apex Service Partners – California/Hawaii is expanding its marketing team. We are seeking a seasoned Marketing Manager with comprehensive expertise in traditional and digi...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Consumer Services"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3901669994,
+          "title": "Marketing Manager",
+          "company_name": "Fin",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Part-time",
+          "remote_allowed": true,
+          "bm25_score": 38.94305193233465,
+          "description_snippet": "Are you passionate about skincare and excited about the prospect of revolutionizing the way people approach their daily routines? Look no further - Fin is looking for a part-time Marketing Manager to ...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Technology, Information and Media"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3901806062,
+          "title": "Marketing Manager",
+          "company_name": "HumanEdge",
+          "city": "New York City Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 38.77528793900449,
+          "description_snippet": "Opportunity Description\nWorld Leading Publisher located downtown is in need of a Marketing Manager for a contract role. This is a fantastic opportunity working with a dynamic team. Qualified candidate...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Book and Periodical Publishing"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3901348280,
+          "title": "Marketing Manager",
+          "company_name": "None",
+          "city": "Shelton",
+          "state": "CT",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.64404416800306,
+          "description_snippet": "ICG Marketing ManagerThe Innovative CPA Group is one of the fastest growing firms in Connecticut, and we are looking for an enthusiastic, positive and upbeat Marketing Manager to join our team. The In...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Accounting"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3903865722,
+          "title": "Marketing Manager",
+          "company_name": "Fastwyre Broadband",
+          "city": "Overland Park",
+          "state": "KS",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.58789980407788,
+          "description_snippet": "The Fastwyre Regional Marketing Manager is responsible for devising and executing\nregionalized marketing strategies, collaborating with sales teams to analyze regional\nmarketing dynamics and tailor ac...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Telecommunications"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3885112281,
+          "title": "Marketing Manager",
+          "company_name": "The Dog Stop",
+          "city": "Glenshaw",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.587513252195166,
+          "description_snippet": "About Us:If you’re looking to be at the forefront of one of the most rewarding and growing franchise concepts in the pet care industry, look no further than The Dog Stop, one of Inc 5000’s Fastest Gro...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Marketing Services"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3902876843,
+          "title": "Marketing Manager",
+          "company_name": "Ultimate Staffing",
+          "city": "Thousand Oaks",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.50652989266575,
+          "description_snippet": "Marketing Manager- Direct HireThousand Oak, CA $100K-$100k/year + 401k,Medical, Dental, Vision, Bonus Monday - Friday 8am- 5pm  Summary:This position will report to the head of Sales and Marketing. Th...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3891001480,
+          "title": "Marketing Manager",
+          "company_name": "UNLEADED",
+          "city": "Houston",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.49035459155095,
+          "description_snippet": "The ideal candidate will be responsible for planning, organizing, and executing programs that generate new prospects and advance existing opportunities for the sales team. You will develop tactics des...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3904990606,
+          "title": "Marketing Manager",
+          "company_name": "Friday Services",
+          "city": "Greeneville",
+          "state": "TN",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.39550600336508,
+          "description_snippet": "Marketing Manager – B2B Location:Greenville, TNSalary: $80,000 - $90,000/year\nOur client is a global pioneer in technology and innovation. With a relentless commitment to pushing the boundaries and tr...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Aviation and Aerospace Component Manufacturing"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3895539104,
+          "title": "Marketing Manager",
+          "company_name": "Miga Solutions",
+          "city": "Plymouth",
+          "state": "MN",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.29932526308,
+          "description_snippet": "Why Work Here?This is an opportunity to work with an exceptional team who shares a passion for making a positive impact in healthcare. As a growing company offering innovative and impactful solutions ...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Hospitals and Health Care",
+            "Medical Equipment Manufacturing"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 5,
+      "query": "Sales Representative",
+      "filters": null,
+      "category": "job_titles",
+      "description": "Sales role",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3887467925,
+          "title": "Sales Representative",
+          "company_name": "Impact Property Solutions",
+          "city": "Phoenix",
+          "state": "AZ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 36.739356979960334,
+          "description_snippet": "Description:\nJob Posting Description\nSince opening our doors in 1988, Impact Property Solutions has served thousands of multifamily properties for over 30 years. Today, management companies and proper...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Construction"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3906083225,
+          "title": "Sales Representative",
+          "company_name": "CONMED Corporation",
+          "city": "Buffalo",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.656562413870795,
+          "description_snippet": "CONMED is seeking a Sales Representative to add to our highly talented Advanced Surgical sales force! Here is what we do, how we do it, who you will work with, and our why behind what we do here at CO...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Medical Equipment Manufacturing"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3906084477,
+          "title": "Sales Representative",
+          "company_name": "CONMED Corporation",
+          "city": "Portland",
+          "state": "OR",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.656562413870795,
+          "description_snippet": "CONMED is seeking a Sales Representative to add to our highly talented Advanced Surgical sales force! Here is what we do, how we do it, who you will work with, and our why behind what we do here at CO...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Medical Equipment Manufacturing"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3902809401,
+          "title": "Sales Representative",
+          "company_name": "Clarity Connections, Inc",
+          "city": "Jacksonville",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.43631123132934,
+          "description_snippet": "Join our team as a Sales Representative!\nAre you an ambitious individual ready to kickstart your career in business development? Look no further! We are actively seeking a Sales Representative to join...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Retail",
+            "Marketing Services"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3902861740,
+          "title": "Sales Representative",
+          "company_name": "Essentra",
+          "city": "Greater Chicago Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.432655464691656,
+          "description_snippet": "Essentra is adding a Sales Representative based in the Chicagoland area to our Access Hardware sales team. As the Sales Representative for the East region, you will be responsible for increasing sales...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Plastics Manufacturing",
+            "Manufacturing"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3906255209,
+          "title": "Sales Representative",
+          "company_name": "Champion Windows & Home Exteriors",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.287414436201836,
+          "description_snippet": "Overview\n\n Champion Window - Sales Representative \n\n Leads Provided / No Cold Calling / Paid Training \n\n Why Become a Champion Sales Representative? \n\n Unlimited earning potential – $100,000 - $200,00...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Construction"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3900948672,
+          "title": "Sales Representative",
+          "company_name": "Lionsden Enterprise",
+          "city": "Honolulu",
+          "state": "HI",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.15387467770449,
+          "description_snippet": "Location: Honolulu, HawaiiIndustry: Marketing and Sales ManagementOpening: Sales RepresentativeCompensation: Paid weekly, $18-$22 hourly pay, paid weekly with On-Target-Yearly Earnings between $52,000...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Marketing Services"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3900065707,
+          "title": "Sales Representative",
+          "company_name": "Avtale Solutions",
+          "city": "Miami",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.06655055165334,
+          "description_snippet": "Job Summary:We are seeking a highly motivated and results-driven Sales Representative to join our team. The Sales Representative will be responsible for selling our products to potential clients. This...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Business Consulting and Services"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3894939843,
+          "title": "Sales Representative",
+          "company_name": "CONMED Corporation",
+          "city": "Oklahoma City",
+          "state": "OK",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 34.98201506675555,
+          "description_snippet": "CONMED is seeking a Sales Representative to add to our highly talented Advanced Surgical sales force! Here is what we do, how we do it, who you will work with, and our why behind what we do here at CO...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Medical Equipment Manufacturing"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3901388904,
+          "title": "Sales Representative",
+          "company_name": "Insight Global",
+          "city": "Dallas",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 34.78816597750514,
+          "description_snippet": "Duration: FTE - PermLocation: 75244 Dallas, TXPay Range: Base salary - 40K-45K (Standard sales role in which most of their money comes from commission)Exact compensation may vary based on several fact...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Retail Office Equipment"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 6,
+      "query": "machine learning python",
+      "filters": {
+        "skills": [
+          "IT"
+        ]
+      },
+      "category": "skills_based",
+      "description": "Tech skills combination",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3899540477,
+          "title": "Machine Learning Engineer",
+          "company_name": "Cloud Resources LLC",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 57.447690335118104,
+          "description_snippet": "Company Description\n Cloud Resources is a highly motivated and results-oriented consulting firm specializing in next-generation Software Development, Technology, and Cloud Services. We provide top-qua...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3901627750,
+          "title": "Machine Learning Engineer",
+          "company_name": "BlackSky",
+          "city": "Herndon",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 57.06177013681797,
+          "description_snippet": "Machine Learning Engineer\nAbout Us:BlackSky is a real-time intelligence company. We own and operate the world's most advanced space-based intelligence platform and provide customers satellite imagery,...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Defense and Space Manufacturing"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3887589439,
+          "title": "Machine Learning Engineer",
+          "company_name": "Jobot",
+          "city": "Springfield",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 56.54690960298343,
+          "description_snippet": "Want to learn more about this role and Jobot? Click our Jobot logo and follow our LinkedIn page!\n\nJob details\n\nGovernment Contractor Seeks Talented Machine Learning Engineer\n\nThis Jobot Job is hosted ...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3888480924,
+          "title": "Machine Learning Engineer",
+          "company_name": "Stat Duck",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Internship",
+          "remote_allowed": true,
+          "bm25_score": 56.223647159453336,
+          "description_snippet": "About UsStat Duck is revolutionizing the sports experience. We're a passionate team dedicated to building intelligent systems that blend expert analysis, cutting-edge machine learning, and real-time o...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Gambling Facilities and Casinos"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3902371576,
+          "title": "Machine Learning Engineer",
+          "company_name": "Indotronix Avani Group",
+          "city": "Pennsylvania",
+          "state": "",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": true,
+          "bm25_score": 56.189262347684654,
+          "description_snippet": "Position: Machine Learning EngineerIntended length of assignment: 6 Months to Hire Location: Hybrid - 3 in office, 2 remote1st preference Tech Hubs (Pittsburgh, PA, Birmingham, Alabama, Dallas, TX, Cl...",
+          "skills": [
+            "Information Technology",
+            "Business Development",
+            "Engineering"
+          ],
+          "industries": [
+            "Banking",
+            "Financial Services",
+            "Insurance"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3894965635,
+          "title": "Machine Learning Engineer",
+          "company_name": "Searchability®",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 55.751176351584874,
+          "description_snippet": "Machine Learning Engineer\nWE’RE LOOKING FOR A MACHINE LEARNING ENGINEER TO BECOME AN INSTRUMENTAL PART OF OUR NEXT PHASE OF GROWTH!\nMachine Learning EngineerHybrid in Austin$200,000 - $250,000 Dependi...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3902350998,
+          "title": "Machine Learning Specialist",
+          "company_name": "None",
+          "city": "New York City Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 55.07792202628738,
+          "description_snippet": "Are you an Engineer? Researcher? Do you have a PhD?Do you have ➡ Machine Learning and ➡ Python Programming experience in a ➡ Scientific setting? If so, I'd love to review your resume! Excellent base s...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 8,
+          "job_id": 3902859964,
+          "title": "Machine Learning Engineer",
+          "company_name": "System One",
+          "city": "Phoenix",
+          "state": "AZ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 54.47834752434095,
+          "description_snippet": "Please send me your details (resume, work authorization status, current location, availability and compensation expectations) directly to: denis.potapenko@systemone.com for an immediate consideration....",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Computer and Network Security",
+            "Software Development",
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3902860521,
+          "title": "Machine Learning Engineer",
+          "company_name": "System One",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 54.47834752434095,
+          "description_snippet": "Please send me your details (resume, work authorization status, current location, availability and compensation expectations) directly to: denis.potapenko@systemone.com for an immediate consideration....",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Computer and Network Security",
+            "Software Development",
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3894958297,
+          "title": "Machine Learning Engineer",
+          "company_name": "BoldPine",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 53.76186211743094,
+          "description_snippet": "Company Description\nAt the cutting edge of the financial sector, BoldPine is an early-stage startup, specializing in predictive modeling with advanced artificial intelligence. Our mission is to harnes...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Investment Management"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 7,
+      "query": "financial analyst excel",
+      "filters": {
+        "skills": [
+          "FIN"
+        ]
+      },
+      "category": "skills_based",
+      "description": "Finance skills",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3905242128,
+          "title": "Financial Analyst",
+          "company_name": "IntePros",
+          "city": "Pittsburgh",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 49.463806258237454,
+          "description_snippet": "IntePros is excited to partner with a Fortune 200 Investment Banking and Financial Company in helping them identify a Financial Analyst for a critical engagement in Pittsburgh, PA. \nFinancial Analyst ...",
+          "skills": [
+            "Finance",
+            "Analyst",
+            "Other"
+          ],
+          "industries": [
+            "Banking",
+            "Financial Services",
+            "Investment Banking"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3901944288,
+          "title": "Financial Analyst",
+          "company_name": "NES Fircroft",
+          "city": "Greater Houston",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 47.27966966908139,
+          "description_snippet": "Job Overview:Our client a leading global Renewables Independent Power Producer is seeking a talented and detail-oriented Financial Modelling Analyst to join their team dedicated to the development of ...",
+          "skills": [
+            "Finance",
+            "Analyst"
+          ],
+          "industries": [
+            "Services for Renewable Energy",
+            "Electric Power Generation"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3905334113,
+          "title": "Financial Analyst",
+          "company_name": "TalentBurst, an Inc 5000 company",
+          "city": "El Segundo",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 46.880250075799374,
+          "description_snippet": "Sr. Financial AnalystLocation: El Segundo, CA 90245 – hybrid, 3 days onsite each weekDuration: 12 Months\nWe are looking for a Senior Financial Analyst to provide financial business support in forecast...",
+          "skills": [
+            "Finance",
+            "Accounting/Auditing",
+            "Analyst"
+          ],
+          "industries": [
+            "Manufacturing",
+            "Entertainment Providers",
+            "Consumer Services"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3886885739,
+          "title": "Financial Analyst",
+          "company_name": "Software Methods, Incorporated",
+          "city": "King of Prussia",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 46.27429884910394,
+          "description_snippet": "Software Methods is seeking a Junior Financial Analyst for a 12+ month contract opportunity at our client in the King of Prussia, PA area. This is a hybrid opportunity.\nThe Financial Analyst is respon...",
+          "skills": [
+            "Finance",
+            "Analyst"
+          ],
+          "industries": [
+            "Utilities",
+            "Utilities Administration"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3884432610,
+          "title": "Financial Analyst",
+          "company_name": "Aya Healthcare",
+          "city": "Oklahoma City",
+          "state": "OK",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 46.23015454597399,
+          "description_snippet": "Aya Healthcare has an exciting 26-week contract to hire opportunity in Oklahoma City, OK!\nJob Details:JOB TITLE: Financial AnalystCONTRACT DURATION: 26 weeks to possible hireSHIFT: M-F 8-5pmLOCATION: ...",
+          "skills": [
+            "Finance",
+            "Analyst"
+          ],
+          "industries": [
+            "Hospitals and Health Care",
+            "Hospitals"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3902918604,
+          "title": "Financial Analyst",
+          "company_name": "AquantUs, LLC",
+          "city": "Birmingham",
+          "state": "AL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 46.1158836845901,
+          "description_snippet": "Financial Analyst with a privately-held industry leader.\n\nSummary\n\nThis position is focused on cost, inventory and deal analysis. It works closely with the Finance, Operations, Sales, and Sales Operat...",
+          "skills": [
+            "Finance",
+            "Analyst",
+            "Accounting/Auditing"
+          ],
+          "industries": [
+            "Manufacturing",
+            "IT Services and IT Consulting",
+            "Retail"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3887897352,
+          "title": "Financial Analyst",
+          "company_name": "Solomon Page",
+          "city": "San Diego",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 45.825259114550654,
+          "description_snippet": "Our client, a large San Diego Automotive organization, is seeking a talented Financial Analyst to add to their team. This role will be on site and located in the San Diego office.\n\nResponsibilities:\n\n...",
+          "skills": [
+            "Accounting/Auditing",
+            "Analyst",
+            "Finance"
+          ],
+          "industries": [
+            "Accounting"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3902845606,
+          "title": "Program Financial Analyst",
+          "company_name": "Sealing Technologies, a Parsons Company",
+          "city": "Columbia",
+          "state": "MD",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 45.05812286923052,
+          "description_snippet": "Sealing Technologies, a Parsons Company, provides cybersecurity services and cutting-edge technologies to the Federal Government. Sealing Tech is looking for a Program Financial Analyst to join the te...",
+          "skills": [
+            "Finance",
+            "Analyst"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "IT System Custom Software Development",
+            "IT System Testing and Evaluation"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3906223563,
+          "title": "Senior Financial Analyst",
+          "company_name": "ICX Group",
+          "city": "Jacksonville",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 44.89767141542447,
+          "description_snippet": "ICX Group is assisting a well respected organization in Jacksonville in sourcing a Senior Financial Analyst for their team. The position will assist in assessing business risks, kpis, and analytics.\nR...",
+          "skills": [
+            "Finance",
+            "Analyst",
+            "Accounting/Auditing"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3888029694,
+          "title": "Financial Analyst",
+          "company_name": "Tree Top Staffing LLC",
+          "city": "NAMER",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 44.71944246941183,
+          "description_snippet": "We are looking for a Financial Analyst to provide accurate and data based information on company’s profitability, solvency, stability and liquidity. You will research and analyze financial information...",
+          "skills": [
+            "Analyst",
+            "Finance",
+            "Accounting/Auditing"
+          ],
+          "industries": [
+            "Consumer Services",
+            "Environmental Services",
+            "Pharmaceutical Manufacturing"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 8,
+      "query": "marketing analytics",
+      "filters": {
+        "skills": [
+          "MRKT",
+          "ANLS"
+        ]
+      },
+      "category": "skills_based",
+      "description": "Marketing + Analytics",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3905874204,
+          "title": "Marketing Analytics Specialist",
+          "company_name": "Henry Schein",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 51.480209666079176,
+          "description_snippet": "This position is responsible for collaborating with various channels within Marketing along with the Marketing Analytics team to report on the performance of advertising placements relating to print a...",
+          "skills": [
+            "Marketing",
+            "Analyst"
+          ],
+          "industries": [
+            "Medical Equipment Manufacturing"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3901903054,
+          "title": "Business Analytics Manager",
+          "company_name": "Freemont Yardley Search",
+          "city": "Norwalk",
+          "state": "CT",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 37.15606392427816,
+          "description_snippet": "Summary:The Business Analytics Manager is a newly created role on the Digital Marketing Team. As the Business Analytics Manager you will play a critical role building and maintaining dashboards which ...",
+          "skills": [
+            "Marketing",
+            "Sales",
+            "Analyst"
+          ],
+          "industries": [
+            "Personal Care Product Manufacturing"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3905887769,
+          "title": "Director of Analytics",
+          "company_name": "Fingerpaint Group",
+          "city": "Cedar Knolls",
+          "state": "NJ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 34.42746616403902,
+          "description_snippet": "Reset your expectations of a health and wellness agency. Independent by design and built on a foundation of empathy, Fingerpaint celebrates what you bring as both a professional and an individual. Wit...",
+          "skills": [
+            "Analyst",
+            "Information Technology",
+            "Marketing"
+          ],
+          "industries": [
+            "Marketing Services",
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3905290835,
+          "title": "Director eCommerce Insights & Analytics",
+          "company_name": "The Connors Group",
+          "city": "Mahwah",
+          "state": "NJ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 33.57070810451944,
+          "description_snippet": "The Director, eCommerce Insights & Analytics is a strategic leader responsible for leading and building a high performing eCommerce Data Analytics function for The Company brand portfolio. We’re looki...",
+          "skills": [
+            "Marketing",
+            "Analyst"
+          ],
+          "industries": [
+            "Retail"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3905819298,
+          "title": "Director of Partnership Distribution Analytics",
+          "company_name": "Plymouth Rock Assurance",
+          "city": "Woodbridge",
+          "state": "NJ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 30.46921632547486,
+          "description_snippet": "The mission of the Director of Partnership Distribution Analytics position is to provide insightful analysis, analytics, and recommendations to the Partners leadership team to drive informed, effectiv...",
+          "skills": [
+            "General Business",
+            "Analyst",
+            "Marketing"
+          ],
+          "industries": [
+            "Insurance"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3901632153,
+          "title": "Director/Sr. Director, Insights and Analytics",
+          "company_name": "Invivyd",
+          "city": "Waltham",
+          "state": "MA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 30.234765598348996,
+          "description_snippet": "ABOUT USInvivyd is on a mission to rapidly and perpetually deliver antibody-based therapies that protect vulnerable people from the devastating consequences of circulating viral threats, beginning wit...",
+          "skills": [
+            "Analyst",
+            "Marketing"
+          ],
+          "industries": [
+            "Biotechnology Research",
+            "Pharmaceutical Manufacturing"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3901960681,
+          "title": "Digital Marketing Specialist",
+          "company_name": "Fox Racing",
+          "city": "Irvine",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 29.22003581701017,
+          "description_snippet": "Job Description: Digital Marketing SpecialistVista Outdoor is looking for a Digital Marketing Specialist with proven online marketing experience to become a contributing member of our growing eTail Di...",
+          "skills": [
+            "Marketing",
+            "Advertising",
+            "Analyst"
+          ],
+          "industries": [
+            "Retail Apparel and Fashion",
+            "Wholesale",
+            "Retail"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3891005253,
+          "title": "Marketing Analyst",
+          "company_name": "Kelly",
+          "city": "Columbus",
+          "state": "IN",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 27.57877184142634,
+          "description_snippet": "For those who want to keep growing, learning, and evolving. We at Kelly® hear you, and we’re here for you! We’re seeking a Marketing Analyst to work at a premier automotive component manufacturer in C...",
+          "skills": [
+            "Marketing",
+            "Analyst"
+          ],
+          "industries": [
+            "Motor Vehicle Parts Manufacturing",
+            "Manufacturing"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3905249756,
+          "title": "Search Marketing Analyst",
+          "company_name": "Modco Media",
+          "city": "New York City Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 27.313598862750986,
+          "description_snippet": "Job Description: Paid Search AnalystOverviewMODCO Media, a leader in digital media, is seeking the expertise of a Search Analyst with search engine marketing experience, including Pay-Per-Click and Op...",
+          "skills": [
+            "Marketing",
+            "Analyst",
+            "Strategy/Planning"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3905363385,
+          "title": "Marketing Manager",
+          "company_name": "BLUETTI",
+          "city": "Houston",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 26.676012628823607,
+          "description_snippet": "Responsibilities:Support the Marketing Director in planning and executing marketing strategies to promote Bluetti's home energy storage products.Assist in managing online and offline marketing activit...",
+          "skills": [
+            "Marketing",
+            "Advertising",
+            "Analyst"
+          ],
+          "industries": [
+            "Appliances, Electrical, and Electronics Manufacturing",
+            "Services for Renewable Energy"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 9,
+      "query": "business development sales",
+      "filters": {
+        "skills": [
+          "BD",
+          "SALE"
+        ]
+      },
+      "category": "skills_based",
+      "description": "Business dev + Sales",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3904429947,
+          "title": "Sales Business Development",
+          "company_name": "New Solution Healthcare™",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 49.76918626635229,
+          "description_snippet": "Company Description\n Join our team at New Solution Healthcare™ as a Business Development Specialist in the healthcare industry. Our non-profit status eliminates the need for state licensing, streamlin...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3889280744,
+          "title": "Sales Business Development",
+          "company_name": "Apex Consulting",
+          "city": "Miami-Fort Lauderdale Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 49.53286213263536,
+          "description_snippet": "Company Description Apex Consulting is an Independent Financial Consulting Firm located in the Miami-Fort Lauderdale Area. Our mission is to be partners for life, helping our clients achieve their fin...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3901377504,
+          "title": "Business Development Sales",
+          "company_name": "Valvoline Global Operations",
+          "city": "Bentonville",
+          "state": "AR",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 48.55707325604375,
+          "description_snippet": "Overview\n\nWhy Valvoline Global Operations?\n\nWe’ve been inspiring and enabling what moves the world forward for more than 150 years, starting with the invention of the world’s first branded motor oil. ...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Oil and Gas"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3885109791,
+          "title": "Sales Business Development Executive",
+          "company_name": "Sell Savings™",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 46.26585028796666,
+          "description_snippet": "Join our dynamic team as a Healthcare Sales Business Development Executive and embark on an enriching career journey without the typical licensing prerequisites. We prioritize ensuring your seamless t...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3898162306,
+          "title": "Business Development Representative - Sales",
+          "company_name": "EBM Software",
+          "city": "Minneapolis",
+          "state": "MN",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 45.32109775356342,
+          "description_snippet": "THE OPPORTUNITYAt EBM Software, a high-performing sales team is the key to our company’s growth. We seek a qualified sales development representative (SDR) to find and screen potential customers who c...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3901952169,
+          "title": "Business Development Sales Representative",
+          "company_name": "Amplify Recruiting",
+          "city": "Portland",
+          "state": "",
+          "country": "Oregon Metropolitan Area",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 45.3076511871897,
+          "description_snippet": "Unique Industry Opportunity\n Business Development Sales Representative (BDSR)\nTo provide existing and new customers with detailed information on services offered by the company to capture and increase...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Environmental Services",
+            "Insurance",
+            "Real Estate"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3894875325,
+          "title": "ServiceNow Sales Business Development",
+          "company_name": "Kyndryl",
+          "city": "Florida",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 44.7468030991087,
+          "description_snippet": "Who We Are\n\nAt Kyndryl, we design, build, manage and modernize the mission-critical technology systems that the world depends on every day. So why work at Kyndryl? We are always moving forward – alway...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3891245999,
+          "title": "SVP Sales & Business Development",
+          "company_name": "Confidential",
+          "city": "Naperville",
+          "state": "IL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 44.636107398210214,
+          "description_snippet": "SVP Sales & Business Development\nJob Summary: As we continue to expand our footprint and enhance our offerings, we are seeking a dynamic and strategic SVP of Sales and Business Development to lead our...",
+          "skills": [
+            "Business Development",
+            "Sales",
+            "Advertising"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3891250186,
+          "title": "SVP Sales & Business Development",
+          "company_name": "Confidential",
+          "city": "Oakland",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 44.636107398210214,
+          "description_snippet": "SVP Sales & Business Development\nJob Summary: As we continue to expand our footprint and enhance our offerings, we are seeking a dynamic and strategic SVP of Sales and Business Development to lead our...",
+          "skills": [
+            "Business Development",
+            "Sales",
+            "Advertising"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3792245483,
+          "title": "Sales Business Development Executive",
+          "company_name": "Dimerco Express Group",
+          "city": "El Segundo",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 44.23822936188034,
+          "description_snippet": "About Dimerco:Dimerco is an International Logistics Provider focused on the Asia Pacific Market, with nearly 50 years of experience under original ownership. We integrate air and ocean freight, trade ...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Truck Transportation"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 10,
+      "query": "project management",
+      "filters": {
+        "skills": [
+          "PRJM"
+        ]
+      },
+      "category": "skills_based",
+      "description": "Project management",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3901476687,
+          "title": "Director Project Management",
+          "company_name": "Confidential",
+          "city": "San Diego Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 40.70484942659053,
+          "description_snippet": "General Description of Duties and Responsibilities:\nDevelops and maintains effective working relationships with Corporate Workplace Leadership and Client Lines of Business; single point of contact for...",
+          "skills": [
+            "Project Management"
+          ],
+          "industries": [
+            "Real Estate"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3900959228,
+          "title": "Project Management Intern",
+          "company_name": "AESC US",
+          "city": "Nashville Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Internship",
+          "remote_allowed": false,
+          "bm25_score": 40.44400470236535,
+          "description_snippet": "AESC is looking to add a Project Management Intern to our team in Bowling Green, KY or Smyrna, TN. Part-Time to Full-Time On-site Smyrna, TN or Bowling Green, KY \nAbout AESC US LLC AESC is an exciting...",
+          "skills": [
+            "Project Management"
+          ],
+          "industries": [
+            "Construction"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3900959777,
+          "title": "Project Management Specialist",
+          "company_name": "Acro Service Corp",
+          "city": "Phoenix",
+          "state": "AZ",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 40.06948649463745,
+          "description_snippet": "Job Title : Volunteer Engagement SpecialistDuration : 06 months (Possibility of extension)Location : Phoenix, AZPay: $32/hour on w2 without any benefits\nDescription:Under the supervision of the Aging ...",
+          "skills": [
+            "Project Management"
+          ],
+          "industries": [
+            "Government Administration"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3904954303,
+          "title": "Project Lead, Project Management",
+          "company_name": "ICE",
+          "city": "Chicago",
+          "state": "IL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 39.51672922691757,
+          "description_snippet": "Overview\n\nJob Purpose\n\nICE Clear Credit (ICC), a subsidiary of Intercontinental Exchange, Inc., is looking for a Project Lead for both ICE Link (a flexible post-trade messaging and workflow system for...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3906252232,
+          "title": "Project Management Supervisor",
+          "company_name": "AVI-SPL",
+          "city": "Los Angeles",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.09594369278101,
+          "description_snippet": "Description\n\nWHO WE ARE\n\nAVI-SPL is a digital enablement solutions provider who transforms how people and technology connect to elevate experiences, create new value, and enable organizations to thriv...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3901641228,
+          "title": "Project Management Associate",
+          "company_name": "Hyundai Motor Group Metaplant America (HMGMA)",
+          "city": "Illinois",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.019827330695186,
+          "description_snippet": "Job description:\n\nEssential Duties and Responsibilities:[ Position Summary ]Drive innovation and change to manage and lead project so that team members may feel inspired, empowered, and connected to t...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "Motor Vehicle Manufacturing"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3904428281,
+          "title": "Director, Project Management",
+          "company_name": "JLL",
+          "city": "Louisville",
+          "state": "KY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 37.96193705074163,
+          "description_snippet": "JLL Supports The Whole You, Personally And Professionally.\n\nOur people at JLL are shaping the future of real estate for a better world by combining world class services, advisory and technology to our...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "Real Estate"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3884431542,
+          "title": "Project Management Director",
+          "company_name": "Service Corporation International",
+          "city": "Houston",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 37.94503242642507,
+          "description_snippet": "Our associates celebrate lives. We celebrate our associates.\n\nConsider the possibilities of joining a Great Place to Work!\n\nProvides project management expertise in order to plan, organize, control an...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "Individual and Family Services"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3904388706,
+          "title": "Project Management Officer",
+          "company_name": "GOAL SET COACH, LLC",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": true,
+          "bm25_score": 37.80784032622725,
+          "description_snippet": "************\nThis is not an IT related position. Must have manufacturing and/or automation engineering project management experience. \n*************\nWe are looking for a dedicated individual to join o...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "Professional Training and Coaching"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3902787129,
+          "title": "Project Management Specialist",
+          "company_name": "VT Group (VTG)",
+          "city": "Charleston",
+          "state": "SC",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 37.80386463934375,
+          "description_snippet": "Overview\n\nWe’re seeking a Project Management Analyst to provided Program and Financial Management (PM&FM) analysis and technical support to our customer and team. We value logical thinking, analytical...",
+          "skills": [
+            "Project Management",
+            "Information Technology"
+          ],
+          "industries": [
+            "Defense and Space Manufacturing"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 11,
+      "query": "software engineer",
+      "filters": {
+        "city": "San Francisco",
+        "remote_allowed": true
+      },
+      "category": "combined",
+      "description": "Location + remote filter",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3895543598,
+          "title": "Staff Software Engineer",
+          "company_name": "Motion Recruitment",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": true,
+          "bm25_score": 24.344417990289788,
+          "description_snippet": "Our large crypto company is looking for a contract Senior Software Engineer. This is a remote contract position.\n\nContract Duration: 3-Months\n\nRequired Skills & Experience\n\nCollaboration & Communicati...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3904383775,
+          "title": "Senior Software Engineer (Mobile), Bitkey",
+          "company_name": "Block",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 19.505021243094717,
+          "description_snippet": "Company Description\n\nBlock is one company built from many blocks, all united by the same purpose of economic empowerment. The blocks that form our foundational teams — People, Finance, Counsel, Hardwa...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3905327602,
+          "title": "Senior Software Engineer (iOS), Bitkey",
+          "company_name": "Block",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 19.505021243094717,
+          "description_snippet": "Company Description\n\nBlock is one company built from many blocks, all united by the same purpose of economic empowerment. The blocks that form our foundational teams — People, Finance, Counsel, Hardwa...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3906245868,
+          "title": "Staff Software Engineer (Mobile), Bitkey",
+          "company_name": "Block",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 19.377082969076927,
+          "description_snippet": "Company Description\n\nBlock is one company built from many blocks, all united by the same purpose of economic empowerment. The blocks that form our foundational teams — People, Finance, Counsel, Hardwa...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3894584488,
+          "title": "Data infrastructure engineer",
+          "company_name": "Watershed",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 15.420051503020678,
+          "description_snippet": "About Watershed\n\nWatershed is a software platform for running a world-class climate program. We measure our success in the carbon reduction achievements of our customers. We are looking for team membe...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3905324952,
+          "title": "Senior Software Engineer, Cash Commerce",
+          "company_name": "Cash App",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 13.68551749510905,
+          "description_snippet": "Company Description\n\nIt all started with an idea at Block in 2013. Initially built to take the pain out of peer-to-peer payments, Cash App has gone from a simple product with a single purpose to a dyn...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3904385473,
+          "title": "Senior Software Engineer, Cash Commerce",
+          "company_name": "Block",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 13.68551749510905,
+          "description_snippet": "Company Description\n\nIt all started with an idea at Block in 2013. Initially built to take the pain out of peer-to-peer payments, Cash App has gone from a simple product with a single purpose to a dyn...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3904383777,
+          "title": "Principal Software Engineer, Cash Commerce",
+          "company_name": "Cash App",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 13.65791608647741,
+          "description_snippet": "Company Description\n\nIt all started with an idea at Block in 2013. Initially built to take the pain out of peer-to-peer payments, Cash App has gone from a simple product with a single purpose to a dyn...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3904951227,
+          "title": "Android Software Engineer, Core and Monetization",
+          "company_name": "Dice",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 13.6495976100341,
+          "description_snippet": "Dice is the leading career destination for tech experts at every stage of their careers. Our client, Pinterest, Inc., is seeking the following. Apply via Dice today!\n\nAbout Pinterest:\n\nMillions of peo...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3898162921,
+          "title": "GCP Data Engineer",
+          "company_name": "Qualitative Financials",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": true,
+          "bm25_score": 12.321276864761183,
+          "description_snippet": "GCP Data /Streaming/Batch Infrastructure Engineer Visa : USC/GC/L2S/H4EAD/GCEADContract : W2 (No C2C)Experience : 7+Locations: Remote (San Francisco, CA) Once in a quarter they need to Visit San Franc...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Information Technology & Services"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 12,
+      "query": "data analyst",
+      "filters": {
+        "state": "CA",
+        "work_type": "Full-time"
+      },
+      "category": "combined",
+      "description": "State + work type",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3898164926,
+          "title": "Data Analyst",
+          "company_name": "Vervent",
+          "city": "San Diego",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.413545171860065,
+          "description_snippet": "Job Type\nFull-time\nDescription\nOur ideal candidate is someone who is excited to become a part of an awesome, fast-growing team and must display these three top (required) skills:\n BA/BS degree in fina...",
+          "skills": [
+            "Research",
+            "Analyst",
+            "Information Technology"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3905364674,
+          "title": "Research Data Analyst",
+          "company_name": "University of California, San Francisco",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 36.37021422376591,
+          "description_snippet": "MED-CORE-GERI\n\nFull Time\n\n77950BR\n\nJob Summary\n\nThis is a contract role that ends two years from the hire date.\n\nWe are seeking a full-time Research Data Analyst to work closely with the Principal Inv...",
+          "skills": [
+            "Research",
+            "Analyst",
+            "Information Technology"
+          ],
+          "industries": [
+            "Higher Education"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3899511988,
+          "title": "Data Analyst",
+          "company_name": "GLDS",
+          "city": "Carlsbad",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 34.57008420320034,
+          "description_snippet": "GLDS provides the leading customer management, billing, and service delivery software solutions for the broadband internet market. We create, install, and then support some of the most popular busines...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3885823900,
+          "title": "Data Programmer Analyst",
+          "company_name": "TEKsystems",
+          "city": "San Bernardino",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 32.21307681841188,
+          "description_snippet": "Description \n\n Data Programmer Analyst \n\nWe are seeking a skilled Data Programmer Analyst to join our team. The ideal candidate will have experience in SQL development, query building, data extraction...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3901389257,
+          "title": "Business Data Analyst",
+          "company_name": "Catapult Solutions Group",
+          "city": "San Diego",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 32.141966444443,
+          "description_snippet": "Business Data Analyst - Customer Success & Growth TeamHybrid in Atlanta, GA6+ Month Contract\nAbout Our ClientWe are a Fortune 100 FinTech company with over 30+ years of experience across the globe! We...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3884441052,
+          "title": "Design Data Analyst",
+          "company_name": "A.G. KUNZ LLC",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 30.96031884939265,
+          "description_snippet": "Construction is notoriously fragmented, unpredictable and inefficient. We work with owners to develop unique strategies for systematic construction project delivery, enabling predictable results and u...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Construction"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3901374122,
+          "title": "Senior Data Analyst",
+          "company_name": "Autodesk",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 30.85010943365379,
+          "description_snippet": "Job Requisition ID #\n\n24WD76725\n\nPosition Overview\n\nAs a Senior Data Analyst on the Analytics and Insights team, you'll dive into massive datasets to help bring new insights into service usage, platfo...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development",
+            "Design Services",
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3904385276,
+          "title": "Planner/ Data Sales Analyst",
+          "company_name": "24 Seven Talent",
+          "city": "Manhattan Beach",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 30.427015076529365,
+          "description_snippet": "Job title: Planner/ Data Sales Analyst\n\nContract type:\n\nLocation: Manhattan Beach\n\nDiscipline:\n\nRemote: No\n\nSalary: $70-90K\n\nReference: 462435\n\nContact name: Jaclyn Mateo\n\nJob description We have an i...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3904394509,
+          "title": "Entry Level Data Analyst",
+          "company_name": "CCS Global Tech",
+          "city": "San Diego",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 29.265119975414663,
+          "description_snippet": "Position Overview:We are excited to welcome a motivated Entry-Level Data Analyst to our team. This role is perfect for individuals who are passionate about diving into data, extracting valuable insigh...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Information Services"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3894900178,
+          "title": "Lead Workday Analyst",
+          "company_name": "Tech Firefly",
+          "city": "Monterey",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 27.439409487006667,
+          "description_snippet": "Tech Firefly is partnering with a healthcare company based in Monterey, CA to hire a Lead Workday Analyst to join our team. As the Lead Workday Analyst, you will play a pivotal role in implementing Wo...",
+          "skills": [
+            "Analyst"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 13,
+      "query": "marketing manager",
+      "filters": {
+        "skills": [
+          "MRKT"
+        ],
+        "salary_min": 80000
+      },
+      "category": "combined",
+      "description": "Skills + salary filter",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3901806062,
+          "title": "Marketing Manager",
+          "company_name": "HumanEdge",
+          "city": "New York City Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 38.77528793900449,
+          "description_snippet": "Opportunity Description\nWorld Leading Publisher located downtown is in need of a Marketing Manager for a contract role. This is a fantastic opportunity working with a dynamic team. Qualified candidate...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Book and Periodical Publishing"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3902876843,
+          "title": "Marketing Manager",
+          "company_name": "Ultimate Staffing",
+          "city": "Thousand Oaks",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.50652989266575,
+          "description_snippet": "Marketing Manager- Direct HireThousand Oak, CA $100K-$100k/year + 401k,Medical, Dental, Vision, Bonus Monday - Friday 8am- 5pm  Summary:This position will report to the head of Sales and Marketing. Th...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3904990606,
+          "title": "Marketing Manager",
+          "company_name": "Friday Services",
+          "city": "Greeneville",
+          "state": "TN",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 38.39550600336508,
+          "description_snippet": "Marketing Manager – B2B Location:Greenville, TNSalary: $80,000 - $90,000/year\nOur client is a global pioneer in technology and innovation. With a relentless commitment to pushing the boundaries and tr...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Aviation and Aerospace Component Manufacturing"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3902952318,
+          "title": "Marketing Manager",
+          "company_name": "Engage Partners Inc.",
+          "city": "Port Washington",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 37.35601116082642,
+          "description_snippet": "Marketing ManagerThe Marketing manager will be involved in all aspects of brand marketing for the lash category. Key areas of focus include marketing plan development and implementation on a global le...",
+          "skills": [
+            "Marketing",
+            "Strategy/Planning"
+          ],
+          "industries": [
+            "Personal Care Product Manufacturing"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3906093761,
+          "title": "Marketing Manager",
+          "company_name": "ForceBrands",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 36.82531387249115,
+          "description_snippet": "*THIS IS NOT A JOB WITH FORCEBRANDS!*\nResponsibilities:\nYou will be responsible for coordinating and helping to implement marketing plans to drive brand awareness and promote the product range across ...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Food and Beverage Retail",
+            "Food and Beverage Manufacturing",
+            "Retail Health and Personal Care Products"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3891071533,
+          "title": "Marketing Manager",
+          "company_name": "24 Seven Talent",
+          "city": "Los Angeles",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 36.80381598368902,
+          "description_snippet": "Our client, a Beauty Brand, is looking for a Marketing Manager to join their team. This will be full time and fully remote but the ideal candidate is local to the Los Angeles area. This role will supp...",
+          "skills": [
+            "Marketing",
+            "Advertising"
+          ],
+          "industries": [
+            "Wellness and Fitness Services",
+            "Personal Care Product Manufacturing"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3901982497,
+          "title": "Marketing Manager",
+          "company_name": "7-Eleven Hawaiʻi, Inc.",
+          "city": "Honolulu",
+          "state": "HI",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 36.79578721521977,
+          "description_snippet": "About Us7-Eleven Hawaiʻi, Inc. is Hawaiʻi's leading convenience storechain with 67 stores across Oʻahu, Kauaʻi, Maui, and Hawaiʻi Island. Locally operated since 1989, 7-Eleven Hawaiʻi has become a con...",
+          "skills": [
+            "Marketing",
+            "Sales"
+          ],
+          "industries": [
+            "Retail"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3902355897,
+          "title": "Marketing Manager",
+          "company_name": "Dimond Connect",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 36.70098384029274,
+          "description_snippet": "Our client is hiring an Integrated Marketing Manager!\nJob Title: Integrated Marketing ManagerLocation: Remote\nResponsibilities:\nDevelop and execute integrated marketing strategies and campaigns across...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Retail Apparel and Fashion"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3885828039,
+          "title": "Marketing Manager ( SAAS)",
+          "company_name": "CyberCoders",
+          "city": "Clearwater",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 36.387776828122014,
+          "description_snippet": "Marketing Manager\n\nPosition Overview: The Marketing Manager will be responsible for overseeing and executing marketing initiatives to increase brand awareness and lead generation. This role will devel...",
+          "skills": [
+            "Marketing"
+          ],
+          "industries": [
+            "Manufacturing"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3903828114,
+          "title": "Marketing Manager",
+          "company_name": "Adobe",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 35.89941259189951,
+          "description_snippet": "Our Company\n\nChanging the world through digital experiences is what Adobe’s all about. We give everyone—from emerging artists to global brands—everything they need to design and deliver exceptional di...",
+          "skills": [
+            "Marketing",
+            "Sales"
+          ],
+          "industries": [
+            "Advertising Services",
+            "IT Services and IT Consulting",
+            "Software Development"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 14,
+      "query": "product manager",
+      "filters": {
+        "city": "New York",
+        "work_type": "Full-time",
+        "salary_min": 100000
+      },
+      "category": "combined",
+      "description": "Multiple filters",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3901362740,
+          "title": "Senior Product Manager",
+          "company_name": "Endeavor",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 33.82723341100055,
+          "description_snippet": "Who We Are\n\nEndeavor Streaming, a subsidiary of Endeavor, is a global leader in premium video distribution for live and on-demand content across sports, entertainment, media and lifestyle. Through its...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Entertainment Providers",
+            "Spectator Sports"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3905252084,
+          "title": "Sr. Product Manager",
+          "company_name": "None",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 33.550706965743856,
+          "description_snippet": "Senior Product ManagerThe Senior Product Manager will directly report our founder and will be responsible for defining and driving strategies for products, features, and content. The ideal candidate h...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 3,
+          "job_id": 3901965548,
+          "title": "Data Product Manager",
+          "company_name": "Hillview Consulting Solutions",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 31.583854817688163,
+          "description_snippet": "Senior Product Manager Location- NYC Position Type- HybridInterview- Video Position Type- FTE Salary- $160k- $200k/Annum+ Bonus+ Benefits (Negotiable)\nPosition Summary: We are actively seeking a strat...",
+          "skills": [
+            "Product Management",
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Real Estate",
+            "Financial Services",
+            "Technology, Information and Media"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3889169820,
+          "title": "Technical Product Manager",
+          "company_name": "Talent Job Seeker",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 31.54335899263534,
+          "description_snippet": "Primary Details Time Type: Full time\n\nWorker Type: Employee\n\nThe Opportunity\n\nYou will be a member of the Agile team, who represents the voice of the customer. You will b responsible for working with ...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Human Resources Services"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3901966424,
+          "title": "Sr. Product Manager - Technical",
+          "company_name": "Venmo",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 30.78680814383085,
+          "description_snippet": "At PayPal (NASDAQ: PYPL), we believe that every person has the right to participate fully in the global economy. Our mission is to democratize financial services to ensure that everyone, regardless of...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Software Development",
+            "Financial Services",
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3895813108,
+          "title": "Sr Staff Product Manager",
+          "company_name": "The Trade Desk",
+          "city": "New York",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 29.493274650036653,
+          "description_snippet": "The Trade Desk is changing the way global brands and their agencies advertise to audiences around the world. How? With a media buying platform that helps brands deliver a more insightful and relevant ...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "Technology, Information and Internet",
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3887887867,
+          "title": "Product Success Manager (for product managers who want to guide other product teams)",
+          "company_name": "Aha!",
+          "city": "New York",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.28988883797509,
+          "description_snippet": "This is a unique role. Product management experience is a must-have. And you need to prefer working with customers 100% of the time rather than defining requirements and guiding development work. Our ...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3901945036,
+          "title": "Senior Product Manager - HTS Connect",
+          "company_name": "Hopper",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.029813713550677,
+          "description_snippet": "About The Job\n\nVirtual Interlining offers customers additional travel options by combining together multiple individual travel segments through self-transfers. These unique itineraries unlock new dest...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3902356107,
+          "title": "Senior Product Manager - HTS Connect",
+          "company_name": "Hopper",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.029813713550677,
+          "description_snippet": "About The Job\n\nVirtual Interlining offers customers additional travel options by combining together multiple individual travel segments through self-transfers. These unique itineraries unlock new dest...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3887889781,
+          "title": "Sr. Product Success Manager (for product managers who want to guide other product teams)",
+          "company_name": "Aha!",
+          "city": "New York",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 27.609689273053178,
+          "description_snippet": "This is a unique role. Product management experience is a must-have. And you need to prefer working with customers 100% of the time rather than defining requirements and guiding development work. Our ...",
+          "skills": [
+            "Product Management",
+            "Marketing"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 15,
+      "query": "account manager",
+      "filters": {
+        "remote_allowed": true,
+        "work_type": "Full-time"
+      },
+      "category": "combined",
+      "description": "Remote + full-time",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3901943474,
+          "title": "Account Manager",
+          "company_name": "None",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 29.87148315915273,
+          "description_snippet": "Company Description We suggest you enter details here.\n Role Description This is a full-time remote role for an Account Manager at Hughey Enterprises Inc. The Account Manager will be responsible for m...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 2,
+          "job_id": 3886482658,
+          "title": "Account Manager",
+          "company_name": "None",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 29.8376919225706,
+          "description_snippet": "\"\nCompany Description\n \nwe suggest you enter details here.\n\n Role Description\n \nThis is a full-time remote role for an Account Manager at Auditor in Kundapura. The Account Manager will be responsible ...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 3,
+          "job_id": 3887881469,
+          "title": "Account Manager",
+          "company_name": "None",
+          "city": "Atlanta",
+          "state": "GA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 29.708793594484664,
+          "description_snippet": "Company Description Manufacturere of Super Premium Motor Oil\n Role Description This is a full-time remote role for an Account Manager at LubeWerks, Inc. The Account Manager will be responsible for man...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 4,
+          "job_id": 3898162197,
+          "title": "Account Manager",
+          "company_name": "None",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 29.42881536502355,
+          "description_snippet": "Company \nAt Hummingbird Clinical Consulting LLC, we are committed to optimizing clinical efficiency while fostering a holistic approach to business development and clinical management. Our top priorit...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 5,
+          "job_id": 3901632907,
+          "title": "Account Manager",
+          "company_name": "Concord Technologies",
+          "city": "Seattle",
+          "state": "WA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 29.390252923372195,
+          "description_snippet": "Account Manager\nConcord Technologies is currently seeking an Account Manager for its growing team in Seattle, Washington. We are looking for exceptional individuals with a competitive spirit and the d...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Software Development",
+            "Hospitals and Health Care"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3905852920,
+          "title": "Account Manager",
+          "company_name": "AVS Life Sciences LLC (acquisition of MWA and C&A Consulting)",
+          "city": "Pennsylvania",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.954307803168916,
+          "description_snippet": "Title: Account ManagerLocation: Virtual (a company based in Pottstown, PA)All work will be performed remotely, with some face-to-face meetings as needed.Hours: General Business Hours, but flexible Dur...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Business Consulting and Services"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3905658806,
+          "title": "Account Manager",
+          "company_name": "Novaris Search",
+          "city": "Wisconsin",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.857330154985405,
+          "description_snippet": "I have partnered with a growing company in the cabinetry space who are looking to add an Account Manager to their sales team.\nThe ideal candidate will be located in Wisconsin or Illinois & will be res...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Wholesale Building Materials"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3901459057,
+          "title": "Account Manager",
+          "company_name": "Exclusive Networks",
+          "city": "California",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.81252164413438,
+          "description_snippet": "EXCLUSIVE NETWORKS | Introduction\n\nExclusive Networks (EXN) is a global cybersecurity specialist that provides partners and end-customers with a wide range of services and product portfolios via prove...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Computer and Network Security"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3894920417,
+          "title": "Account Manager",
+          "company_name": "THAT Agency",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.321464439633047,
+          "description_snippet": "One of the most creative and dynamic digital marketing firms in South Florida, THAT Agency, is seeking a passionate Account/Project Manager.\nAbout THAT Agency\nFrom website design and development to co...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3886880228,
+          "title": "Account Manager",
+          "company_name": "Movement Search & Delivery",
+          "city": "Detroit Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 28.30134277082493,
+          "description_snippet": "We are conducting a confidential search for an Account Manager with a client company of ours that is a global supplier to the automotive, commercial vehicle, and off-road vehicle industries. This is a...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Motor Vehicle Manufacturing",
+            "Truck Transportation",
+            "Automation Machinery Manufacturing"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 16,
+      "query": "",
+      "filters": null,
+      "category": "edge_cases",
+      "description": "Empty query (should return random)",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3885864801,
+          "title": "Corporate Account Manager",
+          "company_name": "Porter Group",
+          "city": "Towson",
+          "state": "MD",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Industry | Tech - HardwareLocation | Towson, MDSalary | $65,000First Year Potential | $100,000Benefits | Health, 401KReference | 012780\nJob SummaryLeading technology equipment and services company in ...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Computer Hardware Manufacturing",
+            "IT Services and IT Consulting",
+            "IT System Data Services"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3905329335,
+          "title": "Store Driver",
+          "company_name": "Advance Auto Parts",
+          "city": "Brewer",
+          "state": "ME",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Job Description\n\nWhat is a Store Driver?\n\nEntry level store position capable of supporting delivery of parts to commercial customers. The role has the responsibility to deliver parts to our commercial...",
+          "skills": [
+            "Sales",
+            "Customer Service"
+          ],
+          "industries": [
+            "Motor Vehicle Manufacturing",
+            "Retail"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3906258355,
+          "title": "Workforce Development Consultant II",
+          "company_name": "1199SEIU Benefit and Pension Funds",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Responsibilities\n\n Leads and develops joint labor management training work to identify needs and resources Collaborate with all level of stakeholders, union staff /leaders, including officers, physici...",
+          "skills": [
+            "Other"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3902756366,
+          "title": "Software Engineer (Engineer Software 4) - 18587",
+          "company_name": "Mission Technologies, a division of HII",
+          "city": "San Diego",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Requisition Number: 18587\n\nRequired Travel: 0 - 10%\n\nEmployment Type: Full Time/Salaried/Exempt\n\nAnticipated Salary Range: $98,153.00 - $160,000.00\n\nSecurity Clearance: Secret\n\nLevel of Experience: Se...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Defense and Space Manufacturing"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3903824958,
+          "title": "Senior GRC Specialist, Customer Trust",
+          "company_name": "JFrog",
+          "city": "Atlanta",
+          "state": "GA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "At JFrog, we’re reinventing DevOps to help the world’s greatest companies innovate -- and we want you along for the ride. This is a special place with a unique combination of brilliance, spirit and ju...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3902349199,
+          "title": "Bilingual Teacher (Spanish)",
+          "company_name": "Evergreen Bilingual Learning Center",
+          "city": "Arlington",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Company Description\n Evergreen Bilingual Learning Center is an educational institution located in Arlington, Texas. We are dedicated to providing bilingual education and promoting cultural awareness. ...",
+          "skills": [
+            "Education",
+            "Training"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 7,
+          "job_id": 3901496931,
+          "title": "Capital Markets PM",
+          "company_name": "Matlen Silver",
+          "city": "New York City Metropolitan Area",
+          "state": "",
+          "country": "",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Capital Market PM (5-6 years)Jersey City/NYC $60-$70/hour 18 Month W2 Contract \nGlobal Markets Tech Data Program Office is a horizontal function and responsible for oversight on all data programs acro...",
+          "skills": [
+            "Project Management",
+            "Information Technology",
+            "Finance"
+          ],
+          "industries": [
+            "IT Services and IT Consulting",
+            "Banking"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3906258331,
+          "title": "Restaurant Assistant General Manager - Asheville Regional Airport",
+          "company_name": "Paradies Lagardère",
+          "city": "Fletcher",
+          "state": "NC",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Your career deserves... MORE OPPORTUNITIES\n\nParadies Lagardère is an award-winning and innovative Airport Concessionaire. We are looking for passionate individuals to fill our roles in a retail and di...",
+          "skills": [
+            "Management",
+            "Manufacturing"
+          ],
+          "industries": [
+            "Retail",
+            "Restaurants"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3904958401,
+          "title": "Ultrasonographer | Radiology (R) - Contract - Mids",
+          "company_name": "HealthTrust Workforce Solutions",
+          "city": "Austin",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Entrust Your Career to HealthTrust!\n\nAt HealthTrust, we believe that healthcare is not defined by the four walls in which it is practiced. It’s defined by its people. We pride ourselves on crafting op...",
+          "skills": [
+            "Health Care Provider"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3904420639,
+          "title": "Accounting Specialist - Accounting Initiatives (Hybrid/Remote)",
+          "company_name": "Prudential Financial",
+          "city": "Middlesex County",
+          "state": "NJ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 0.0,
+          "description_snippet": "Job Classification:\n\nFinance & Accounting - Finance & Accounting\n\nAt Prudential, we believe talent is key to achieving our vision. When you join Prudential, you’ll unlock a motivating and impactful ca...",
+          "skills": [
+            "Accounting/Auditing",
+            "Finance"
+          ],
+          "industries": [
+            "Financial Services"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 17,
+      "query": "xyz123notarealjobtitle",
+      "filters": null,
+      "category": "edge_cases",
+      "description": "Nonsense query",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3906225654,
+          "title": "Program Director for Medical Assistant (Full-time)",
+          "company_name": "Sterling St James LLC",
+          "city": "Concord",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Job Description\n\nA medical assistant program director oversees the certificate or degree program at a vocational school or community college that trains aspiring medical assistants. As a medical assis...",
+          "skills": [
+            "Health Care Provider"
+          ],
+          "industries": [
+            "Industrial Machinery Manufacturing"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3887595509,
+          "title": "Human Resource Generalist",
+          "company_name": "Specialty1 Partners",
+          "city": "Houston",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Are you resourceful, think outside the box and have a willingness to learn? Do you want to grow your career in a dynamic environment with a Great Team?\n\nIf you are a skilled and energetic HR professio...",
+          "skills": [
+            "Human Resources"
+          ],
+          "industries": [
+            "Hospitals and Health Care"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3903848435,
+          "title": "Senior Visual & Communications Designer",
+          "company_name": "Pursuit",
+          "city": "New York",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "About PursuitOur mission is to create economic transformation. By training low-income adults to launch and advance careers as software engineers, we help our Fellows earn from eighteen thousand dollar...",
+          "skills": [
+            "Art/Creative",
+            "Design",
+            "Writing/Editing"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3903848434,
+          "title": "Inside Sales Representative",
+          "company_name": "Pregis",
+          "city": "Aurora",
+          "state": "IL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "We're Not Just in the Packaging Business–We're in the \"Wow\" Business\n\n Pregis is Hiring!\n\n Why Join Pregis?\n\nPregis is in the packaging business to protect what matters. We are committed to providing ...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Packaging and Containers Manufacturing"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3903848433,
+          "title": "Material Handler (4006)",
+          "company_name": "Pregis",
+          "city": "Glens Falls",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "We're Not Just in the Packaging Business–We're in the \"Wow\" Business\n\n Pregis is Hiring!\n\n Why Join Pregis?\n\nPregis is in the packaging business to protect what matters. We are committed to providing ...",
+          "skills": [
+            "Management",
+            "Manufacturing"
+          ],
+          "industries": [
+            "Packaging and Containers Manufacturing"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3906225651,
+          "title": "ETL Application Support Analyst",
+          "company_name": "Motion Recruitment",
+          "city": "Tampa",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Grow your career as an ETL Application Support Analyst with an innovative global bank in Tampa, FL. Contract role with strong possibility of extension. Will require working a hybrid schedule 2-3 days ...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3903848431,
+          "title": "Hotel Maintenance",
+          "company_name": "Driftwood Hospitality Management",
+          "city": "Springfield",
+          "state": "IL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Job Summary\n\nPrimarily responsible for the overall maintenance of the hotel’s building and grounds and for the operation of its equipment and mechanical/electrical systems. Key responsibilities includ...",
+          "skills": [
+            "Management",
+            "Manufacturing"
+          ],
+          "industries": [
+            "Hospitality"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3903848429,
+          "title": "Line Cook",
+          "company_name": "Driftwood Hospitality Management",
+          "city": "Novi",
+          "state": "MI",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "Driftwood Hospitality Management’s company culture empowers our associates to take initiative, be proactive, and contribute to the success of their property with well-defined strategies and objectives...",
+          "skills": [
+            "Management",
+            "Manufacturing"
+          ],
+          "industries": [
+            "Hospitality"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3903848428,
+          "title": "Quality Assurance Supervisor",
+          "company_name": "BBSI",
+          "city": "Salt Lake City",
+          "state": "UT",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 0.0,
+          "description_snippet": "QA Supervisor \nPosition Objective:The QA Supervisor is a key member of the quality team and is accountable for the company’s overall food safety and quality program, ensuring production of safe and hi...",
+          "skills": [
+            "Quality Assurance",
+            "Manufacturing",
+            "Product Management"
+          ],
+          "industries": [
+            "Baked Goods Manufacturing"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3906225649,
+          "title": "Account Services Collections Specialist - Remote - Nevada",
+          "company_name": "Nordstrom",
+          "city": "Las Vegas",
+          "state": "NV",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 0.0,
+          "description_snippet": "Job Description\n\nFor over 100 years, Nordstrom has created a reputation of Legendary Customer Service. As an Account Services Specialist, you will be an Ambassador for Nordstrom, handling inbound and ...",
+          "skills": [
+            "Business Development",
+            "Sales"
+          ],
+          "industries": [
+            "Retail"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 18,
+      "query": "engineer",
+      "filters": null,
+      "category": "edge_cases",
+      "description": "Single generic word",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3901954604,
+          "title": "Engineer 1",
+          "company_name": "New Jersey Performing Arts Center",
+          "city": "Newark",
+          "state": "NJ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 16.854311222318437,
+          "description_snippet": "The Role: Engineer 1\n\nLocation: Newark, NJ\n\nReports To: Chief Engineer\n\nStatus: Non Exempt- FT\n\nThe New Jersey Performing Arts Center (NJPAC) is the premier anchor cultural institution in the state, d...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Performing Arts",
+            "Non-profit Organizations",
+            "Entertainment Providers"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3904952080,
+          "title": "Network Engineer / Infrastructure Engineer / Systems Engineer",
+          "company_name": "Dice",
+          "city": "Devens",
+          "state": "MA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 16.396165846704598,
+          "description_snippet": "Dice is the leading career destination for tech experts at every stage of their careers. Our client, FORTIRA INC., is seeking the following. Apply via Dice today!\n\nPosition Details:\n\nJob Title: IT Inf...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3900077928,
+          "title": "Engineer",
+          "company_name": "Tata Consultancy Services",
+          "city": "Pennington",
+          "state": "NJ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 16.14095032541641,
+          "description_snippet": "Skill: Middleware Engineer with DevOps\n\nExperienced in DevOps, Agile tools (Jenkins) and Agile tools (Jira).Web Application & System Engineer to provide the following: System Design – The process of d...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3903840116,
+          "title": "Mechatronics Engineer",
+          "company_name": "Verto People",
+          "city": "Houston",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 15.93900724934617,
+          "description_snippet": "Mechatronics Engineer / Electronics Engineer / Robotics Engineer required to join a manufacturer of precision measurement tools and software solutions primarily in the oil and gas industry based in Pa...",
+          "skills": [
+            "Engineering",
+            "Manufacturing",
+            "Information Technology"
+          ],
+          "industries": [
+            "Robotics Engineering",
+            "Appliances, Electrical, and Electronics Manufacturing",
+            "Manufacturing"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3904099933,
+          "title": "Engineer 3",
+          "company_name": "SSOE Group",
+          "city": "Birmingham",
+          "state": "AL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 15.745843173654926,
+          "description_snippet": "Overview\n\nYou don't have to be an employee long before you understand the SSOE difference. It goes back to our history of reinventing ourselves for new markets, serious rates of growth year after year...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Engineering Services"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3903469911,
+          "title": "Engineer I",
+          "company_name": "The Mosaic Company",
+          "city": "Bradley Junction",
+          "state": "FL",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 15.726171044406641,
+          "description_snippet": "The Mosaic Company (NYSE: MOS) is the world’s leading integrated producer of concentrated phosphate and potash—two of the three most important nutrients in agriculture. We employ more than 13,000 peop...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Mining"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3884831624,
+          "title": "Data Engineer",
+          "company_name": "Piper Companies",
+          "city": "McLean",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 15.615054112580829,
+          "description_snippet": "Piper Companies is seeking a Data Engineer to cluster large datasets across various container and data platforms depending on external client needs. The Data Engineer will work hands-on with challengi...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3902841913,
+          "title": "Data Engineer",
+          "company_name": "Piper Companies",
+          "city": "McLean",
+          "state": "VA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 15.615054112580829,
+          "description_snippet": "Piper Companies is seeking a Data Engineer to cluster large datasets across various container and data platforms depending on external client needs. The Data Engineer will work hands-on with challengi...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3902785699,
+          "title": "Engineer",
+          "company_name": "Tata Consultancy Services",
+          "city": "Mayfield Heights",
+          "state": "OH",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 15.569298637686696,
+          "description_snippet": "Skill: Vulnerability Management Engineer\n\nFamiliar with Remedy CMDB.Experience with IT tools.Good communication skills - clear thinker and efficient communicator (written and verbal).Understanding of ...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "IT Services and IT Consulting"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3900945805,
+          "title": "Electrical Engineer",
+          "company_name": "Zeektek",
+          "city": "Wilsonville",
+          "state": "OR",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 15.54418176402418,
+          "description_snippet": "JOB DESCRIPTIONThe Electrical Engineer applies mathematical and engineering principles and methods to electrical system designs. Contributes to the design, development, and testing of electrical equip...",
+          "skills": [
+            "Engineering"
+          ],
+          "industries": [
+            "Technology, Information and Media",
+            "IT System Testing and Evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 19,
+      "query": "remote work from home",
+      "filters": null,
+      "category": "edge_cases",
+      "description": "Remote synonyms",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3905848695,
+          "title": "Work from Home - Sales",
+          "company_name": "Miller Family Agency",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 66.65168607424364,
+          "description_snippet": "Miller Family Agency strives to provide our sales force with the most innovative marketing and lead programs, while offering the highest quality insurance products and services to our clients. To sche...",
+          "skills": [
+            "Sales",
+            "Finance",
+            "Business Development"
+          ],
+          "industries": [
+            "Insurance",
+            "Financial Services",
+            "Real Estate"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3902937983,
+          "title": "Work From Home Opportunity",
+          "company_name": "None",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Part-time",
+          "remote_allowed": true,
+          "bm25_score": 63.97380806728566,
+          "description_snippet": "Part time or Full time income from home or remotely. If you are health oriented, motivated, able to network, self directed, seek more time freedom and leverage this is for you. This is your own busine...",
+          "skills": [],
+          "industries": []
+        },
+        {
+          "rank": 3,
+          "job_id": 3901942122,
+          "title": "Work From Home Sales Associate",
+          "company_name": "Workling",
+          "city": "Dallas",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 62.95352796894944,
+          "description_snippet": "Location: Remote WFH All Latin American Candidates welcome to apply\nOverview of the Role:\nOur client is looking for a Sales Associate who is passionate about sales and technology to join the Sales Tea...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 4,
+          "job_id": 3901943134,
+          "title": "Work From Home Sales Associate",
+          "company_name": "Workling",
+          "city": "Phoenix",
+          "state": "AZ",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 62.95352796894944,
+          "description_snippet": "Location: Remote WFH All Latin American Candidates welcome to apply\nOverview of the Role:\nOur client is looking for a Sales Associate who is passionate about sales and technology to join the Sales Tea...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3905219453,
+          "title": "Work From Home Account Director ",
+          "company_name": "INDI Staffing Services",
+          "city": "Austin",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 62.34091194226483,
+          "description_snippet": "Recognized as the leading software development company in the Americas, our client offers 100% remote modality and an excellent work environment in which employees can thrive, and work in multicultura...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3891082609,
+          "title": "Work From Home Account Director",
+          "company_name": "Workling",
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 61.02659166105214,
+          "description_snippet": "Overview of the Role:Our client is looking for an Account Director to play a critical role in the success of their Sales Team as they focus on delivering results to customers at the highest quality. T...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Technology, Information and Internet"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3905663766,
+          "title": "Sales Associate Work From Home",
+          "company_name": "RemoteWorker US",
+          "city": "Lowell",
+          "state": "MA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 60.82713383730737,
+          "description_snippet": "American Income Life (part of Globe Life, a NASDAQ traded company) is looking for Benefit Representatives to help manage growing client needs and help provide both new and existing clients with the be...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3905663765,
+          "title": "Sales Associate Work From Home",
+          "company_name": "RemoteWorker US",
+          "city": "Yonkers",
+          "state": "NY",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 60.82713383730737,
+          "description_snippet": "American Income Life (part of Globe Life, a NASDAQ traded company) is looking for Benefit Representatives to help manage growing client needs and help provide both new and existing clients with the be...",
+          "skills": [
+            "Sales",
+            "Business Development"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3905658775,
+          "title": "Work From Home Remote Sales Specialist",
+          "company_name": "Talentify.io",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 60.01060688819767,
+          "description_snippet": "Employer Industry: Insurance\n\nWhy Consider This Job Opportunity\n\n Salary up to $175,000 Uncapped earning potential Comprehensive training program and ongoing professional development opportunities Hea...",
+          "skills": [
+            "Sales"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3905675105,
+          "title": "Work From Home – Online Retail Sales",
+          "company_name": "RemoteWorker UK",
+          "city": "Baton Rouge",
+          "state": "LA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 59.8891535146325,
+          "description_snippet": "We are looking for an Online Retail Sales Assistant to work from home with an exclusive Swedish beauty and wellness company expanding rapidly throughout the UK and Ireland. Innovation, quality, enviro...",
+          "skills": [
+            "Marketing",
+            "Public Relations",
+            "Writing/Editing"
+          ],
+          "industries": [
+            "Staffing and Recruiting"
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": 20,
+      "query": "entry level junior",
+      "filters": null,
+      "category": "edge_cases",
+      "description": "Experience level keywords",
+      "num_results": 10,
+      "results": [
+        {
+          "rank": 1,
+          "job_id": 3894918114,
+          "title": "ENTRY LEVEL BDR + Junior Account Executive",
+          "company_name": "Rootstack",
+          "city": "Florida",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 48.53775250564554,
+          "description_snippet": "Position Overview:The ENTRY LEVEL BDR (Business Development Representative) + Junior Account Executive role combines elements of business development and junior-level account management. This position...",
+          "skills": [],
+          "industries": [
+            "Software Development"
+          ]
+        },
+        {
+          "rank": 2,
+          "job_id": 3889702650,
+          "title": "Entry Level Management",
+          "company_name": "HSO Executives Inc.",
+          "city": "Oxnard",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 46.57465227078174,
+          "description_snippet": "Job Description\n\nWe have joined forces with one of the most renowned household names to unite the world through the latest tech, top-of-the-line communications, and the best entertainment on the marke...",
+          "skills": [
+            "Other"
+          ],
+          "industries": [
+            "Advertising Services"
+          ]
+        },
+        {
+          "rank": 3,
+          "job_id": 3905292857,
+          "title": "Junior Data Entry Specialist",
+          "company_name": "None",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 46.54060681948184,
+          "description_snippet": "CBDermaceuticals is seeking a detail-oriented and organized Junior Data Entry Specialist to join our team. As a Junior Data Entry Specialist, you will play a crucial role in maintaining the accuracy a...",
+          "skills": [
+            "Administrative"
+          ],
+          "industries": []
+        },
+        {
+          "rank": 4,
+          "job_id": 3904361599,
+          "title": "Junior Level E-Discovery",
+          "company_name": "Solomon Page",
+          "city": "Los Angeles",
+          "state": "CA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 42.174007353353396,
+          "description_snippet": "Our client in Los Angeles is looking to bring on a temp junior level eDiscovery Analyst for their Litigation Services team. This position will be hybrid and based out of the Los Angeles office.\n\nPay $...",
+          "skills": [
+            "Legal",
+            "General Business"
+          ],
+          "industries": [
+            "Law Practice",
+            "Legal Services"
+          ]
+        },
+        {
+          "rank": 5,
+          "job_id": 3904945286,
+          "title": "Junior Level Engineer",
+          "company_name": "Actalent",
+          "city": "San Antonio",
+          "state": "TX",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 42.16805942903291,
+          "description_snippet": "Description\n\nClient is seeking candidates that have Engineering (Engineers) or Engineering Technology (Techs) degree to work as Distribution Engineers and Technicians focused Duke energy Distribution ...",
+          "skills": [
+            "Engineering",
+            "Information Technology"
+          ],
+          "industries": [
+            "Business Consulting and Services"
+          ]
+        },
+        {
+          "rank": 6,
+          "job_id": 3894604764,
+          "title": "Entry Level Accounting Role",
+          "company_name": "Creative Financial Staffing (CFS)",
+          "city": "Cheshire",
+          "state": "CT",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 41.73825565925089,
+          "description_snippet": "Calling all May 2023 grads! Are you looking for your first position out of college? One of CFS’ top clients are currently looking for several recent graduates to join their accounting & finance teams....",
+          "skills": [
+            "Accounting/Auditing",
+            "Finance"
+          ],
+          "industries": [
+            "Accounting"
+          ]
+        },
+        {
+          "rank": 7,
+          "job_id": 3901678419,
+          "title": "Entry level Leadership",
+          "company_name": "Globe Life American Income Division: Moore Organization",
+          "city": "",
+          "state": "",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": true,
+          "bm25_score": 41.58078918900364,
+          "description_snippet": "Entry Level Manager Role As an Entry Level Leader, you must be enthusiastic, self-motivated, eager to learn, but most importantly not scared of hard work. You will be put on a fast paced 3-6 month tra...",
+          "skills": [
+            "Sales",
+            "Customer Service",
+            "Finance"
+          ],
+          "industries": [
+            "Insurance"
+          ]
+        },
+        {
+          "rank": 8,
+          "job_id": 3898162145,
+          "title": "Entry Level Management",
+          "company_name": "Vincero",
+          "city": "San Antonio",
+          "state": "",
+          "country": "Texas Metropolitan Area",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 41.57694975602769,
+          "description_snippet": "Role DescriptionThis is a full-time Entry Level Management role at Vincero. As an Entry Level Manager, you will be responsible for overseeing daily operations, managing a team, and ensuring that busin...",
+          "skills": [],
+          "industries": [
+            "Business Consulting and Services"
+          ]
+        },
+        {
+          "rank": 9,
+          "job_id": 3901677505,
+          "title": "Entry Level IT",
+          "company_name": "Oxford Solutions",
+          "city": "Washington County",
+          "state": "PA",
+          "country": "United States",
+          "work_type": "Contract",
+          "remote_allowed": false,
+          "bm25_score": 41.20792347827762,
+          "description_snippet": "Short-term need (3 months during Summer).\nEntry level opening for a Technical Deployment Specialist. Work is onsite in Washington, PA area.\nOur client is seeking a Technical Deployment Specialists to ...",
+          "skills": [
+            "Information Technology"
+          ],
+          "industries": [
+            "Building Construction"
+          ]
+        },
+        {
+          "rank": 10,
+          "job_id": 3888490113,
+          "title": "Entry Level Marketing",
+          "company_name": "New Acquisitions",
+          "city": "Atlanta",
+          "state": "GA",
+          "country": "United States",
+          "work_type": "Full-time",
+          "remote_allowed": false,
+          "bm25_score": 41.176745450078755,
+          "description_snippet": "We are only looking to hire immediately, if you’re start date is more that 6 weeks out please apply closer to that time.\nNew Acquisitions is an innovative sales and marketing company that provides exc...",
+          "skills": [
+            "Sales",
+            "Business Development",
+            "Marketing"
+          ],
+          "industries": [
+            "Advertising Services",
+            "Hospitality",
+            "Retail"
+          ]
+        }
+      ]
+    }
+  ]
+}
