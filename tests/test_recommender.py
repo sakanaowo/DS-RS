@@ -1,5 +1,5 @@
 """
-Unit Tests for Vector Store and Recommender
+Unit Tests for Vector Store and Recommender (TF-IDF only)
 
 Run with: pytest tests/test_recommender.py -v
 """
@@ -37,9 +37,6 @@ class TestVectorStore:
         """Test that all components are loaded."""
         assert vector_store.tfidf_vectorizer is not None
         assert vector_store.tfidf_matrix is not None
-        assert vector_store.minilm_model is not None
-        assert vector_store.minilm_embeddings is not None
-        assert vector_store.faiss_index is not None
         assert vector_store.job_data is not None
         assert vector_store.sample_indices is not None
 
@@ -54,27 +51,9 @@ class TestVectorStore:
         # Scores should be in descending order
         assert all(scores[i] >= scores[i + 1] for i in range(len(scores) - 1))
 
-    def test_minilm_search(self, vector_store):
-        """Test MiniLM search returns valid results."""
-        indices, scores = vector_store.search_minilm("data scientist", top_k=5)
-
-        assert len(indices) == 5
-        assert len(scores) == 5
-        # Normalized embeddings with dot product should give scores in [-1, 1]
-        assert all(scores >= -1)
-        assert all(scores <= 1)
-
-    def test_faiss_search(self, vector_store):
-        """Test FAISS search returns valid results."""
-        indices, scores = vector_store.search_faiss("backend engineer", top_k=5)
-
-        assert len(indices) == 5
-        assert len(scores) == 5
-        assert all(isinstance(i, (int, np.integer)) for i in indices)
-
     def test_search_with_dataframe(self, vector_store):
         """Test search returns properly formatted DataFrame."""
-        results = vector_store.search("software engineer", top_k=3, method="faiss")
+        results = vector_store.search("software engineer", top_k=3)
 
         assert isinstance(results, pd.DataFrame)
         assert len(results) == 3
@@ -96,7 +75,7 @@ class TestJobRecommender:
     def test_basic_recommendations(self, recommender):
         """Test basic recommendation without filters."""
         results = recommender.get_recommendations(
-            query="Python backend developer", top_k=5, method="faiss"
+            query="Python backend developer", top_k=5
         )
 
         assert isinstance(results, pd.DataFrame)
@@ -195,23 +174,6 @@ class TestJobRecommender:
             assert isinstance(results[query], pd.DataFrame)
             assert len(results[query]) <= 3
 
-    def test_hybrid_rerank(self, recommender):
-        """Test hybrid reranking."""
-        results_no_rerank = recommender.get_recommendations(
-            query="machine learning engineer", top_k=5, method="faiss", rerank=False
-        )
-
-        results_rerank = recommender.get_recommendations(
-            query="machine learning engineer", top_k=5, method="faiss", rerank=True
-        )
-
-        assert isinstance(results_no_rerank, pd.DataFrame)
-        assert isinstance(results_rerank, pd.DataFrame)
-        assert len(results_no_rerank) == len(results_rerank)
-        # Reranked should have hybrid_score column
-        if not results_rerank.empty:
-            assert "hybrid_score" in results_rerank.columns
-
     def test_describe(self, recommender):
         """Test describe method."""
         description = recommender.describe()
@@ -244,16 +206,9 @@ class TestEdgeCases:
     def test_top_k_larger_than_dataset(self, vector_store):
         """Test requesting more results than available."""
         # Request more than sample size
-        results = vector_store.search("developer", top_k=20000, method="faiss")
+        results = vector_store.search("developer", top_k=20000)
         # Should return all available
         assert len(results) <= len(vector_store.sample_indices)
-
-    def test_invalid_method(self, recommender):
-        """Test invalid search method raises error."""
-        with pytest.raises(ValueError):
-            recommender.get_recommendations(
-                query="test", method="invalid_method"  # type: ignore
-            )
 
     def test_invalid_job_id(self, recommender):
         """Test invalid job ID raises error."""

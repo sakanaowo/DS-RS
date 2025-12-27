@@ -2,7 +2,7 @@
 Vector Store Module for Job Recommendation System
 
 This module handles loading and managing vectorized job data,
-including TF-IDF matrices, MiniLM embeddings, and FAISS indices.
+using TF-IDF matrices for keyword-based similarity search.
 """
 
 from __future__ import annotations
@@ -11,11 +11,9 @@ import pickle
 from pathlib import Path
 from typing import List, Tuple, Optional, Literal
 
-import faiss
 import numpy as np
 import pandas as pd
 from scipy.sparse import load_npz, csr_matrix
-from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -26,10 +24,7 @@ class VectorStore:
     """
     Manages vector representations of job postings and performs similarity search.
 
-    Supports three search methods:
-    - TF-IDF: Traditional keyword-based sparse vectors
-    - MiniLM: Semantic embeddings using sentence-transformers
-    - FAISS: Fast approximate nearest neighbor search
+    Uses TF-IDF for keyword-based recommendation.
     """
 
     def __init__(
@@ -63,12 +58,11 @@ class VectorStore:
 
         self.data_dir = Path(data_dir)
         if not self.data_dir.is_absolute():
-            self.data_dir = project_root / data_dir  # Initialize empty attributes
+            self.data_dir = project_root / data_dir
+
+        # Initialize empty attributes
         self.tfidf_vectorizer: Optional[TfidfVectorizer] = None
         self.tfidf_matrix: Optional[csr_matrix] = None
-        self.minilm_model: Optional[SentenceTransformer] = None
-        self.minilm_embeddings: Optional[np.ndarray] = None
-        self.faiss_index: Optional[faiss.IndexFlatIP] = None
         self.job_data: Optional[pd.DataFrame] = None
         self.sample_indices: Optional[List[int]] = None
 
@@ -84,32 +78,6 @@ class VectorStore:
         self.tfidf_matrix = load_npz(matrix_path)
 
         print(f"✓ TF-IDF loaded: {self.tfidf_matrix.shape} matrix")
-
-    def load_minilm(
-        self, model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
-    ) -> None:
-        """
-        Load MiniLM model and embeddings.
-
-        Args:
-            model_name: HuggingFace model identifier
-        """
-        print(f"Loading MiniLM model ({model_name})...")
-        self.minilm_model = SentenceTransformer(model_name)
-
-        print("Loading MiniLM embeddings...")
-        embeddings_path = self.models_dir / "minilm_embeddings.npy"
-        self.minilm_embeddings = np.load(embeddings_path)
-
-        print(f"✓ MiniLM loaded: {self.minilm_embeddings.shape} embeddings")
-
-    def load_faiss(self) -> None:
-        """Load FAISS index for fast similarity search."""
-        print("Loading FAISS index...")
-        index_path = self.models_dir / "faiss_index.bin"
-        self.faiss_index = faiss.read_index(str(index_path))
-
-        print(f"✓ FAISS loaded: {self.faiss_index.ntotal} vectors indexed")
 
     def load_job_data(self) -> None:
         """Load processed job data."""
@@ -144,8 +112,6 @@ class VectorStore:
         self.load_job_data()
         self.load_sample_indices()
         self.load_tfidf()
-        self.load_minilm()
-        self.load_faiss()
         print("\n✓ All components loaded successfully!")
 
     def search_tfidf(
@@ -181,86 +147,18 @@ class VectorStore:
 
         return top_indices, top_scores
 
-    def search_minilm(
-        self, query: str, top_k: int = 10, preprocess: bool = True
-    ) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        Search using MiniLM embeddings.
-
-        Args:
-            query: Search query text
-            top_k: Number of results to return
-            preprocess: Whether to clean the query text
-
-        Returns:
-            Tuple of (indices, similarities) arrays
-        """
-        if self.minilm_model is None or self.minilm_embeddings is None:
-            raise ValueError("MiniLM not loaded. Call load_minilm() first.")
-
-        # Preprocess query
-        if preprocess:
-            query = clean_text(query)
-
-        # Encode query
-        query_emb = self.minilm_model.encode([query], normalize_embeddings=True)
-
-        # Compute similarities (dot product since normalized)
-        similarities = np.dot(self.minilm_embeddings, query_emb.T).flatten()
-
-        # Get top-K indices
-        top_indices = similarities.argsort()[::-1][:top_k]
-        top_scores = similarities[top_indices]
-
-        return top_indices, top_scores
-
-    def search_faiss(
-        self, query: str, top_k: int = 10, preprocess: bool = True
-    ) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        Search using FAISS index (fastest method).
-
-        Args:
-            query: Search query text
-            top_k: Number of results to return
-            preprocess: Whether to clean the query text
-
-        Returns:
-            Tuple of (indices, similarities) arrays
-        """
-        if self.faiss_index is None or self.minilm_model is None:
-            raise ValueError(
-                "FAISS not loaded. Call load_faiss() and load_minilm() first."
-            )
-
-        # Preprocess query
-        if preprocess:
-            query = clean_text(query)
-
-        # Encode query
-        query_emb = self.minilm_model.encode([query], normalize_embeddings=True).astype(
-            "float32"
-        )
-
-        # Search
-        similarities, indices = self.faiss_index.search(query_emb, top_k)
-
-        return indices[0], similarities[0]
-
     def search(
         self,
         query: str,
         top_k: int = 10,
-        method: Literal["tfidf", "minilm", "faiss"] = "faiss",
         preprocess: bool = True,
     ) -> pd.DataFrame:
         """
-        Search for similar jobs using specified method.
+        Search for similar jobs using TF-IDF.
 
         Args:
             query: Search query text
             top_k: Number of results to return
-            method: Search method ("tfidf", "minilm", or "faiss")
             preprocess: Whether to clean the query text
 
         Returns:
@@ -274,17 +172,8 @@ class VectorStore:
                 "Sample indices not loaded. Call load_sample_indices() first."
             )
 
-        # Perform search
-        if method == "tfidf":
-            indices, scores = self.search_tfidf(query, top_k, preprocess)
-        elif method == "minilm":
-            indices, scores = self.search_minilm(query, top_k, preprocess)
-        elif method == "faiss":
-            indices, scores = self.search_faiss(query, top_k, preprocess)
-        else:
-            raise ValueError(
-                f"Unknown method: {method}. Use 'tfidf', 'minilm', or 'faiss'."
-            )
+        # Perform TF-IDF search
+        indices, scores = self.search_tfidf(query, top_k, preprocess)
 
         # Map sample indices to original dataset
         original_indices = [self.sample_indices[i] for i in indices]
@@ -318,20 +207,17 @@ class VectorStore:
 
 
 # Convenience function for quick testing
-def quick_search(
-    query: str, top_k: int = 5, method: Literal["tfidf", "minilm", "faiss"] = "faiss"
-) -> pd.DataFrame:
+def quick_search(query: str, top_k: int = 5) -> pd.DataFrame:
     """
     Quick search function for testing.
 
     Args:
         query: Search query
         top_k: Number of results
-        method: Search method
 
     Returns:
         DataFrame with results
     """
     store = VectorStore()
     store.load_all()
-    return store.search(query, top_k, method)
+    return store.search(query, top_k)

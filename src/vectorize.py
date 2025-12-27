@@ -1,6 +1,6 @@
 """
 Day 4: Vectorization Pipeline
-Generate TF-IDF and MiniLM embeddings for job recommendations
+Generate TF-IDF vectors for job recommendations
 
 Usage:
     python src/vectorize.py --sample 10000  # Use 10k sample
@@ -17,12 +17,11 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import save_npz
-from sentence_transformers import SentenceTransformer
 
 warnings.filterwarnings("ignore")
 
 
-def load_data(data_path: Path, sample_size: int = None):
+def load_data(data_path: Path, sample_size: int | None = None):
     """Load cleaned jobs data"""
     print(f"Loading cleaned dataset from {data_path}...")
     df = pd.read_parquet(data_path)
@@ -38,7 +37,7 @@ def load_data(data_path: Path, sample_size: int = None):
 
 def create_tfidf_vectors(texts, models_dir: Path):
     """Create TF-IDF vectors"""
-    print("\n[1/3] Creating TF-IDF vectors...")
+    print("\n[1/1] Creating TF-IDF vectors...")
     start = time.time()
 
     tfidf = TfidfVectorizer(
@@ -71,63 +70,6 @@ def create_tfidf_vectors(texts, models_dir: Path):
     return tfidf, tfidf_matrix
 
 
-def create_minilm_embeddings(texts, models_dir: Path):
-    """Create MiniLM embeddings"""
-    print("\n[2/3] Creating MiniLM embeddings...")
-    start = time.time()
-
-    model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
-    print(f"  - Model: all-MiniLM-L6-v2")
-    print(f"  - Embedding dim: {model.get_sentence_embedding_dimension()}")
-
-    embeddings = model.encode(
-        texts,
-        batch_size=32,
-        show_progress_bar=True,
-        convert_to_numpy=True,
-        normalize_embeddings=True,
-    )
-
-    elapsed = time.time() - start
-    print(f"\n  ✓ Completed in {elapsed:.2f}s")
-    print(f"  - Embeddings shape: {embeddings.shape}")
-    print(f"  - Memory: {embeddings.nbytes / 1024**2:.1f} MB")
-    print(f"  - Speed: {len(texts)/elapsed:.0f} docs/sec")
-
-    # Save
-    np.save(models_dir / "minilm_embeddings.npy", embeddings)
-    print(f"  ✓ Saved to {models_dir}")
-
-    return embeddings
-
-
-def create_faiss_index(embeddings, models_dir: Path):
-    """Create FAISS index"""
-    print("\n[3/3] Creating FAISS index...")
-
-    try:
-        import faiss
-    except ImportError:
-        print("  ! FAISS not installed, skipping...")
-        return None
-
-    start = time.time()
-    dimension = embeddings.shape[1]
-    index = faiss.IndexFlatIP(dimension)
-    index.add(embeddings.astype("float32"))
-    elapsed = time.time() - start
-
-    print(f"  ✓ Completed in {elapsed:.2f}s")
-    print(f"  - Index size: {index.ntotal:,} vectors")
-    print(f"  - Index dim: {index.d}")
-
-    # Save
-    faiss.write_index(index, str(models_dir / "faiss_index.bin"))
-    print(f"  ✓ Saved to {models_dir}")
-
-    return index
-
-
 def main():
     parser = argparse.ArgumentParser(description="Vectorize jobs for recommendation")
     parser.add_argument(
@@ -158,10 +100,8 @@ def main():
     df = load_data(data_path, sample_size)
     texts = df["clean_text"].fillna("").values
 
-    # Create vectors
+    # Create TF-IDF vectors
     tfidf, tfidf_matrix = create_tfidf_vectors(texts, models_dir)
-    embeddings = create_minilm_embeddings(texts, models_dir)
-    index = create_faiss_index(embeddings, models_dir)
 
     # Save metadata
     sample_indices = df.index.tolist()
@@ -177,18 +117,13 @@ def main():
     print(
         f"TF-IDF: {tfidf_matrix.shape[1]} features, {tfidf_matrix.data.nbytes/1024**2:.1f} MB"
     )
-    print(f"MiniLM: {embeddings.shape[1]} dims, {embeddings.nbytes/1024**2:.1f} MB")
-    if index:
-        print(f"FAISS: {index.ntotal:,} vectors indexed")
 
     print(f"\nArtifacts saved to: {models_dir}")
     print("  - tfidf_vectorizer.pkl")
     print("  - tfidf_matrix.npz")
-    print("  - minilm_embeddings.npy")
-    print("  - faiss_index.bin")
     print("  - sample_indices.pkl")
 
-    print("\n✅ Day 4 Complete - Ready for Recommendation Engine")
+    print("\n✅ Vectorization Complete - Ready for Recommendation Engine")
     print("=" * 70)
 
 

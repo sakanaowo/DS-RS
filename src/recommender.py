@@ -20,7 +20,7 @@ class JobRecommender:
     """
     Main recommendation engine for job postings.
 
-    Uses VectorStore for similarity search and provides filtering
+    Uses TF-IDF for keyword-based similarity search and provides filtering
     capabilities based on location, work type, experience, salary, etc.
     """
 
@@ -49,9 +49,7 @@ class JobRecommender:
         self,
         query: str,
         top_k: int = 10,
-        method: Literal["tfidf", "minilm", "faiss"] = "faiss",
         filters: Optional[Dict[str, Any]] = None,
-        rerank: bool = False,
     ) -> pd.DataFrame:
         """
         Get job recommendations based on query and filters.
@@ -59,7 +57,6 @@ class JobRecommender:
         Args:
             query: User's search query (e.g., "Python backend developer")
             top_k: Number of recommendations to return
-            method: Search method ("tfidf", "minilm", or "faiss")
             filters: Optional filters dict with keys:
                 - location: str or List[str] - City, state, or country
                 - work_type: str or List[str] - Full-time, Part-time, Contract, etc.
@@ -69,7 +66,6 @@ class JobRecommender:
                 - max_salary: float - Maximum salary
                 - industries: str or List[str] - Industry names
                 - skills: str or List[str] - Required skills
-            rerank: Whether to rerank results using hybrid scoring
 
         Returns:
             DataFrame with recommended jobs, sorted by relevance
@@ -83,15 +79,11 @@ class JobRecommender:
         else:
             fetch_k = top_k
 
-        results = self.vector_store.search(query, top_k=fetch_k, method=method)
+        results = self.vector_store.search(query, top_k=fetch_k)
 
         # Apply filters
         if filters:
             results = self._apply_filters(results, filters)
-
-        # Rerank if requested
-        if rerank and method == "faiss":
-            results = self._hybrid_rerank(query, results, top_k)
 
         # Return top-K
         return results.head(top_k)
@@ -194,51 +186,10 @@ class JobRecommender:
 
         return filtered
 
-    def _hybrid_rerank(
-        self, query: str, results: pd.DataFrame, top_k: int
-    ) -> pd.DataFrame:
-        """
-        Rerank results using hybrid TF-IDF + MiniLM scoring.
-
-        Args:
-            query: Original query
-            results: Initial results from FAISS
-            top_k: Number of results to return
-
-        Returns:
-            Reranked DataFrame
-        """
-        # Get TF-IDF scores for the candidates
-        job_indices = results.index.tolist()
-
-        # Search with TF-IDF among candidates
-        tfidf_indices, tfidf_scores = self.vector_store.search_tfidf(
-            query, top_k=len(results), preprocess=True
-        )
-
-        # Create score mapping
-        tfidf_score_map = dict(zip(tfidf_indices, tfidf_scores))
-
-        # Combine scores (0.4 * semantic + 0.6 * keyword)
-        results = results.copy()
-        results["tfidf_score"] = results.index.map(
-            lambda i: tfidf_score_map.get(i, 0.0)
-        )
-        results["hybrid_score"] = (
-            0.4 * results["similarity_score"] + 0.6 * results["tfidf_score"]
-        )
-
-        # Rerank by hybrid score
-        results = results.sort_values("hybrid_score", ascending=False)
-        results["rank"] = range(1, len(results) + 1)
-
-        return results.head(top_k)
-
     def search_similar_jobs(
         self,
         job_id: int,
         top_k: int = 5,
-        method: Literal["tfidf", "minilm", "faiss"] = "faiss",
     ) -> pd.DataFrame:
         """
         Find jobs similar to a given job.
@@ -246,7 +197,6 @@ class JobRecommender:
         Args:
             job_id: ID of the reference job
             top_k: Number of similar jobs to return
-            method: Search method
 
         Returns:
             DataFrame with similar jobs
@@ -262,7 +212,7 @@ class JobRecommender:
 
         # Search
         results = self.get_recommendations(
-            query=query, top_k=top_k + 1, method=method  # +1 to exclude the job itself
+            query=query, top_k=top_k + 1  # +1 to exclude the job itself
         )
 
         # Exclude the original job
@@ -274,7 +224,6 @@ class JobRecommender:
         self,
         queries: List[str],
         top_k: int = 5,
-        method: Literal["tfidf", "minilm", "faiss"] = "faiss",
     ) -> Dict[str, pd.DataFrame]:
         """
         Get recommendations for multiple queries.
@@ -282,16 +231,13 @@ class JobRecommender:
         Args:
             queries: List of search queries
             top_k: Number of recommendations per query
-            method: Search method
 
         Returns:
             Dict mapping queries to their results
         """
         results = {}
         for query in queries:
-            results[query] = self.get_recommendations(
-                query=query, top_k=top_k, method=method
-            )
+            results[query] = self.get_recommendations(query=query, top_k=top_k)
         return results
 
     def describe(self) -> str:
@@ -307,10 +253,4 @@ class JobRecommender:
         if self.vector_store.tfidf_matrix is not None:
             stats.append(f"TF-IDF: {self.vector_store.tfidf_matrix.shape}")
 
-        if self.vector_store.minilm_embeddings is not None:
-            stats.append(f"MiniLM: {self.vector_store.minilm_embeddings.shape}")
-
-        if self.vector_store.faiss_index is not None:
-            stats.append(f"FAISS: {self.vector_store.faiss_index.ntotal} vectors")
-
-        return "JobRecommender | " + " | ".join(stats)
+        return "JobRecommender (TF-IDF) | " + " | ".join(stats)

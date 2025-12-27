@@ -8,12 +8,21 @@ import pandas as pd
 from pathlib import Path
 import time
 import json
+import logging
 from datetime import datetime
 from typing import Dict, List, Optional
 import plotly.express as px
 import plotly.graph_objects as go
 
 from src.recommender import JobRecommender
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("logs/app_debug.log"), logging.StreamHandler()],
+)
+logger = logging.getLogger(__name__)
 
 # Page config
 st.set_page_config(
@@ -26,12 +35,15 @@ st.set_page_config(
 # Initialize session state for navigation
 if "page" not in st.session_state:
     st.session_state.page = "home"
+    logger.debug("Initialized session state: page='home'")
 if "search_results" not in st.session_state:
     st.session_state.search_results = None
 if "selected_job" not in st.session_state:
     st.session_state.selected_job = None
 if "search_params" not in st.session_state:
     st.session_state.search_params = {}
+if "debug_mode" not in st.session_state:
+    st.session_state.debug_mode = False
 
 # Custom CSS - Indeed.com inspired
 st.markdown(
@@ -240,8 +252,30 @@ st.markdown(
 @st.cache_resource
 def load_recommender() -> JobRecommender:
     """Load and cache the recommender system (50k indexed jobs, ~207 MB)."""
-    with st.spinner("🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"):
+    logger.info("=" * 70)
+    logger.info("LOADING RECOMMENDER SYSTEM")
+    logger.info("=" * 70)
+
+    load_start = time.time()
+    with st.spinner(
+        "🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"
+    ):
         recommender = JobRecommender(auto_load=True)
+    load_time = time.time() - load_start
+
+    # Log system statistics
+    logger.info(f"✓ Recommender loaded in {load_time:.2f}s")
+    logger.info(f"✓ Total jobs in dataset: {len(recommender.vector_store.job_data):,}")
+    logger.info(
+        f"✓ Indexed jobs (50k sample): {len(recommender.vector_store.sample_indices):,}"
+    )
+    logger.info(f"✓ TF-IDF matrix shape: {recommender.vector_store.tfidf_matrix.shape}")
+    logger.info(
+        f"✓ TF-IDF vocabulary size: {len(recommender.vector_store.tfidf_vectorizer.vocabulary_):,}"
+    )
+    logger.info(f"✓ Search method: TF-IDF only (MiniLM/FAISS removed)")
+    logger.info("=" * 70)
+
     st.success("✅ Loaded 50,000 indexed jobs successfully!")
     return recommender
 
@@ -353,11 +387,11 @@ def export_to_json(
 
 
 def create_performance_comparison() -> go.Figure:
-    """Create performance comparison chart for 3 methods."""
+    """Create performance comparison chart for TF-IDF."""
     methods_data = {
-        "Method": ["FAISS", "MiniLM", "TF-IDF"],
-        "Speed (ms)": [14.6, 13.3, 49.1],
-        "Precision@5 (%)": [93.3, 93.3, 86.7],
+        "Method": ["TF-IDF"],
+        "Speed (ms)": [49.1],
+        "Precision@5 (%)": [86.7],
     }
 
     df = pd.DataFrame(methods_data)
@@ -632,7 +666,7 @@ def show_home_page(recommender: JobRecommender):
 
     # Advanced filters
     with st.expander("⚙️ Advanced Filters"):
-        col_a1, col_a2, col_a3 = st.columns(3)
+        col_a1, col_a2 = st.columns(2)
 
         with col_a1:
             remote_filter = st.radio(
@@ -650,18 +684,6 @@ def show_home_page(recommender: JobRecommender):
                     value=50000,
                     step=5000,
                 )
-
-        with col_a3:
-            search_method = st.selectbox(
-                "🔬 Search Method",
-                ["faiss", "minilm", "tfidf"],
-                index=0,
-                format_func=lambda x: {
-                    "faiss": "🚀 FAISS (Fastest)",
-                    "minilm": "🧠 MiniLM (Semantic)",
-                    "tfidf": "📝 TF-IDF (Keyword)",
-                }[x],
-            )
 
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -694,25 +716,50 @@ def show_home_page(recommender: JobRecommender):
             if min_salary:
                 filters["min_salary"] = min_salary
 
+            if filters:
+                logger.debug(f"Filters built: {json.dumps(filters, indent=2)}")
+
             # Search
+            logger.info("\n" + "=" * 70)
+            logger.info("SEARCH REQUEST")
+            logger.info("=" * 70)
+            logger.info(f"Query: '{query}'")
+            logger.info(f"Method: TF-IDF")
+            logger.info(f"Requested top_k: 20")
+            logger.info(f"Filters applied: {filters if filters else 'None'}")
+            logger.info(
+                f"Total indexed jobs: {len(recommender.vector_store.sample_indices):,}"
+            )
+
             start_time = time.time()
             try:
+                logger.debug("Executing TF-IDF search...")
                 results = recommender.get_recommendations(
                     query=query,
-                    method=search_method,
                     top_k=20,
                     filters=filters if filters else None,
                 )
                 search_time = (time.time() - start_time) * 1000
 
+                logger.info(f"✓ Search completed in {search_time:.2f}ms")
+                logger.info(f"✓ Results found: {len(results)} jobs")
+                if len(results) > 0:
+                    logger.info(
+                        f"✓ Top similarity score: {results.iloc[0]['similarity_score']:.4f}"
+                    )
+                    logger.info(
+                        f"✓ Top result: {results.iloc[0]['title']} at {results.iloc[0].get('company_name_x', 'N/A')}"
+                    )
+                logger.info("=" * 70)
+
                 # Log query
-                log_query(query, search_method, filters, len(results), search_time)
+                log_query(query, "tfidf", filters, len(results), search_time)
 
                 # Save to session state
                 st.session_state.search_results = results
                 st.session_state.search_params = {
                     "query": query,
-                    "method": search_method,
+                    "method": "tfidf",
                     "filters": filters,
                     "search_time": search_time,
                 }
@@ -775,7 +822,11 @@ def show_home_page(recommender: JobRecommender):
 
     with col_stat4:
         # Show indexed count instead of accuracy
-        indexed_count = len(recommender.vector_store.sample_indices) if recommender.vector_store.sample_indices else 50000
+        indexed_count = (
+            len(recommender.vector_store.sample_indices)
+            if recommender.vector_store.sample_indices
+            else 50000
+        )
         st.markdown(
             f"""
             <div class="stat-box">
@@ -861,6 +912,72 @@ def show_home_page(recommender: JobRecommender):
                 st.markdown(f"**{work_type}:** {count:,} ({pct:.1f}%)")
         else:
             st.info("Work type data not available")
+
+    # Debug Information Panel (expandable)
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    with st.expander("🔍 Debug Information - System Status", expanded=False):
+        st.markdown("### 🛠️ System Configuration")
+
+        col_d1, col_d2 = st.columns(2)
+
+        with col_d1:
+            st.markdown("#### 📊 Data Statistics")
+            st.markdown(f"- **Total Jobs in Dataset:** {len(job_data):,}")
+            st.markdown(
+                f"- **Indexed Jobs (Sample):** {len(recommender.vector_store.sample_indices):,}"
+            )
+            st.markdown(
+                f"- **Sample Coverage:** {(len(recommender.vector_store.sample_indices) / len(job_data) * 100):.1f}%"
+            )
+            st.markdown(
+                f"- **Unique Companies:** {job_data['company_name_x'].nunique():,}"
+            )
+            st.markdown(f"- **Unique Locations:** {job_data['location'].nunique():,}")
+
+        with col_d2:
+            st.markdown("#### 🧠 TF-IDF Model Info")
+            st.markdown(
+                f"- **Matrix Shape:** {recommender.vector_store.tfidf_matrix.shape}"
+            )
+            st.markdown(
+                f"- **Vocabulary Size:** {len(recommender.vector_store.tfidf_vectorizer.vocabulary_):,} terms"
+            )
+            st.markdown(f"- **Max Features:** 5,000")
+            st.markdown(f"- **N-gram Range:** (1, 2)")
+            st.markdown(f"- **Search Method:** TF-IDF only")
+            st.markdown(f"- **MiniLM/FAISS:** ❌ Removed")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("#### ✅ System Verification")
+
+        # Verify 50k data
+        if len(recommender.vector_store.sample_indices) == 50000:
+            st.success("✓ Confirmed: 50,000 jobs indexed and ready for search")
+        else:
+            st.warning(
+                f"⚠️ Warning: Expected 50,000 indexed jobs, found {len(recommender.vector_store.sample_indices):,}"
+            )
+
+        # Verify TF-IDF only
+        if hasattr(recommender.vector_store, "minilm_model") or hasattr(
+            recommender.vector_store, "faiss_index"
+        ):
+            st.error("❌ Warning: MiniLM or FAISS components still present")
+        else:
+            st.success("✓ Confirmed: Only TF-IDF in use (MiniLM/FAISS removed)")
+
+        # Log file info
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("#### 📝 Debug Logs")
+        log_file = Path("logs/app_debug.log")
+        if log_file.exists():
+            st.markdown(f"- **Log File:** `{log_file}`")
+            st.markdown(f"- **Log Size:** {log_file.stat().st_size / 1024:.1f} KB")
+            st.info(
+                "💡 Check terminal output or logs/app_debug.log for detailed search logs"
+            )
+        else:
+            st.warning("Log file not created yet. Run a search to generate logs.")
 
 
 def show_results_page():
