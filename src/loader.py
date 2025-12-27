@@ -37,12 +37,6 @@ def _require_file(path: Path) -> Path:
     return path
 
 
-def _require_file(path: Path) -> Path:
-    if not path.exists():
-        raise FileNotFoundError(f"Không tìm thấy file dữ liệu: {path}")
-    return path
-
-
 # ============================================================================
 # HELPER FUNCTIONS - Location & Salary Parsing
 # ============================================================================
@@ -321,6 +315,31 @@ def save_normalized_data(jobs, job_skills, skills, job_industries, industries):
         filepath = PROCESSED_DIR / filename
         df.to_parquet(filepath, index=False)
         print(f"  ✓ Saved {filename} ({len(df):,} rows)")
+
+
+def load_normalized_tables(verbose: bool = False) -> Dict[str, pd.DataFrame]:
+    """
+    Load all 5 normalized tables from data/processed/
+
+    Returns:
+        Dict with keys: 'jobs', 'job_skills', 'skills', 'job_industries', 'industries'
+    """
+    if verbose:
+        print("Loading normalized tables from Parquet...")
+
+    tables = {
+        "jobs": pd.read_parquet(_require_file(JOBS_PARQUET)),
+        "job_skills": pd.read_parquet(_require_file(JOB_SKILLS_PARQUET)),
+        "skills": pd.read_parquet(_require_file(SKILLS_PARQUET)),
+        "job_industries": pd.read_parquet(_require_file(JOB_INDUSTRIES_PARQUET)),
+        "industries": pd.read_parquet(_require_file(INDUSTRIES_PARQUET)),
+    }
+
+    if verbose:
+        for name, df in tables.items():
+            print(f"  ✓ {name}: {len(df):,} rows")
+
+    return tables
 
 
 # ============================================================================
