@@ -1,156 +1,196 @@
 {
-  "queries": [
-    {
-      "id": 1,
-      "category": "job_titles",
-      "query": "Software Engineer",
-      "filters": null,
-      "description": "Common tech job title"
-    },
-    {
-      "id": 2,
-      "category": "job_titles",
-      "query": "Data Scientist",
-      "filters": null,
-      "description": "Popular analytics role"
-    },
-    {
-      "id": 3,
-      "category": "job_titles",
-      "query": "Product Manager",
-      "filters": null,
-      "description": "Business role"
-    },
-    {
-      "id": 4,
-      "category": "job_titles",
-      "query": "Marketing Manager",
-      "filters": null,
-      "description": "Marketing leadership"
-    },
-    {
-      "id": 5,
-      "category": "job_titles",
-      "query": "Sales Representative",
-      "filters": null,
-      "description": "Sales role"
-    },
-    {
-      "id": 6,
-      "category": "skills_based",
-      "query": "machine learning python",
-      "filters": {"skills": ["IT"]},
-      "description": "Tech skills combination"
-    },
-    {
-      "id": 7,
-      "category": "skills_based",
-      "query": "financial analyst excel",
-      "filters": {"skills": ["FIN"]},
-      "description": "Finance skills"
-    },
-    {
-      "id": 8,
-      "category": "skills_based",
-      "query": "marketing analytics",
-      "filters": {"skills": ["MRKT", "ANLS"]},
-      "description": "Marketing + Analytics"
-    },
-    {
-      "id": 9,
-      "category": "skills_based",
-      "query": "business development sales",
-      "filters": {"skills": ["BD", "SALE"]},
-      "description": "Business dev + Sales"
-    },
-    {
-      "id": 10,
-      "category": "skills_based",
-      "query": "project management",
-      "filters": {"skills": ["PRJM"]},
-      "description": "Project management"
-    },
-    {
-      "id": 11,
-      "category": "combined",
-      "query": "software engineer",
-      "filters": {"city": "San Francisco", "remote_allowed": true},
-      "description": "Location + remote filter"
-    },
-    {
-      "id": 12,
-      "category": "combined",
-      "query": "data analyst",
-      "filters": {"state": "CA", "work_type": "Full-time"},
-      "description": "State + work type"
-    },
-    {
-      "id": 13,
-      "category": "combined",
-      "query": "marketing manager",
-      "filters": {"skills": ["MRKT"], "salary_min": 80000},
-      "description": "Skills + salary filter"
-    },
-    {
-      "id": 14,
-      "category": "combined",
-      "query": "product manager",
-      "filters": {"city": "New York", "work_type": "Full-time", "salary_min": 100000},
-      "description": "Multiple filters"
-    },
-    {
-      "id": 15,
-      "category": "combined",
-      "query": "account manager",
-      "filters": {"remote_allowed": true, "work_type": "Full-time"},
-      "description": "Remote + full-time"
-    },
-    {
-      "id": 16,
-      "category": "edge_cases",
-      "query": "",
-      "filters": null,
-      "description": "Empty query (should return random)"
-    },
-    {
-      "id": 17,
-      "category": "edge_cases",
-      "query": "xyz123notarealjobtitle",
-      "filters": null,
-      "description": "Nonsense query"
-    },
-    {
-      "id": 18,
-      "category": "edge_cases",
-      "query": "engineer",
-      "filters": null,
-      "description": "Single generic word"
-    },
-    {
-      "id": 19,
-      "category": "edge_cases",
-      "query": "remote work from home",
-      "filters": null,
-      "description": "Remote synonyms"
-    },
-    {
-      "id": 20,
-      "category": "edge_cases",
-      "query": "entry level junior",
-      "filters": null,
-      "description": "Experience level keywords"
+    "queries": [
+        {
+            "id": 1,
+            "category": "job_titles",
+            "query": "Software Engineer",
+            "filters": null,
+            "description": "Common tech job title"
+        },
+        {
+            "id": 2,
+            "category": "job_titles",
+            "query": "Data Scientist",
+            "filters": null,
+            "description": "Popular analytics role"
+        },
+        {
+            "id": 3,
+            "category": "job_titles",
+            "query": "Product Manager",
+            "filters": null,
+            "description": "Business role"
+        },
+        {
+            "id": 4,
+            "category": "job_titles",
+            "query": "Marketing Manager",
+            "filters": null,
+            "description": "Marketing leadership"
+        },
+        {
+            "id": 5,
+            "category": "job_titles",
+            "query": "Sales Representative",
+            "filters": null,
+            "description": "Sales role"
+        },
+        {
+            "id": 6,
+            "category": "skills_based",
+            "query": "machine learning python",
+            "filters": {
+                "skills": [
+                    "IT"
+                ]
+            },
+            "description": "Tech skills combination"
+        },
+        {
+            "id": 7,
+            "category": "skills_based",
+            "query": "financial analyst excel",
+            "filters": {
+                "skills": [
+                    "FIN"
+                ]
+            },
+            "description": "Finance skills"
+        },
+        {
+            "id": 8,
+            "category": "skills_based",
+            "query": "marketing analytics",
+            "filters": {
+                "skills": [
+                    "MRKT",
+                    "ANLS"
+                ]
+            },
+            "description": "Marketing + Analytics"
+        },
+        {
+            "id": 9,
+            "category": "skills_based",
+            "query": "business development sales",
+            "filters": {
+                "skills": [
+                    "BD",
+                    "SALE"
+                ]
+            },
+            "description": "Business dev + Sales"
+        },
+        {
+            "id": 10,
+            "category": "skills_based",
+            "query": "project management",
+            "filters": {
+                "skills": [
+                    "PRJM"
+                ]
+            },
+            "description": "Project management"
+        },
+        {
+            "id": 11,
+            "category": "combined",
+            "query": "software engineer",
+            "filters": {
+                "city": "San Francisco",
+                "remote_allowed": true
+            },
+            "description": "Location + remote filter"
+        },
+        {
+            "id": 12,
+            "category": "combined",
+            "query": "data analyst",
+            "filters": {
+                "state": "CA",
+                "work_type": "Full-time"
+            },
+            "description": "State + work type"
+        },
+        {
+            "id": 13,
+            "category": "combined",
+            "query": "marketing manager",
+            "filters": {
+                "skills": [
+                    "MRKT"
+                ],
+                "salary_min": 80000
+            },
+            "description": "Skills + salary filter"
+        },
+        {
+            "id": 14,
+            "category": "combined",
+            "query": "product manager",
+            "filters": {
+                "city": "New York",
+                "work_type": "Full-time",
+                "salary_min": 100000
+            },
+            "description": "Multiple filters"
+        },
+        {
+            "id": 15,
+            "category": "combined",
+            "query": "account manager",
+            "filters": {
+                "remote_allowed": true,
+                "work_type": "Full-time"
+            },
+            "description": "Remote + full-time"
+        },
+        {
+            "id": 16,
+            "category": "edge_cases",
+            "query": "",
+            "filters": null,
+            "description": "Empty query (should return random)"
+        },
+        {
+            "id": 17,
+            "category": "edge_cases",
+            "query": "xyz123notarealjobtitle",
+            "filters": null,
+            "description": "Nonsense query"
+        },
+        {
+            "id": 18,
+            "category": "edge_cases",
+            "query": "engineer",
+            "filters": null,
+            "description": "Single generic word"
+        },
+        {
+            "id": 19,
+            "category": "edge_cases",
+            "query": "remote work from home",
+            "filters": null,
+            "description": "Remote synonyms"
+        },
+        {
+            "id": 20,
+            "category": "edge_cases",
+            "query": "entry level junior",
+            "filters": null,
+            "description": "Experience level keywords"
+        }
+    ],
+    "metadata": {
+        "created_date": "2024-12-27",
+        "purpose": "Evaluation of BM25 job search engine",
+        "total_queries": 20,
+        "categories": {
+            "job_titles": 5,
+            "skills_based": 5,
+            "combined": 5,
+            "edge_cases": 5
+        },
+        "notes": "Each query will be evaluated with top-10 results. Total: 200 results to label."
     }
-  ],
-  "metadata": {
-    "created_date": "2024-12-27",
-    "purpose": "Evaluation of BM25 job search engine",
-    "total_queries": 20,
-    "categories": {
-      "job_titles": 5,
-      "skills_based": 5,
-      "combined": 5,
-      "edge_cases": 5
-    },
-    "notes": "Each query will be evaluated with top-10 results. Total: 200 results to label."
-  }
 }
