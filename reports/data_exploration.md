@@ -1,6 +1,6 @@
 # Data Exploration Report: LinkedIn Job Postings
 
-**Analysis Date**: 2025-11-24
+**Analysis Date**: 2025-12-28
 
 **Dataset Size**: 123,842 job postings
 
@@ -37,7 +37,17 @@ Remote preference should be a strong filter option.
 
 ## 3. Salary Analysis
 
-![Salary Analysis](../images/eda_salary_analysis.png)
+### Salary Distribution
+
+![Salary Distribution](../images/eda_salary_distribution.png)
+
+### Salary by Work Type
+
+![Salary by Work Type](../images/eda_salary_by_work_type.png)
+
+### Salary by Industry
+
+![Salary by Industry](../images/eda_salary_by_industry.png)
 
 - **Median Salary**: $47,840
 
@@ -118,47 +128,47 @@ Consider diversity to avoid over-recommending from same employer.
 ## Recommendations for Model Design
 
 ### Primary Features (Core Similarity)
-
 1. **Skills** - High coverage (98.6%), strong discriminative power, 35 categories
 2. **Job Description** - 100% coverage, rich semantic content (~3,400 chars median)
 3. **Industry** - Good coverage (98.8%), domain clustering
 
 ### Secondary Features (Filters/Weights)
-
 4. **Work Type** - User preference filter (Full-time vs Contract)
 5. **Remote Allowed** - Critical filter for modern job seekers (12.3% remote)
 6. **Location** - Optional geographic constraint (89.2% have city data)
 7. **Salary Range** - Filter only (low coverage at 5.1%)
 
 ### Model Strategy
-
 - **Content-Based**: TF-IDF or BERT embeddings on `clean_text`
 - **Hybrid Approach**: Combine text similarity + skill overlap + industry matching
 - **Diversity**: Penalize recommendations from same company/industry
 
 ### Evaluation Metrics
-
 - Precision@K (K=5, 10, 20)
 - Skill overlap percentage
 - Industry diversity in top-K
 
 ### Data Quality Summary
-
 - **Strengths**: 100% description coverage, 98.6% skills, 98.8% industries
 - **Limitations**: Only 5.1% salary data, 10.8% missing location
 - **Recommendation**: Focus on text+skills, use location/salary as optional filters
 
 ---
 
-**Report Generated**: 2025-11-24 15:03:10.946058
 
-**Visualizations**: 7 PNG files saved to images/ directory
+**Report Generated**: 2025-12-28 12:29:36.038031
+
+**Visualizations**: 10 PNG files saved to images/ directory
 
 - eda_skills_analysis.png - WordCloud + Top 20 skills
 
 - eda_industry_worktype.png - Industries + Work type distribution
 
-- eda_salary_analysis.png - Salary analysis (4-panel)
+- eda_salary_distribution.png - Salary distribution histogram
+
+- eda_salary_by_work_type.png - Salary by work type boxplot
+
+- eda_salary_by_industry.png - Median salary by top industries
 
 - eda_location_remote.png - Top cities + Remote distribution
 

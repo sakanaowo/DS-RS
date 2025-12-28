@@ -336,5 +336,21 @@
     "filters": {},
     "num_results": 20,
     "search_time_ms": 78.63044738769531
+  },
+  {
+    "timestamp": "2025-12-28T13:35:00.035771",
+    "query": "Python backend developer with Django",
+    "method": "tfidf",
+    "filters": {},
+    "num_results": 20,
+    "search_time_ms": 84.26523208618164
+  },
+  {
+    "timestamp": "2025-12-28T13:36:05.697280",
+    "query": "django",
+    "method": "tfidf",
+    "filters": {},
+    "num_results": 20,
+    "search_time_ms": 75.70934295654297
   }
 ]
