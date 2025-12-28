@@ -315,7 +315,6 @@ def load_recommender() -> JobRecommender:
         "🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"
     ):
         recommender = JobRecommender(auto_load=True)
-    st.success("✅ Loaded 50,000 indexed jobs successfully!")
     return recommender
 
 
@@ -620,7 +619,7 @@ def show_home_page(recommender: JobRecommender):
     )
 
     # Search box
-    st.markdown('<div class="search-container">', unsafe_allow_html=True)
+    # st.markdown('<div class="search-container">', unsafe_allow_html=True)
 
     st.markdown("### 🔍 What job are you looking for?")
 
@@ -957,179 +956,223 @@ def show_results_page():
 
     with col_list:
         st.markdown(f"### {len(results)} jobs")
-        
+
         # Container with larger height for scrolling
         list_container = st.container(height=750, border=False)
-        
+
         with list_container:
             # Job cards list - styled like Indeed with adaptive fields
             for idx, (_, job) in enumerate(results.iterrows()):
                 # Card styling based on selection
-                is_selected = (idx == st.session_state.selected_job_idx)
-                
+                is_selected = idx == st.session_state.selected_job_idx
+
                 # Clean and validate fields
                 def clean_field(value):
                     """Clean field value, return None if invalid"""
                     if pd.isna(value) or value is None:
                         return None
                     str_value = str(value).strip()
-                    if str_value.lower() in ['nan', 'none', 'n/a', '']:
+                    if str_value.lower() in ["nan", "none", "n/a", ""]:
                         return None
                     return str_value
-                
+
                 # Extract and clean fields
-                title = clean_field(job.get('title')) or "Untitled Position"
-                company = clean_field(job.get('company_name_x')) or "Company"
-                location = clean_field(job.get('location')) or "Location not specified"
-                
+                title = clean_field(job.get("title")) or "Untitled Position"
+                company = clean_field(job.get("company_name_x")) or "Company"
+                location = clean_field(job.get("location")) or "Location not specified"
+
                 # Build salary info
                 salary_info = None
-                if pd.notna(job.get('salary_median')):
+                if pd.notna(job.get("salary_median")):
                     try:
                         salary_info = f"${float(job['salary_median']):,.0f}"
                     except:
                         pass
-                elif pd.notna(job.get('min_salary')) and pd.notna(job.get('max_salary')):
+                elif pd.notna(job.get("min_salary")) and pd.notna(
+                    job.get("max_salary")
+                ):
                     try:
                         salary_info = f"${float(job['min_salary']):,.0f} - ${float(job['max_salary']):,.0f}"
                     except:
                         pass
-                
+
                 # Build metadata
-                work_type = clean_field(job.get('work_type')) or clean_field(job.get('formatted_work_type'))
-                experience = clean_field(job.get('formatted_experience_level'))
-                
+                work_type = clean_field(job.get("work_type")) or clean_field(
+                    job.get("formatted_work_type")
+                )
+                experience = clean_field(job.get("formatted_experience_level"))
+
                 # Metadata line
                 metadata_parts = []
                 if work_type:
                     metadata_parts.append(work_type)
                 if experience:
                     metadata_parts.append(experience)
-                
+
                 # Card container with columns: content + button
                 card_col, btn_col = st.columns([6, 1])
-                
+
                 with card_col:
                     # Card styling classes
-                    card_class = "job-card-compact job-card-selected" if is_selected else "job-card-compact"
-                    
+                    card_class = (
+                        "job-card-compact job-card-selected"
+                        if is_selected
+                        else "job-card-compact"
+                    )
+
                     # Build HTML for card content
                     html_parts = []
-                    html_parts.append(f'<div class="{card_class}" style="margin-bottom: 0;">')
-                    
+                    html_parts.append(
+                        f'<div class="{card_class}" style="margin-bottom: 0;">'
+                    )
+
                     # Title
-                    html_parts.append(f'<div style="font-size: 1.05rem; font-weight: 600; color: #2557a7; margin-bottom: 0.4rem; line-height: 1.3;">{title}</div>')
-                    
+                    html_parts.append(
+                        f'<div style="font-size: 1.05rem; font-weight: 600; color: #2557a7; margin-bottom: 0.4rem; line-height: 1.3;">{title}</div>'
+                    )
+
                     # Company
-                    html_parts.append(f'<div style="font-size: 0.9rem; color: #2d2d2d; margin-bottom: 0.3rem;">{company}</div>')
-                    
+                    html_parts.append(
+                        f'<div style="font-size: 0.9rem; color: #2d2d2d; margin-bottom: 0.3rem;">{company}</div>'
+                    )
+
                     # Location
-                    html_parts.append(f'<div style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">📍 {location}</div>')
-                    
+                    html_parts.append(
+                        f'<div style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">📍 {location}</div>'
+                    )
+
                     # Salary (optional)
                     if salary_info:
-                        html_parts.append(f'<div style="font-size: 0.85rem; color: #2d7738; font-weight: 600; margin-bottom: 0.3rem;">💰 {salary_info}</div>')
-                    
+                        html_parts.append(
+                            f'<div style="font-size: 0.85rem; color: #2d7738; font-weight: 600; margin-bottom: 0.3rem;">💰 {salary_info}</div>'
+                        )
+
                     # Metadata (optional)
                     if metadata_parts:
                         metadata_text = " • ".join(metadata_parts)
-                        html_parts.append(f'<div style="font-size: 0.8rem; color: #888;">{metadata_text}</div>')
-                    
+                        html_parts.append(
+                            f'<div style="font-size: 0.8rem; color: #888;">{metadata_text}</div>'
+                        )
+
                     # Selection indicator
                     if is_selected:
-                        html_parts.append('<div style="margin-top: 0.5rem; font-size: 0.75rem; color: #2557a7; font-weight: 600;">👁️ Viewing</div>')
-                    
-                    html_parts.append('</div>')
-                    
+                        html_parts.append(
+                            '<div style="margin-top: 0.5rem; font-size: 0.75rem; color: #2557a7; font-weight: 600;">👁️ Viewing</div>'
+                        )
+
+                    html_parts.append("</div>")
+
                     # Render card content
                     st.markdown("".join(html_parts), unsafe_allow_html=True)
-                
+
                 with btn_col:
                     # Elegant button aligned to center
-                    st.markdown('<div style="display: flex; align-items: center; height: 100%; padding-top: 1.5rem;">', unsafe_allow_html=True)
+                    st.markdown(
+                        '<div style="display: flex; align-items: center; height: 100%; padding-top: 1.5rem;">',
+                        unsafe_allow_html=True,
+                    )
                     if st.button(
                         "→",
                         key=f"job_{idx}",
                         help=f"View {title}",
                         disabled=is_selected,
-                        use_container_width=True
+                        use_container_width=True,
                     ):
                         st.session_state.selected_job_idx = idx
                         st.rerun()
-                    st.markdown('</div>', unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
 
     with col_detail:
         # Container with larger height for scrolling
         detail_container = st.container(height=750, border=False)
-        
+
         with detail_container:
             # Display selected job detail
             selected_job = results.iloc[st.session_state.selected_job_idx]
-            
+
             # Job title and company
             st.markdown(f"## {selected_job.get('title', 'N/A')}")
-            
+
             # Company with rating
-            company_name = selected_job.get('company_name_x', 'N/A')
+            company_name = selected_job.get("company_name_x", "N/A")
             st.markdown(f"### {company_name} ⭐ 4.1")
-            
+
             # Location
             st.markdown(f"📍 {selected_job.get('location', 'N/A')}")
-            
+
             st.markdown("<br>", unsafe_allow_html=True)
-            
+
             # Action buttons
             col_btn1, col_btn2, col_btn3, col_btn4 = st.columns(4)
             with col_btn1:
-                st.button("💼 Apply", type="primary", use_container_width=True, key="apply_btn")
+                st.button(
+                    "💼 Apply",
+                    type="primary",
+                    use_container_width=True,
+                    key="apply_btn",
+                )
             with col_btn2:
                 st.button("💾 Save", use_container_width=True, key="save_btn")
             with col_btn3:
-                st.button("🚫 Not interested", use_container_width=True, key="not_interested_btn")
+                st.button(
+                    "🚫 Not interested",
+                    use_container_width=True,
+                    key="not_interested_btn",
+                )
             with col_btn4:
                 st.button("🔗 Share", use_container_width=True, key="share_btn")
-            
+
             st.markdown("<br>", unsafe_allow_html=True)
-            
+
             # Job details
             st.markdown("### Full job description")
-            
+
             # Work type and experience
             col_info1, col_info2 = st.columns(2)
             with col_info1:
-                work_type = selected_job.get('work_type', selected_job.get('formatted_work_type', 'N/A'))
+                work_type = selected_job.get(
+                    "work_type", selected_job.get("formatted_work_type", "N/A")
+                )
                 st.markdown(f"**Work Type:** {work_type}")
             with col_info2:
-                experience = selected_job.get('formatted_experience_level', 'N/A')
+                experience = selected_job.get("formatted_experience_level", "N/A")
                 st.markdown(f"**Experience:** {experience}")
-            
+
             # Salary
-            if pd.notna(selected_job.get('salary_median')):
+            if pd.notna(selected_job.get("salary_median")):
                 st.markdown(f"**💰 Salary:** ${selected_job['salary_median']:,.0f}")
-            
+
             # Remote
-            if pd.notna(selected_job.get('remote_allowed')):
-                remote = "✅ Remote allowed" if selected_job['remote_allowed'] else "🏢 On-site"
+            if pd.notna(selected_job.get("remote_allowed")):
+                remote = (
+                    "✅ Remote allowed"
+                    if selected_job["remote_allowed"]
+                    else "🏢 On-site"
+                )
                 st.markdown(f"**{remote}**")
-            
+
             st.markdown("---")
-            
+
             # Description
-            if pd.notna(selected_job.get('description')):
+            if pd.notna(selected_job.get("description")):
                 st.markdown("#### Description")
-                st.write(selected_job['description'][:1000] + "..." if len(str(selected_job['description'])) > 1000 else selected_job['description'])
-            
+                st.write(
+                    selected_job["description"][:1000] + "..."
+                    if len(str(selected_job["description"])) > 1000
+                    else selected_job["description"]
+                )
+
             # Skills
-            if pd.notna(selected_job.get('skills')):
+            if pd.notna(selected_job.get("skills")):
                 st.markdown("#### Required Skills")
-                skills = str(selected_job['skills']).split(',')[:10]
+                skills = str(selected_job["skills"]).split(",")[:10]
                 for skill in skills:
                     st.markdown(f"• {skill.strip()}")
-            
+
             # Industries
-            if pd.notna(selected_job.get('industries')):
+            if pd.notna(selected_job.get("industries")):
                 st.markdown("#### Industries")
-                industries = str(selected_job['industries']).split(',')[:5]
+                industries = str(selected_job["industries"]).split(",")[:5]
                 for industry in industries:
                     st.markdown(f"• {industry.strip()}")
 

@@ -328,5 +328,13 @@
     },
     "num_results": 3,
     "search_time_ms": 89.52069282531738
+  },
+  {
+    "timestamp": "2025-12-27T22:21:24.359811",
+    "query": "asdasd ",
+    "method": "tfidf",
+    "filters": {},
+    "num_results": 20,
+    "search_time_ms": 78.63044738769531
   }
 ]

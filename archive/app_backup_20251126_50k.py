@@ -240,9 +240,10 @@ st.markdown(
 @st.cache_resource
 def load_recommender() -> JobRecommender:
     """Load and cache the recommender system (50k indexed jobs, ~207 MB)."""
-    with st.spinner("🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"):
+    with st.spinner(
+        "🔧 Loading recommendation system... (50k jobs, this may take 5-10 seconds)"
+    ):
         recommender = JobRecommender(auto_load=True)
-    st.success("✅ Loaded 50,000 indexed jobs successfully!")
     return recommender
 
 
@@ -775,7 +776,11 @@ def show_home_page(recommender: JobRecommender):
 
     with col_stat4:
         # Show indexed count instead of accuracy
-        indexed_count = len(recommender.vector_store.sample_indices) if recommender.vector_store.sample_indices else 50000
+        indexed_count = (
+            len(recommender.vector_store.sample_indices)
+            if recommender.vector_store.sample_indices
+            else 50000
+        )
         st.markdown(
             f"""
             <div class="stat-box">
